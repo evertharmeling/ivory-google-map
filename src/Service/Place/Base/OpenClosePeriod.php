@@ -11,65 +11,45 @@
 
 namespace Ivory\GoogleMap\Service\Place\Base;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class OpenClosePeriod
 {
-    /**
-     * @var int|null
-     */
-    private $day;
+    #[SerializedName('day')]
+    private ?int $day = null;
 
-    /**
-     * @var string|null
-     */
-    private $time;
+    #[SerializedName('time')]
+    private ?string $time = null;
 
-    /**
-     * @return bool
-     */
-    public function hasDay()
+    public function hasDay(): bool
     {
         return null !== $this->day;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getDay()
+    public function getDay(): ?int
     {
         return $this->day;
     }
 
-    /**
-     * @param int|null $day
-     */
-    public function setDay($day)
+    public function setDay(?int $day): void
     {
         $this->day = $day;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasTime()
+    public function hasTime(): bool
     {
         return null !== $this->time;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getTime()
+    public function getTime(): ?string
     {
         return $this->time;
     }
 
-    /**
-     * @param string $time
-     */
-    public function setTime($time)
+    public function setTime(string $time): void
     {
         $this->time = $time;
     }

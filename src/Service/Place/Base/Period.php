@@ -11,59 +11,45 @@
 
 namespace Ivory\GoogleMap\Service\Place\Base;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class Period
 {
-    /**
-     * @var OpenClosePeriod|null
-     */
-    private $open;
+    #[SerializedName('open')]
+    private ?OpenClosePeriod $open = null;
 
-    /**
-     * @var OpenClosePeriod|null
-     */
-    private $close;
+    #[SerializedName('close')]
+    private ?OpenClosePeriod $close = null;
 
-    /**
-     * @return bool
-     */
-    public function hasOpen()
+    public function hasOpen(): bool
     {
         return null !== $this->open;
     }
 
-    /**
-     * @return OpenClosePeriod|null
-     */
-    public function getOpen()
+    public function getOpen(): ?OpenClosePeriod
     {
         return $this->open;
     }
 
-    public function setOpen(OpenClosePeriod $open = null)
+    public function setOpen(OpenClosePeriod $open = null): void
     {
         $this->open = $open;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasClose()
+    public function hasClose(): bool
     {
         return null !== $this->close;
     }
 
-    /**
-     * @return OpenClosePeriod|null
-     */
-    public function getClose()
+    public function getClose(): ?OpenClosePeriod
     {
         return $this->close;
     }
 
-    public function setClose(OpenClosePeriod $close = null)
+    public function setClose(OpenClosePeriod $close = null): void
     {
         $this->close = $close;
     }

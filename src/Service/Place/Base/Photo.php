@@ -11,162 +11,110 @@
 
 namespace Ivory\GoogleMap\Service\Place\Base;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class Photo
 {
-    /**
-     * @var string|null
-     */
-    private $reference;
+    #[SerializedName('photo_reference')]
+    private ?string $reference = null;
 
-    /**
-     * @var int|null
-     */
-    private $width;
+    #[SerializedName('width')]
+    private ?int $width = null;
 
-    /**
-     * @var int|null
-     */
-    private $height;
+    #[SerializedName('height')]
+    private ?int $height = null;
 
-    /**
-     * @var string[]
-     */
-    private $htmlAttributions = [];
+    /**@var string[] */
+    #[SerializedName('html_attributions')]
+    private array $htmlAttributions = [];
 
-    /**
-     * @return bool
-     */
-    public function hasReference()
+    public function hasReference(): bool
     {
         return null !== $this->reference;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getReference()
+    public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     */
-    public function setReference($reference)
+    public function setReference(?string $reference): void
     {
         $this->reference = $reference;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasWidth()
+    public function hasWidth(): bool
     {
         return null !== $this->width;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getWidth()
+    public function getWidth(): ?int
     {
         return $this->width;
     }
 
-    /**
-     * @param int|null $width
-     */
-    public function setWidth($width)
+    public function setWidth(?int $width): void
     {
         $this->width = $width;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasHeight()
+    public function hasHeight(): bool
     {
         return null !== $this->height;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getHeight()
+    public function getHeight(): ?int
     {
         return $this->height;
     }
 
-    /**
-     * @param int|null $height
-     */
-    public function setHeight($height)
+    public function setHeight(?int $height): void
     {
         $this->height = $height;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasHtmlAttributions()
+    public function hasHtmlAttributions(): bool
     {
         return !empty($this->htmlAttributions);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getHtmlAttributions()
+    /** @return string[] */
+    public function getHtmlAttributions(): array
     {
         return $this->htmlAttributions;
     }
 
-    /**
-     * @param string[] $htmlAttributions
-     */
-    public function setHtmlAttributions(array $htmlAttributions)
+    /** @param string[] $htmlAttributions */
+    public function setHtmlAttributions(array $htmlAttributions): void
     {
         $this->htmlAttributions = [];
         $this->addHtmlAttributions($htmlAttributions);
     }
 
-    /**
-     * @param string[] $htmlAttributions
-     */
-    public function addHtmlAttributions(array $htmlAttributions)
+    /** @param string[] $htmlAttributions */
+    public function addHtmlAttributions(array $htmlAttributions): void
     {
         foreach ($htmlAttributions as $htmlAttribution) {
             $this->addHtmlAttribution($htmlAttribution);
         }
     }
 
-    /**
-     * @param string $htmlAttribution
-     *
-     * @return bool
-     */
-    public function hasHtmlAttribution($htmlAttribution)
+    public function hasHtmlAttribution(string $htmlAttribution): bool
     {
         return in_array($htmlAttribution, $this->htmlAttributions, true);
     }
 
-    /**
-     * @param string $htmlAttribution
-     */
-    public function addHtmlAttribution($htmlAttribution)
+    public function addHtmlAttribution(string $htmlAttribution): void
     {
         if (!$this->hasHtmlAttribution($htmlAttribution)) {
             $this->htmlAttributions[] = $htmlAttribution;
         }
     }
 
-    /**
-     * @param string $htmlAttribution
-     */
-    public function removeHtmlAttribution($htmlAttribution)
+    public function removeHtmlAttribution(string $htmlAttribution): void
     {
         unset($this->htmlAttributions[array_search($htmlAttribution, $this->htmlAttributions, true)]);
         $this->htmlAttributions = empty($this->htmlAttributions) ? [] : array_values($this->htmlAttributions);

@@ -16,9 +16,7 @@ use Http\Message\MessageFactory;
 use Ivory\GoogleMap\Service\AbstractSerializableService;
 use Ivory\GoogleMap\Service\Place\Detail\Request\PlaceDetailRequestInterface;
 use Ivory\GoogleMap\Service\Place\Detail\Response\PlaceDetailResponse;
-use Ivory\Serializer\Context\Context;
-use Ivory\Serializer\Naming\SnakeCaseNamingStrategy;
-use Ivory\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
@@ -38,18 +36,14 @@ class PlaceDetailService extends AbstractSerializableService
         );
     }
 
-    /**
-     * @return PlaceDetailResponse
-     */
-    public function process(PlaceDetailRequestInterface $request)
+    public function process(PlaceDetailRequestInterface $request): PlaceDetailResponse
     {
         $httpRequest = $this->createRequest($request);
         $httpResponse = $this->getClient()->sendRequest($httpRequest);
 
         $response = $this->deserialize(
             $httpResponse,
-            PlaceDetailResponse::class,
-            (new Context())->setNamingStrategy(new SnakeCaseNamingStrategy())
+            PlaceDetailResponse::class
         );
 
         $response->setRequest($request);

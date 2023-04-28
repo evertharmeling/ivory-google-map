@@ -14,6 +14,7 @@ namespace Ivory\GoogleMap\Service\Direction\Response;
 use Ivory\GoogleMap\Base\Bound;
 use Ivory\GoogleMap\Overlay\EncodedPolyline;
 use Ivory\GoogleMap\Service\Base\Fare;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @see http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionRoute
@@ -22,306 +23,214 @@ use Ivory\GoogleMap\Service\Base\Fare;
  */
 class DirectionRoute
 {
-    /**
-     * @var Bound|null
-     */
-    private $bound;
+    #[SerializedName('bounds')]
+    private ?Bound $bound = null;
 
-    /**
-     * @var string|null
-     */
-    private $copyrights;
+    #[SerializedName('copyright')]
+    private ?string $copyrights = null;
 
-    /**
-     * @var DirectionLeg[]
-     */
-    private $legs = [];
+    /** @var DirectionLeg[] */
+    #[SerializedName('legs')]
+    private array $legs = [];
 
-    /**
-     * @var EncodedPolyline|null
-     */
-    private $overviewPolyline;
+    #[SerializedName('overview_polyline')]
+    private ?EncodedPolyline $overviewPolyline = null;
 
-    /**
-     * @var string|null
-     */
-    private $summary;
+    #[SerializedName('summary')]
+    private ?string $summary = null;
 
-    /**
-     * @var Fare|null
-     */
-    private $fare;
+    #[SerializedName('fare')]
+    private ?Fare $fare = null;
 
-    /**
-     * @var string[]
-     */
-    private $warnings = [];
+    /** @var string[] */
+    #[SerializedName('warnings')]
+    private array $warnings = [];
 
-    /**
-     * @var int[]
-     */
-    private $waypointOrders = [];
+    /** @var int[] */
+    #[SerializedName('waypoint_order')]
+    private array $waypointOrders = [];
 
-    /**
-     * @return bool
-     */
-    public function hasBound()
+    public function hasBound(): bool
     {
         return null !== $this->bound;
     }
 
-    /**
-     * @return Bound|null
-     */
-    public function getBound()
+    public function getBound(): ?Bound
     {
         return $this->bound;
     }
 
-    public function setBound(Bound $bound = null)
+    public function setBound(Bound $bound = null): void
     {
         $this->bound = $bound;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasCopyrights()
+    public function hasCopyrights(): bool
     {
         return null !== $this->copyrights;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getCopyrights()
+    public function getCopyrights(): ?string
     {
         return $this->copyrights;
     }
 
-    /**
-     * @param string|null $copyrights
-     */
-    public function setCopyrights($copyrights = null)
+    public function setCopyrights($copyrights = null): void
     {
         $this->copyrights = $copyrights;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasLegs()
+    public function hasLegs(): bool
     {
         return !empty($this->legs);
     }
 
-    /**
-     * @return DirectionLeg[]
-     */
-    public function getLegs()
+    /** @return DirectionLeg[] */
+    public function getLegs(): array
     {
         return $this->legs;
     }
 
-    /**
-     * @param DirectionLeg[] $legs
-     */
-    public function setLegs(array $legs)
+    /** @param DirectionLeg[] $legs */
+    public function setLegs(array $legs): void
     {
         $this->legs = [];
         $this->addLegs($legs);
     }
 
-    /**
-     * @param DirectionLeg[] $legs
-     */
-    public function addLegs(array $legs)
+    /** @param DirectionLeg[] $legs */
+    public function addLegs(array $legs): void
     {
         foreach ($legs as $leg) {
             $this->addLeg($leg);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasLeg(DirectionLeg $leg)
+    public function hasLeg(DirectionLeg $leg): bool
     {
         return in_array($leg, $this->legs, true);
     }
 
-    public function addLeg(DirectionLeg $leg)
+    public function addLeg(DirectionLeg $leg): void
     {
         if (!$this->hasLeg($leg)) {
             $this->legs[] = $leg;
         }
     }
 
-    public function removeLeg(DirectionLeg $leg)
+    public function removeLeg(DirectionLeg $leg): void
     {
         unset($this->legs[array_search($leg, $this->legs, true)]);
         $this->legs = empty($this->legs) ? [] : array_values($this->legs);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasOverviewPolyline()
+    public function hasOverviewPolyline(): bool
     {
         return null !== $this->overviewPolyline;
     }
 
-    /**
-     * @return EncodedPolyline|null
-     */
-    public function getOverviewPolyline()
+    public function getOverviewPolyline(): ?EncodedPolyline
     {
         return $this->overviewPolyline;
     }
 
-    public function setOverviewPolyline(EncodedPolyline $overviewPolyline = null)
+    public function setOverviewPolyline(EncodedPolyline $overviewPolyline = null): void
     {
         $this->overviewPolyline = $overviewPolyline;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasSummary()
+    public function hasSummary(): bool
     {
         return null !== $this->summary;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getSummary()
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
 
-    /**
-     * @param string|null $summary
-     */
-    public function setSummary($summary = null)
+    public function setSummary(string $summary = null): void
     {
         $this->summary = $summary;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasFare()
+    public function hasFare(): bool
     {
         return null !== $this->fare;
     }
 
-    /**
-     * @return Fare|null
-     */
-    public function getFare()
+    public function getFare(): ?Fare
     {
         return $this->fare;
     }
 
-    public function setFare(Fare $fare = null)
+    public function setFare(Fare $fare = null): void
     {
         $this->fare = $fare;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasWarnings()
+    public function hasWarnings(): bool
     {
         return !empty($this->warnings);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getWarnings()
+    public function getWarnings(): array
     {
         return $this->warnings;
     }
 
-    /**
-     * @param string[] $warnings
-     */
-    public function setWarnings(array $warnings)
+    public function setWarnings(array $warnings): void
     {
         $this->warnings = [];
         $this->addWarnings($warnings);
     }
 
-    /**
-     * @param string[] $warnings
-     */
-    public function addWarnings(array $warnings)
+    /** @param string[] $warnings */
+    public function addWarnings(array $warnings): void
     {
         foreach ($warnings as $warning) {
             $this->addWarning($warning);
         }
     }
 
-    /**
-     * @param $warning
-     *
-     * @return bool
-     */
-    public function hasWarning($warning)
+    public function hasWarning(string $warning): bool
     {
         return in_array($warning, $this->warnings, true);
     }
 
-    /**
-     * @param string $warning
-     */
-    public function addWarning($warning)
+    public function addWarning(string $warning): void
     {
         if (!$this->hasWarning($warning)) {
             $this->warnings[] = $warning;
         }
     }
 
-    /**
-     * @param string $warning
-     */
-    public function removeWarning($warning)
+    public function removeWarning(string $warning): void
     {
         unset($this->warnings[array_search($warning, $this->warnings, true)]);
         $this->warnings = empty($this->warnings) ? [] : array_values($this->warnings);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasWaypointOrders()
+    public function hasWaypointOrders(): bool
     {
         return !empty($this->waypointOrders);
     }
 
-    /**
-     * @return int[]
-     */
-    public function getWaypointOrders()
+    /** @return int[] */
+    public function getWaypointOrders(): array
     {
         return $this->waypointOrders;
     }
 
-    /**
-     * @param int[] $waypointOrders
-     */
-    public function setWaypointOrders(array $waypointOrders)
+    /** @param int[] $waypointOrders */
+    public function setWaypointOrders(array $waypointOrders): void
     {
         $this->waypointOrders = [];
         $this->addWaypointOrders($waypointOrders);
     }
 
-    /**
-     * @param int[] $waypointOrders
-     */
-    public function addWaypointOrders(array $waypointOrders)
+    /** @param int[] $waypointOrders */
+    public function addWaypointOrders(array $waypointOrders): void
     {
         $this->waypointOrders = [];
 
@@ -330,20 +239,12 @@ class DirectionRoute
         }
     }
 
-    /**
-     * @param $waypointOrder
-     *
-     * @return bool
-     */
-    public function hasWaypointOrder($waypointOrder)
+    public function hasWaypointOrder($waypointOrder): bool
     {
         return in_array($waypointOrder, $this->waypointOrders, true);
     }
 
-    /**
-     * @param int $waypointOrder
-     */
-    public function addWaypointOrder($waypointOrder)
+    public function addWaypointOrder(int $waypointOrder): void
     {
         $this->waypointOrders[] = $waypointOrder;
     }

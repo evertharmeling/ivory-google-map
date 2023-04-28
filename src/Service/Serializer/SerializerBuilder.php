@@ -3,7 +3,7 @@
 /*
  * This file is part of the Ivory Google Map package.
  *
- * (c) Eric GELOEN <geloen.eric@gmail.com>
+ * (c) Samuel Breu <samuel.breu@bresam.ch>
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code.
@@ -11,34 +11,40 @@
 
 namespace Ivory\GoogleMap\Service\Serializer;
 
-use Ivory\Serializer\Mapping\Factory\CacheClassMetadataFactory;
-use Ivory\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Ivory\Serializer\Mapping\Loader\DirectoryClassMetadataLoader;
-use Ivory\Serializer\Navigator\Navigator;
-use Ivory\Serializer\Registry\TypeRegistry;
-use Ivory\Serializer\Serializer;
-use Ivory\Serializer\Type\ObjectType;
-use Ivory\Serializer\Type\Type;
-use Psr\Cache\CacheItemPoolInterface;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
- * @author GeLo <geloen.eric@gmail.com>
+ * @author Samuel Breu <samuel.breu@bresam.ch>
  */
 class SerializerBuilder
 {
-    /**
-     * @return Serializer
-     */
-    public static function create(CacheItemPoolInterface $pool = null)
+    public static function create(): Serializer
     {
-        $classMetadataFactory = new ClassMetadataFactory(new DirectoryClassMetadataLoader(__DIR__));
+        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+        $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
+        $extractor = new PropertyInfoExtractor([], [
+            new PhpDocExtractor(),
+            new ReflectionExtractor(),
+        ]);
 
-        if (null !== $pool) {
-            $classMetadataFactory = new CacheClassMetadataFactory($classMetadataFactory, $pool);
-        }
+        $encoders = [new JsonEncoder(), new XmlEncoder()];
+        $normalizers = [
+            new GoogleDateTimeNormalizer(),
+            new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $extractor),
+            new ArrayDenormalizer(),
+        ];
 
-        return new Serializer(new Navigator(TypeRegistry::create([
-            Type::OBJECT => new ObjectType($classMetadataFactory),
-        ])));
+        return new Serializer($normalizers, $encoders);
     }
 }

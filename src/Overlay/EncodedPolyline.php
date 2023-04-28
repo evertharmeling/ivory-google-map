@@ -16,6 +16,7 @@ use Ivory\GoogleMap\Utility\OptionsAwareTrait;
 use Ivory\GoogleMap\Utility\StaticOptionsAwareInterface;
 use Ivory\GoogleMap\Utility\StaticOptionsAwareTrait;
 use Ivory\GoogleMap\Utility\VariableAwareTrait;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @see http://code.google.com/apis/maps/documentation/utilities/polylinealgorithm.html
@@ -31,6 +32,7 @@ class EncodedPolyline implements ExtendableInterface, OptionsAwareInterface, Sta
     /**
      * @var string
      */
+    #[SerializedName('points')]
     private $value;
 
     /**

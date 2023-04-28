@@ -13,6 +13,7 @@ namespace Ivory\GoogleMap\Service\Geocoder\Response;
 
 use Ivory\GoogleMap\Service\Base\AddressComponent;
 use Ivory\GoogleMap\Service\Base\Geometry;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @see http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderResult
@@ -21,83 +22,54 @@ use Ivory\GoogleMap\Service\Base\Geometry;
  */
 class GeocoderResult
 {
-    /**
-     * @var string|null
-     */
-    private $placeId;
+    #[SerializedName('place_id')]
+    private ?string $placeId = null;
 
-    /**
-     * @var AddressComponent[]
-     */
-    private $addressComponents = [];
+    /** @var AddressComponent[] */
+    #[SerializedName('address_components')]
+    private array $addressComponents = [];
 
-    /**
-     * @var string|null
-     */
-    private $formattedAddress;
+    #[SerializedName('formatted_address')]
+    private ?string $formattedAddress = null;
 
-    /**
-     * @var string[]
-     */
+    /** @var string[] */
+    #[SerializedName('postcode_localities')]
     private $postcodeLocalities = [];
 
-    /**
-     * @var Geometry|null
-     */
-    private $geometry;
+    #[SerializedName('geometry')]
+    private ?Geometry $geometry = null;
 
-    /**
-     * @var bool|null
-     */
-    private $partialMatch;
+    #[SerializedName('partial_match')]
+    private ?bool $partialMatch = null;
 
-    /**
-     * @var string[]
-     */
-    private $types = [];
+    /** @var string[] */
+    #[SerializedName('types')]
+    private array $types = [];
 
-    /**
-     * @return bool
-     */
-    public function hasPlaceId()
+    public function hasPlaceId(): bool
     {
         return null !== $this->placeId;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPlaceId()
+    public function getPlaceId(): ?string
     {
         return $this->placeId;
     }
 
-    /**
-     * @param string|null $placeId
-     */
-    public function setPlaceId($placeId)
+    public function setPlaceId(?string $placeId): void
     {
         $this->placeId = $placeId;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return bool
-     */
-    public function hasAddressComponents($type = null)
+    public function hasAddressComponents(string $type = null): bool
     {
         $addresses = $this->getAddressComponents($type);
 
         return !empty($addresses);
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return AddressComponent[]
-     */
-    public function getAddressComponents($type = null)
+    /** @return AddressComponent[] */
+    public function getAddressComponents(string $type = null): array
     {
         if (null === $type) {
             return $this->addressComponents;
@@ -114,238 +86,166 @@ class GeocoderResult
         return $addressComponents;
     }
 
-    /**
-     * @param AddressComponent[] $addressComponents
-     */
-    public function setAddressComponents(array $addressComponents)
+    /** @param AddressComponent[] $addressComponents */
+    public function setAddressComponents(array $addressComponents): void
     {
         $this->addressComponents = [];
         $this->addAddressComponents($addressComponents);
     }
 
-    /**
-     * @param AddressComponent[] $addressComponents
-     */
-    public function addAddressComponents(array $addressComponents)
+    /** @param AddressComponent[] $addressComponents */
+    public function addAddressComponents(array $addressComponents): void
     {
         foreach ($addressComponents as $addressComponent) {
             $this->addAddressComponent($addressComponent);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAddressComponent(AddressComponent $addressComponent)
+    public function hasAddressComponent(AddressComponent $addressComponent): bool
     {
         return in_array($addressComponent, $this->addressComponents, true);
     }
 
-    public function addAddressComponent(AddressComponent $addressComponent)
+    public function addAddressComponent(AddressComponent $addressComponent): void
     {
         if (!$this->hasAddressComponent($addressComponent)) {
             $this->addressComponents[] = $addressComponent;
         }
     }
 
-    public function removeAddressComponent(AddressComponent $addressComponent)
+    public function removeAddressComponent(AddressComponent $addressComponent): void
     {
         unset($this->addressComponents[array_search($addressComponent, $this->addressComponents, true)]);
         $this->addressComponents = empty($this->addressComponents) ? [] : array_values($this->addressComponents);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasFormattedAddress()
+    public function hasFormattedAddress(): bool
     {
         return !empty($this->formattedAddress);
     }
 
-    /**
-     * @return string|null
-     */
-    public function getFormattedAddress()
+    public function getFormattedAddress(): ?string
     {
         return $this->formattedAddress;
     }
 
-    /**
-     * @param string|null $formattedAddress
-     */
-    public function setFormattedAddress($formattedAddress = null)
+    public function setFormattedAddress(string $formattedAddress = null): void
     {
         $this->formattedAddress = $formattedAddress;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPostcodeLocalities()
+    public function hasPostcodeLocalities(): bool
     {
         return !empty($this->postcodeLocalities);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getPostcodeLocalities()
+    public function getPostcodeLocalities(): array
     {
         return $this->postcodeLocalities;
     }
 
-    /**
-     * @param string[] $postcodeLocalities
-     */
-    public function setPostcodeLocalities(array $postcodeLocalities)
+    /** @param string[] $postcodeLocalities */
+    public function setPostcodeLocalities(array $postcodeLocalities): void
     {
         $this->postcodeLocalities = [];
         $this->addPostcodeLocalities($postcodeLocalities);
     }
 
-    /**
-     * @param string[] $postcodeLocalities
-     */
-    public function addPostcodeLocalities(array $postcodeLocalities)
+    /** @param string[] $postcodeLocalities */
+    public function addPostcodeLocalities(array $postcodeLocalities): void
     {
         foreach ($postcodeLocalities as $postcodeLocality) {
             $this->addPostcodeLocality($postcodeLocality);
         }
     }
 
-    /**
-     * @param string $postcodeLocality
-     *
-     * @return bool
-     */
-    public function hasPostcodeLocality($postcodeLocality)
+    public function hasPostcodeLocality(string $postcodeLocality): bool
     {
         return in_array($postcodeLocality, $this->postcodeLocalities, true);
     }
 
-    /**
-     * @param string $postcodeLocality
-     */
-    public function addPostcodeLocality($postcodeLocality)
+    public function addPostcodeLocality(string $postcodeLocality): void
     {
         if (!$this->hasPostcodeLocality($postcodeLocality)) {
             $this->postcodeLocalities[] = $postcodeLocality;
         }
     }
 
-    /**
-     * @param string $postcodeLocality
-     */
-    public function removePostcodeLocality($postcodeLocality)
+    public function removePostcodeLocality(string $postcodeLocality): void
     {
         unset($this->postcodeLocalities[array_search($postcodeLocality, $this->postcodeLocalities, true)]);
         $this->postcodeLocalities = empty($this->postcodeLocalities) ? [] : array_values($this->postcodeLocalities);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasGeometry()
+    public function hasGeometry(): bool
     {
         return null !== $this->geometry;
     }
 
-    /**
-     * @return Geometry|null
-     */
-    public function getGeometry()
+    public function getGeometry(): ?Geometry
     {
         return $this->geometry;
     }
 
-    public function setGeometry(Geometry $geometry = null)
+    public function setGeometry(Geometry $geometry = null): void
     {
         $this->geometry = $geometry;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPartialMatch()
+    public function hasPartialMatch(): bool
     {
         return null !== $this->partialMatch;
     }
 
-    /**
-     * @return bool
-     */
-    public function isPartialMatch()
+    public function isPartialMatch(): ?bool
     {
         return $this->partialMatch;
     }
 
-    /**
-     * @param bool|null $partialMatch
-     */
-    public function setPartialMatch($partialMatch = null)
+    public function setPartialMatch(bool $partialMatch = null): void
     {
         $this->partialMatch = $partialMatch;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasTypes()
+    public function hasTypes(): bool
     {
         return !empty($this->types);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getTypes()
+    /** @return string[] */
+    public function getTypes(): array
     {
         return $this->types;
     }
 
-    /**
-     * @param string[] $types
-     */
-    public function setTypes(array $types)
+    /** @param string[] $types */
+    public function setTypes(array $types): void
     {
         $this->types = [];
         $this->addTypes($types);
     }
 
-    /**
-     * @param string[] $types
-     */
-    public function addTypes(array $types)
+    /** @param string[] $types */
+    public function addTypes(array $types): void
     {
         foreach ($types as $type) {
             $this->addType($type);
         }
     }
 
-    /**
-     * @param string $type
-     *
-     * @return bool
-     */
-    public function hasType($type)
+    public function hasType(string $type): bool
     {
         return in_array($type, $this->types, true);
     }
 
-    /**
-     * @param string $type
-     */
-    public function addType($type)
+    public function addType(string $type): void
     {
         if (!$this->hasType($type)) {
             $this->types[] = $type;
         }
     }
 
-    /**
-     * @param string $type
-     */
-    public function removeType($type)
+    public function removeType(string $type): void
     {
         unset($this->types[array_search($type, $this->types, true)]);
         $this->types = empty($this->types) ? [] : array_values($this->types);

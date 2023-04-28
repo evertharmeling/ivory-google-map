@@ -12,123 +12,91 @@
 namespace Ivory\GoogleMap\Service\Geocoder\Response;
 
 use Ivory\GoogleMap\Service\Geocoder\Request\GeocoderRequestInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class GeocoderResponse
 {
-    /**
-     * @var string|null
-     */
-    private $status;
+    private ?GeocoderRequestInterface $request = null;
 
-    /**
-     * @var GeocoderRequestInterface|null
-     */
-    private $request;
+    #[SerializedName('status')]
+    private ?string $status = null;
 
-    /**
-     * @var GeocoderResult[]
-     */
-    private $results = [];
+    /** @var GeocoderResult[] */
+    #[SerializedName('results')]
+    private array $results = [];
 
-    /**
-     * @return bool
-     */
-    public function hasStatus()
+    public function hasStatus(): bool
     {
         return null !== $this->status;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     */
-    public function setStatus($status = null)
+    public function setStatus(string $status = null): void
     {
         $this->status = $status;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRequest()
+    public function hasRequest(): bool
     {
         return null !== $this->request;
     }
 
-    /**
-     * @return GeocoderRequestInterface|null
-     */
-    public function getRequest()
+    public function getRequest(): ?GeocoderRequestInterface
     {
         return $this->request;
     }
 
-    public function setRequest(GeocoderRequestInterface $request = null)
+    public function setRequest(GeocoderRequestInterface $request = null): void
     {
         $this->request = $request;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasResults()
+    public function hasResults(): bool
     {
         return !empty($this->results);
     }
 
-    /**
-     * @return GeocoderResult[]
-     */
-    public function getResults()
+    /** @return GeocoderResult[] */
+    public function getResults(): array
     {
         return $this->results;
     }
 
-    /**
-     * @param GeocoderResult[] $results
-     */
-    public function setResults(array $results)
+    /** @param GeocoderResult[] $results */
+    public function setResults(array $results): void
     {
         $this->results = [];
         $this->addResults($results);
     }
 
-    /**
-     * @param GeocoderResult[] $results
-     */
-    public function addResults(array $results)
+    /** @param GeocoderResult[] $results */
+    public function addResults(array $results): void
     {
         foreach ($results as $result) {
             $this->addResult($result);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasResult(GeocoderResult $result)
+    public function hasResult(GeocoderResult $result): bool
     {
         return in_array($result, $this->results, true);
     }
 
-    public function addResult(GeocoderResult $result)
+    public function addResult(GeocoderResult $result): void
     {
         if (!$this->hasResult($result)) {
             $this->results[] = $result;
         }
     }
 
-    public function removeResult(GeocoderResult $result)
+    public function removeResult(GeocoderResult $result): void
     {
         unset($this->results[array_search($result, $this->results, true)]);
         $this->results = empty($this->results) ? [] : array_values($this->results);

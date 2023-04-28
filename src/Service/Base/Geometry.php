@@ -13,31 +13,24 @@ namespace Ivory\GoogleMap\Service\Base;
 
 use Ivory\GoogleMap\Base\Bound;
 use Ivory\GoogleMap\Base\Coordinate;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class Geometry
 {
-    /**
-     * @var Coordinate|null
-     */
-    private $location;
+    #[SerializedName('location')]
+    private ?Coordinate $location = null;
 
-    /**
-     * @var string|null
-     */
-    private $locationType;
+    #[SerializedName('location_type')]
+    private ?string $locationType = null;
 
-    /**
-     * @var Bound|null
-     */
-    private $viewport;
+    #[SerializedName('viewport')]
+    private ?Bound $viewport = null;
 
-    /**
-     * @var Bound|null
-     */
-    private $bound;
+    #[SerializedName('bounds')]
+    private ?Bound $bound = null;
 
     /**
      * @return bool

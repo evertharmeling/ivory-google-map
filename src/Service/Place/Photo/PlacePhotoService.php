@@ -27,10 +27,7 @@ class PlacePhotoService extends AbstractService
         parent::__construct('https://maps.googleapis.com/maps/api/place/photo');
     }
 
-    /**
-     * @return string
-     */
-    public function process(PlacePhotoRequestInterface $request)
+    public function process(PlacePhotoRequestInterface $request): string
     {
         return $this->createUrl($request);
     }

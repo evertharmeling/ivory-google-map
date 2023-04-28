@@ -11,65 +11,45 @@
 
 namespace Ivory\GoogleMap\Service\Place\Autocomplete\Response;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class PlaceAutocompleteTerm
 {
-    /**
-     * @var string|null
-     */
-    private $value;
+    #[SerializedName('value')]
+    private ?string $value = null;
 
-    /**
-     * @var int|null
-     */
-    private $offset;
+    #[SerializedName('offset')]
+    private ?int $offset = null;
 
-    /**
-     * @return bool
-     */
-    public function hasValue()
+    public function hasValue(): bool
     {
         return null !== $this->value;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
 
-    /**
-     * @param string|null $value
-     */
-    public function setValue($value)
+    public function setValue(?string $value): void
     {
         $this->value = $value;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasOffset()
+    public function hasOffset(): bool
     {
         return null !== $this->offset;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getOffset()
+    public function getOffset(): ?int
     {
         return $this->offset;
     }
 
-    /**
-     * @param int|null $offset
-     */
-    public function setOffset($offset)
+    public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }

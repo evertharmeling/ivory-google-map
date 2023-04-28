@@ -11,65 +11,45 @@
 
 namespace Ivory\GoogleMap\Service\Place\Autocomplete\Response;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class PlaceAutocompleteMatch
 {
-    /**
-     * @var int|null
-     */
-    private $length;
+    #[SerializedName('length')]
+    private ?int $length = null;
 
-    /**
-     * @var int|null
-     */
-    private $offset;
+    #[SerializedName('offset')]
+    private ?int $offset = null;
 
-    /**
-     * @return bool
-     */
-    public function hasLength()
+    public function hasLength(): bool
     {
         return null !== $this->length;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getLength()
+    public function getLength(): ?int
     {
         return $this->length;
     }
 
-    /**
-     * @param int|null $length
-     */
-    public function setLength($length)
+    public function setLength(?int $length): void
     {
         $this->length = $length;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasOffset()
+    public function hasOffset(): bool
     {
         return null !== $this->offset;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getOffset()
+    public function getOffset(): ?int
     {
         return $this->offset;
     }
 
-    /**
-     * @param int|null $offset
-     */
-    public function setOffset($offset)
+    public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }

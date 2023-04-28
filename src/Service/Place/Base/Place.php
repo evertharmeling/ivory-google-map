@@ -13,518 +13,337 @@ namespace Ivory\GoogleMap\Service\Place\Base;
 
 use Ivory\GoogleMap\Service\Base\AddressComponent;
 use Ivory\GoogleMap\Service\Base\Geometry;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class Place
 {
-    /**
-     * @var string|null
-     */
-    private $id;
+    #[SerializedName('id')]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     */
-    private $placeId;
+    #[SerializedName('place_id')]
+    private ?string $placeId = null;
 
-    /**
-     * @var string|null
-     */
-    private $name;
+    #[SerializedName('name')]
+    private ?string $name = null;
 
-    /**
-     * @var string|null
-     */
-    private $formattedAddress;
+    #[SerializedName('formatted_address')]
+    private ?string $formattedAddress = null;
 
-    /**
-     * @var string|null
-     */
-    private $formattedPhoneNumber;
+    #[SerializedName('formatted_phone_number')]
+    private ?string $formattedPhoneNumber = null;
 
-    /**
-     * @var string|null
-     */
-    private $internationalPhoneNumber;
+    #[SerializedName('international_phone_number')]
+    private ?string $internationalPhoneNumber = null;
 
-    /**
-     * @var string|null
-     */
-    private $url;
+    #[SerializedName('url')]
+    private ?string $url = null;
 
-    /**
-     * @var string|null
-     */
-    private $icon;
+    #[SerializedName('icon')]
+    private ?string $icon = null;
 
-    /**
-     * @var string|null
-     */
-    private $scope;
+    #[SerializedName('scope')]
+    private ?string $scope = null;
 
-    /**
-     * @var int|null
-     */
-    private $priceLevel;
+    #[SerializedName('price_level')]
+    private ?int $priceLevel = null;
 
-    /**
-     * @var float|null
-     */
-    private $rating;
+    #[SerializedName('rating')]
+    private ?float $rating = null;
 
-    /**
-     * @var int|null
-     */
-    private $utcOffset;
+    #[SerializedName('utc_offset')]
+    private ?int $utcOffset = null;
 
-    /**
-     * @var string|null
-     */
-    private $vicinity;
+    #[SerializedName('vicinity')]
+    private ?string $vicinity = null;
 
-    /**
-     * @var string|null
-     */
-    private $website;
+    #[SerializedName('website')]
+    private ?string $website = null;
 
-    /**
-     * @var Geometry|null
-     */
-    private $geometry;
+    #[SerializedName('geometry')]
+    private ?Geometry $geometry = null;
 
-    /**
-     * @var OpeningHours|null
-     */
-    private $openingHours;
+    #[SerializedName('opening_hours')]
+    private ?OpeningHours $openingHours = null;
 
-    /**
-     * @var AddressComponent[]
-     */
-    private $addressComponents = [];
+    /** @var AddressComponent[] */
+    #[SerializedName('address_components')]
+    private array $addressComponents = [];
 
-    /**
-     * @var Photo[]
-     */
-    private $photos = [];
+    /** @var Photo[] */
+    #[SerializedName('photos')]
+    private array $photos = [];
 
     /**
      * @var AlternatePlaceId[]
+     * @deprecated
      */
-    private $alternatePlaceIds = [];
+    #[SerializedName('alternate_place_ids')]
+    private array $alternatePlaceIds = [];
 
-    /**
-     * @var Review[]
-     */
-    private $reviews = [];
+    /** @var Review[] */
+    #[SerializedName('reviews')]
+    private array $reviews = [];
 
-    /**
-     * @var string[]
-     */
-    private $types = [];
+    /** @var string[] */
+    #[SerializedName('types')]
+    private array $types = [];
 
-    /**
-     * @var bool|null
-     */
-    private $permanentlyClose;
+    /** @deprecated */
+    #[SerializedName('permanently_close')]
+    private ?bool $permanentlyClose = null;
 
-    /**
-     * @return bool
-     */
-    public function hasId()
+    public function hasId(): bool
     {
         return null !== $this->id;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     */
-    public function setId($id)
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPlaceId()
+    public function hasPlaceId(): bool
     {
         return null !== $this->placeId;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPlaceId()
+    public function getPlaceId(): ?string
     {
         return $this->placeId;
     }
 
-    /**
-     * @param string|null $placeId
-     */
-    public function setPlaceId($placeId)
+    public function setPlaceId(?string $placeId): void
     {
         $this->placeId = $placeId;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasName()
+    public function hasName(): bool
     {
         return null !== $this->name;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     */
-    public function setName($name)
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasFormattedAddress()
+    public function hasFormattedAddress(): bool
     {
         return null !== $this->formattedAddress;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getFormattedAddress()
+    public function getFormattedAddress(): ?string
     {
         return $this->formattedAddress;
     }
 
-    /**
-     * @param string|null $formattedAddress
-     */
-    public function setFormattedAddress($formattedAddress)
+    public function setFormattedAddress(?string $formattedAddress): void
     {
         $this->formattedAddress = $formattedAddress;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasFormattedPhoneNumber()
+    public function hasFormattedPhoneNumber(): bool
     {
         return null !== $this->formattedPhoneNumber;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getFormattedPhoneNumber()
+    public function getFormattedPhoneNumber(): ?string
     {
         return $this->formattedPhoneNumber;
     }
 
-    /**
-     * @param string|null $formattedPhoneNumber
-     */
-    public function setFormattedPhoneNumber($formattedPhoneNumber)
+    public function setFormattedPhoneNumber(?string $formattedPhoneNumber): void
     {
         $this->formattedPhoneNumber = $formattedPhoneNumber;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasInternationalPhoneNumber()
+    public function hasInternationalPhoneNumber(): bool
     {
         return null !== $this->internationalPhoneNumber;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getInternationalPhoneNumber()
+    public function getInternationalPhoneNumber(): ?string
     {
         return $this->internationalPhoneNumber;
     }
 
-    /**
-     * @param string|null $internationalPhoneNumber
-     */
-    public function setInternationalPhoneNumber($internationalPhoneNumber)
+    public function setInternationalPhoneNumber(?string $internationalPhoneNumber): void
     {
         $this->internationalPhoneNumber = $internationalPhoneNumber;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasUrl()
+    public function hasUrl(): bool
     {
         return null !== $this->url;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getUrl()
+    public function getUrl(): ?string
     {
         return $this->url;
     }
 
-    /**
-     * @param string|null $url
-     */
-    public function setUrl($url)
+    public function setUrl(?string $url): void
     {
         $this->url = $url;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasIcon()
+    public function hasIcon(): bool
     {
         return null !== $this->icon;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getIcon()
+    public function getIcon(): ?string
     {
         return $this->icon;
     }
 
-    /**
-     * @param string|null $icon
-     */
-    public function setIcon($icon)
+    public function setIcon(?string $icon): void
     {
         $this->icon = $icon;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasScope()
+    public function hasScope(): bool
     {
         return null !== $this->scope;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getScope()
+    public function getScope(): ?string
     {
         return $this->scope;
     }
 
-    /**
-     * @param string|null $scope
-     */
-    public function setScope($scope)
+    public function setScope(?string $scope): void
     {
         $this->scope = $scope;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPriceLevel()
+    public function hasPriceLevel(): bool
     {
         return null !== $this->priceLevel;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getPriceLevel()
+    public function getPriceLevel(): ?int
     {
         return $this->priceLevel;
     }
 
-    /**
-     * @param int|null $priceLevel
-     */
-    public function setPriceLevel($priceLevel)
+    public function setPriceLevel(?int $priceLevel): void
     {
         $this->priceLevel = $priceLevel;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRating()
+    public function hasRating(): bool
     {
         return null !== $this->rating;
     }
 
-    /**
-     * @return float|null
-     */
-    public function getRating()
+    public function getRating(): ?float
     {
         return $this->rating;
     }
 
-    /**
-     * @param float|null $rating
-     */
-    public function setRating($rating)
+    public function setRating(?float $rating): void
     {
         $this->rating = $rating;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasUtcOffset()
+    public function hasUtcOffset(): bool
     {
         return null !== $this->utcOffset;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getUtcOffset()
+    public function getUtcOffset(): ?int
     {
         return $this->utcOffset;
     }
 
-    /**
-     * @param int|null $utcOffset
-     */
-    public function setUtcOffset($utcOffset)
+    public function setUtcOffset(?int $utcOffset): void
     {
         $this->utcOffset = $utcOffset;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasVicinity()
+    public function hasVicinity(): bool
     {
         return null !== $this->vicinity;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getVicinity()
+    public function getVicinity(): ?string
     {
         return $this->vicinity;
     }
 
-    /**
-     * @param string|null $vicinity
-     */
-    public function setVicinity($vicinity)
+    public function setVicinity(?string $vicinity): void
     {
         $this->vicinity = $vicinity;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasWebsite()
+    public function hasWebsite(): bool
     {
         return null !== $this->website;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getWebsite()
+    public function getWebsite(): ?string
     {
         return $this->website;
     }
 
-    /**
-     * @param string|null $website
-     */
-    public function setWebsite($website)
+    public function setWebsite(?string $website): void
     {
         $this->website = $website;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasGeometry()
+    public function hasGeometry(): bool
     {
         return null !== $this->geometry;
     }
 
-    /**
-     * @return Geometry|null
-     */
-    public function getGeometry()
+    public function getGeometry(): ?Geometry
     {
         return $this->geometry;
     }
 
-    public function setGeometry(Geometry $geometry = null)
+    public function setGeometry(Geometry $geometry = null): void
     {
         $this->geometry = $geometry;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasOpeningHours()
+    public function hasOpeningHours(): bool
     {
         return null !== $this->openingHours;
     }
 
-    /**
-     * @return OpeningHours|null
-     */
-    public function getOpeningHours()
+    public function getOpeningHours(): ?OpeningHours
     {
         return $this->openingHours;
     }
 
-    public function setOpeningHours(OpeningHours $openingHours = null)
+    public function setOpeningHours(OpeningHours $openingHours = null): void
     {
         $this->openingHours = $openingHours;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return bool
-     */
-    public function hasAddressComponents($type = null)
+    public function hasAddressComponents(string $type = null): bool
     {
         $addresses = $this->getAddressComponents($type);
 
         return !empty($addresses);
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return AddressComponent[]
-     */
-    public function getAddressComponents($type = null)
+    /** @return AddressComponent[] */
+    public function getAddressComponents(string $type = null): array
     {
         if (null === $type) {
             return $this->addressComponents;
@@ -541,298 +360,230 @@ class Place
         return $addressComponents;
     }
 
-    /**
-     * @param AddressComponent[] $addressComponents
-     */
-    public function setAddressComponents(array $addressComponents)
+    /** @param AddressComponent[] $addressComponents */
+    public function setAddressComponents(array $addressComponents): void
     {
         $this->addressComponents = [];
         $this->addAddressComponents($addressComponents);
     }
 
-    /**
-     * @param AddressComponent[] $addressComponents
-     */
-    public function addAddressComponents(array $addressComponents)
+    /** @param AddressComponent[] $addressComponents */
+    public function addAddressComponents(array $addressComponents): void
     {
         foreach ($addressComponents as $addressComponent) {
             $this->addAddressComponent($addressComponent);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAddressComponent(AddressComponent $addressComponent)
+    public function hasAddressComponent(AddressComponent $addressComponent): bool
     {
         return in_array($addressComponent, $this->addressComponents, true);
     }
 
-    public function addAddressComponent(AddressComponent $addressComponent)
+    public function addAddressComponent(AddressComponent $addressComponent): void
     {
         if (!$this->hasAddressComponent($addressComponent)) {
             $this->addressComponents[] = $addressComponent;
         }
     }
 
-    public function removeAddressComponent(AddressComponent $addressComponent)
+    public function removeAddressComponent(AddressComponent $addressComponent): void
     {
         unset($this->addressComponents[array_search($addressComponent, $this->addressComponents, true)]);
         $this->addressComponents = empty($this->addressComponents) ? [] : array_values($this->addressComponents);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPhotos()
+    public function hasPhotos(): bool
     {
         return !empty($this->photos);
     }
 
-    /**
-     * @return Photo[]
-     */
-    public function getPhotos()
+    /** @return Photo[] */
+    public function getPhotos(): array
     {
         return $this->photos;
     }
 
-    /**
-     * @param Photo[] $photos
-     */
-    public function setPhotos(array $photos)
+    /** @param Photo[] $photos */
+    public function setPhotos(array $photos): void
     {
         $this->photos = [];
         $this->addPhotos($photos);
     }
 
-    /**
-     * @param Photo[] $photos
-     */
-    public function addPhotos(array $photos)
+    /** @param Photo[] $photos */
+    public function addPhotos(array $photos): void
     {
         foreach ($photos as $photo) {
             $this->addPhoto($photo);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPhoto(Photo $photo)
+    public function hasPhoto(Photo $photo): bool
     {
         return in_array($photo, $this->photos, true);
     }
 
-    public function addPhoto(Photo $photo)
+    public function addPhoto(Photo $photo): void
     {
         if (!$this->hasPhoto($photo)) {
             $this->photos[] = $photo;
         }
     }
 
-    public function removePhoto(Photo $photo)
+    public function removePhoto(Photo $photo): void
     {
         unset($this->photos[array_search($photo, $this->photos, true)]);
         $this->photos = empty($this->photos) ? [] : array_values($this->photos);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAlternatePlaceIds()
+    public function hasAlternatePlaceIds(): bool
     {
         return !empty($this->alternatePlaceIds);
     }
 
     /**
      * @return AlternatePlaceId[]
+     * @deprecated
      */
-    public function getAlternatePlaceIds()
+    public function getAlternatePlaceIds(): array
     {
         return $this->alternatePlaceIds;
     }
 
-    /**
-     * @param AlternatePlaceId[] $alternatePlaceIds
-     */
-    public function setAlternatePlaceIds(array $alternatePlaceIds)
+    /** @param AlternatePlaceId[] $alternatePlaceIds */
+    public function setAlternatePlaceIds(array $alternatePlaceIds): void
     {
         $this->alternatePlaceIds = [];
         $this->addAlternatePlaceIds($alternatePlaceIds);
     }
 
-    /**
-     * @param AlternatePlaceId[] $alternatePlaceIds
-     */
-    public function addAlternatePlaceIds(array $alternatePlaceIds)
+    /** @param AlternatePlaceId[] $alternatePlaceIds */
+    public function addAlternatePlaceIds(array $alternatePlaceIds): void
     {
         foreach ($alternatePlaceIds as $alternatePlaceId) {
             $this->addAlternatePlaceId($alternatePlaceId);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAlternatePlaceId(AlternatePlaceId $alternatePlaceId)
+    public function hasAlternatePlaceId(AlternatePlaceId $alternatePlaceId): bool
     {
         return in_array($alternatePlaceId, $this->alternatePlaceIds, true);
     }
 
-    public function addAlternatePlaceId(AlternatePlaceId $alternatePlaceId)
+    public function addAlternatePlaceId(AlternatePlaceId $alternatePlaceId): void
     {
         if (!$this->hasAlternatePlaceId($alternatePlaceId)) {
             $this->alternatePlaceIds[] = $alternatePlaceId;
         }
     }
 
-    public function removeAlternatePlaceId(AlternatePlaceId $alternatePlaceId)
+    public function removeAlternatePlaceId(AlternatePlaceId $alternatePlaceId): void
     {
         unset($this->alternatePlaceIds[array_search($alternatePlaceId, $this->alternatePlaceIds, true)]);
         $this->alternatePlaceIds = empty($this->alternatePlaceIds) ? [] : array_values($this->alternatePlaceIds);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasReviews()
+    public function hasReviews(): bool
     {
         return !empty($this->reviews);
     }
 
-    /**
-     * @return Review[]
-     */
-    public function getReviews()
+    /** @return Review[] */
+    public function getReviews(): array
     {
         return $this->reviews;
     }
 
-    /**
-     * @param Review[] $reviews
-     */
-    public function setReviews(array $reviews)
+    /** @param Review[] $reviews */
+    public function setReviews(array $reviews): void
     {
         $this->reviews = [];
         $this->addReviews($reviews);
     }
 
-    /**
-     * @param Review[] $reviews
-     */
-    public function addReviews(array $reviews)
+    /** @param Review[] $reviews */
+    public function addReviews(array $reviews): void
     {
         foreach ($reviews as $review) {
             $this->addReview($review);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasReview(Review $review)
+    public function hasReview(Review $review): bool
     {
         return in_array($review, $this->reviews, true);
     }
 
-    public function addReview(Review $review)
+    public function addReview(Review $review): void
     {
         if (!$this->hasReview($review)) {
             $this->reviews[] = $review;
         }
     }
 
-    public function removeReview(Review $review)
+    public function removeReview(Review $review): void
     {
         unset($this->reviews[array_search($review, $this->reviews, true)]);
         $this->reviews = empty($this->reviews) ? [] : array_values($this->reviews);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasTypes()
+    public function hasTypes(): bool
     {
         return !empty($this->types);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getTypes()
+    /** @return string[] */
+    public function getTypes(): array
     {
         return $this->types;
     }
 
-    /**
-     * @param string[] $types
-     */
-    public function setTypes(array $types)
+    /** @param string[] $types */
+    public function setTypes(array $types): void
     {
         $this->types = [];
         $this->addTypes($types);
     }
 
-    /**
-     * @param string[] $types
-     */
-    public function addTypes(array $types)
+    /** @param string[] $types */
+    public function addTypes(array $types): void
     {
         foreach ($types as $type) {
             $this->addType($type);
         }
     }
 
-    /**
-     * @param string $type
-     *
-     * @return bool
-     */
-    public function hasType($type)
+    public function hasType(string $type): bool
     {
         return in_array($type, $this->types, true);
     }
 
-    /**
-     * @param string $type
-     */
-    public function addType($type)
+    public function addType(string $type): void
     {
         if (!$this->hasType($type)) {
             $this->types[] = $type;
         }
     }
 
-    /**
-     * @param string $type
-     */
-    public function removeType($type)
+    public function removeType(string $type): void
     {
         unset($this->types[array_search($type, $this->types, true)]);
         $this->types = empty($this->types) ? [] : array_values($this->types);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasPermanentlyClose()
+    public function hasPermanentlyClose(): bool
     {
         return null !== $this->permanentlyClose;
     }
 
-    /**
-     * @return bool|null
-     */
-    public function isPermanentlyClose()
+    /** @deprecated  */
+    public function isPermanentlyClose(): ?bool
     {
         return $this->permanentlyClose;
     }
 
-    /**
-     * @param bool|null $permanentlyClose
-     */
-    public function setPermanentlyClose($permanentlyClose)
+    public function setPermanentlyClose(?bool $permanentlyClose): void
     {
         $this->permanentlyClose = $permanentlyClose;
     }

@@ -20,20 +20,10 @@ use Psr\Http\Message\RequestInterface as PsrRequestInterface;
  */
 abstract class AbstractHttpService extends AbstractService
 {
-    /**
-     * @var HttpClient
-     */
-    private $client;
+    private HttpClient $client;
+    private MessageFactory $messageFactory;
 
-    /**
-     * @var MessageFactory
-     */
-    private $messageFactory;
-
-    /**
-     * @param string $url
-     */
-    public function __construct($url, HttpClient $client, MessageFactory $messageFactory)
+    public function __construct(string $url, HttpClient $client, MessageFactory $messageFactory)
     {
         parent::__construct($url);
 

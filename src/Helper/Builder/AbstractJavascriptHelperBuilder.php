@@ -12,7 +12,6 @@
 namespace Ivory\GoogleMap\Helper\Builder;
 
 use Ivory\GoogleMap\Helper\Formatter\Formatter;
-use Ivory\JsonBuilder\JsonBuilder;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>

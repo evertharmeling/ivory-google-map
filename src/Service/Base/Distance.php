@@ -11,6 +11,8 @@
 
 namespace Ivory\GoogleMap\Service\Base;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @see http://code.google.com/apis/maps/documentation/javascript/reference.html#Distance
  *
@@ -18,54 +20,34 @@ namespace Ivory\GoogleMap\Service\Base;
  */
 class Distance
 {
-    /**
-     * @var float
-     */
-    private $value;
+    #[SerializedName('value')]
+    private float $value;
 
-    /**
-     * @var string
-     */
-    private $text;
+    #[SerializedName('text')]
+    private string $text;
 
-    /**
-     * @param float  $value
-     * @param string $text
-     */
-    public function __construct($value, $text)
+    public function __construct(float $value, string $text)
     {
         $this->setValue($value);
         $this->setText($text);
     }
 
-    /**
-     * @return float
-     */
-    public function getValue()
+    public function getValue(): float
     {
         return $this->value;
     }
 
-    /**
-     * @param float $value
-     */
-    public function setValue($value)
+    public function setValue(float $value): void
     {
         $this->value = $value;
     }
 
-    /**
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * @param string $text
-     */
-    public function setText($text)
+    public function setText(string $text): void
     {
         $this->text = $text;
     }

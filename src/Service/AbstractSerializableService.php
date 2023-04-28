@@ -14,9 +14,7 @@ namespace Ivory\GoogleMap\Service;
 use Http\Client\HttpClient;
 use Http\Message\MessageFactory;
 use Ivory\GoogleMap\Service\Serializer\SerializerBuilder;
-use Ivory\Serializer\Context\ContextInterface;
-use Ivory\Serializer\Format;
-use Ivory\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -24,24 +22,13 @@ use Psr\Http\Message\ResponseInterface;
  */
 abstract class AbstractSerializableService extends AbstractHttpService
 {
-    const FORMAT_JSON = Format::JSON;
-    const FORMAT_XML = Format::XML;
+    public const FORMAT_JSON = 'json';
 
-    /**
-     * @var SerializerInterface
-     */
-    private $serializer;
+    private SerializerInterface $serializer;
+    private string $format = self::FORMAT_JSON;
 
-    /**
-     * @var string
-     */
-    private $format = self::FORMAT_JSON;
-
-    /**
-     * @param string $url
-     */
     public function __construct(
-        $url,
+        string $url,
         HttpClient $client,
         MessageFactory $messageFactory,
         SerializerInterface $serializer = null
@@ -51,49 +38,37 @@ abstract class AbstractSerializableService extends AbstractHttpService
         $this->setSerializer($serializer ?: SerializerBuilder::create());
     }
 
-    /**
-     * @return SerializerInterface
-     */
-    public function getSerializer()
+    public function getSerializer(): SerializerInterface
     {
         return $this->serializer;
     }
 
-    public function setSerializer(SerializerInterface $serializer)
+    public function setSerializer(SerializerInterface $serializer): void
     {
         $this->serializer = $serializer;
     }
 
-    /**
-     * @return string
-     */
-    public function getFormat()
+    /** @deprecated removed xml format and set json as static format */
+    public function getFormat(): string
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+
         return $this->format;
     }
 
-    /**
-     * @param string $format
-     */
-    public function setFormat($format)
+    /** @deprecated removed xml format and set json as static format */
+    public function setFormat(string $format): void
     {
-        $this->format = $format;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function createBaseUrl(RequestInterface $request)
+    /** {@inheritdoc} */
+    protected function createBaseUrl(RequestInterface $request): string
     {
         return parent::createBaseUrl($request).'/'.$this->format;
     }
 
-    /**
-     * @param string $type
-     *
-     * @return mixed
-     */
-    protected function deserialize(ResponseInterface $response, $type, ContextInterface $context = null)
+    protected function deserialize(ResponseInterface $response, string $type, array $context = []): mixed
     {
         return $this->serializer->deserialize((string) $response->getBody(), $type, $this->format, $context);
     }

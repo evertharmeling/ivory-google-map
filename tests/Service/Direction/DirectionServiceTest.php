@@ -43,10 +43,7 @@ use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
  */
 class DirectionServiceTest extends AbstractSerializableServiceTest
 {
-    /**
-     * @var DirectionService
-     */
-    protected $service;
+    protected ?DirectionService $service = null;
 
     /**
      * {@inheritdoc}
@@ -63,77 +60,48 @@ class DirectionServiceTest extends AbstractSerializableServiceTest
         $this->service->setKey($_SERVER['API_KEY']);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRoute($format)
+    public function testRoute()
     {
         $request = $this->createRequest();
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithCoordinates($format)
+    public function testRouteWithCoordinates()
     {
         $request = new DirectionRequest(
             new CoordinateLocation(new Coordinate(48.873491, 2.295929)),
             new CoordinateLocation(new Coordinate(48.865869, 2.319885))
         );
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithDepartureTime($format)
+    public function testRouteWithDepartureTime()
     {
         $request = $this->createRequest();
         $request->setDepartureTime($this->getDepartureTime());
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithArrivalTime($format)
+    public function testRouteWithArrivalTime()
     {
         $request = $this->createRequest();
         $request->setArrivalTime($this->getArrivalTime());
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithAddressWaypoint($format)
+    public function testRouteWithAddressWaypoint()
     {
         $location = new AddressLocation('Statue du Général De Gaulle, Paris');
 
@@ -141,18 +109,12 @@ class DirectionServiceTest extends AbstractSerializableServiceTest
         $request->addWaypoint(new DirectionRequestWaypoint($location));
         $request->setOptimizeWaypoints(true);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithCoordinateWaypoint($format)
+    public function testRouteWithCoordinateWaypoint()
     {
         $location = new CoordinateLocation(new Coordinate(48.867513, 2.313604));
 
@@ -160,36 +122,24 @@ class DirectionServiceTest extends AbstractSerializableServiceTest
         $request->addWaypoint(new DirectionRequestWaypoint($location));
         $request->setOptimizeWaypoints(true);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithStopoverWaypoint($format)
+    public function testRouteWithStopoverWaypoint()
     {
         $location = new AddressLocation('Statue du Général De Gaulle, Paris');
 
         $request = $this->createRequest();
         $request->addWaypoint(new DirectionRequestWaypoint($location, true));
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithMultipleWaypoints($format)
+    public function testRouteWithMultipleWaypoints()
     {
         $request = new DirectionRequest(
             new AddressLocation('Adelaide,SA'),
@@ -205,66 +155,42 @@ class DirectionServiceTest extends AbstractSerializableServiceTest
 
         $request->setOptimizeWaypoints(true);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithAvoid($format)
+    public function testRouteWithAvoid()
     {
         $request = $this->createRequest();
         $request->setAvoid(Avoid::HIGHWAYS);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithTravelMode($format)
+    public function testRouteWithTravelMode()
     {
         $request = $this->createRequest();
         $request->setTravelMode(TravelMode::DRIVING);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithAlternatives($format)
+    public function testRouteWithAlternatives()
     {
         $request = $this->createRequest();
         $request->setProvideRouteAlternatives(true);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithTransit($format)
+    public function testRouteWithTransit()
     {
         $request = new DirectionRequest(
             new AddressLocation('Brooklyn'),
@@ -275,70 +201,45 @@ class DirectionServiceTest extends AbstractSerializableServiceTest
         $request->setDepartureTime($this->getDepartureTime());
         $request->setArrivalTime($this->getArrivalTime());
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithUnitSystem($format)
+    public function testRouteWithUnitSystem()
     {
         $request = $this->createRequest();
         $request->setUnitSystem(UnitSystem::METRIC);
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithRegion($format)
+    public function testRouteWithRegion()
     {
         $request = $this->createRequest();
         $request->setRegion('fr');
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testRouteWithLanguage($format)
+    public function testRouteWithLanguage()
     {
         $request = $this->createRequest();
         $request->setLanguage('fr');
 
-        $this->service->setFormat($format);
         $response = $this->service->route($request);
 
         $this->assertDirectionResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testErrorRequest($format)
+    public function testErrorRequest()
     {
         $this->expectException(ClientErrorException::class);
 
-        $this->service->setFormat($format);
         $this->service->setKey('invalid');
 
         $this->service->route($this->createRequest());

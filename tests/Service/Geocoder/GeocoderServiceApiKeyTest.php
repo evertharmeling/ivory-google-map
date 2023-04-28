@@ -33,32 +33,20 @@ class GeocoderServiceApiKeyTest extends GeocoderServiceTest
         $this->service->setKey($_SERVER['API_KEY']);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testGeocodePlaceId($format)
+    public function testGeocodePlaceId()
     {
         $request = new GeocoderPlaceIdRequest('ChIJLU7jZClu5kcR4PcOOO6p3I0');
 
-        $this->service->setFormat($format);
         $response = $this->service->geocode($request);
 
         $this->assertGeocoderResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testGeocodeWithResultType($format)
+    public function testGeocodeWithResultType()
     {
         $request = $this->createCoordinateRequest();
         $request->setResultTypes([GeocoderAddressType::POSTAL_CODE]);
 
-        $this->service->setFormat($format);
         $response = $this->service->geocode($request);
 
         $this->assertGeocoderResponse($response, $request);

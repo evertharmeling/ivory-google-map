@@ -49,83 +49,53 @@ class ElevationServiceTest extends AbstractSerializableServiceTest
         $this->service->setKey($_SERVER['API_KEY']);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessPositional($format)
+    public function testProcessPositional()
     {
         $request = $this->createRequest();
 
-        $this->service->setFormat($format);
         $response = $this->service->process($request);
 
         $this->assertElevationResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessPositionalWithEncodedPolylines($format)
+    public function testProcessPositionalWithEncodedPolylines()
     {
         $request = new PositionalElevationRequest([
             new EncodedPolylineLocation('gfo}EtohhU'),
         ]);
 
-        $this->service->setFormat($format);
         $response = $this->service->process($request);
 
         $this->assertElevationResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessPath($format)
+    public function testProcessPath()
     {
         $request = new PathElevationRequest([
             new CoordinateLocation(new Coordinate(40.714728, -73.998672)),
             new CoordinateLocation(new Coordinate(-34.397, 150.644)),
         ], 3);
 
-        $this->service->setFormat($format);
         $response = $this->service->process($request);
 
         $this->assertElevationResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessPathWithEncodedPolylines($format)
+    public function testProcessPathWithEncodedPolylines()
     {
         $request = new PathElevationRequest([
             new EncodedPolylineLocation('gfo}EtohhUxD@bAxJmGF'),
         ], 3);
 
-        $this->service->setFormat($format);
         $response = $this->service->process($request);
 
         $this->assertElevationResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testErrorRequest($format)
+    public function testErrorRequest()
     {
         $this->expectException(ClientErrorException::class);
 
-        $this->service->setFormat($format);
         $this->service->setKey('invalid');
 
         $this->service->process($this->createRequest());

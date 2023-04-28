@@ -13,7 +13,6 @@ namespace Ivory\Tests\GoogleMap\Service;
 
 use Ivory\GoogleMap\Base\Bound;
 use Ivory\GoogleMap\Base\Coordinate;
-use Ivory\GoogleMap\Service\AbstractSerializableService;
 use Ivory\GoogleMap\Service\Base\AddressComponent;
 use Ivory\GoogleMap\Service\Base\Distance;
 use Ivory\GoogleMap\Service\Base\Duration;
@@ -26,17 +25,6 @@ use Ivory\GoogleMap\Service\Base\Time;
  */
 abstract class AbstractSerializableServiceTest extends AbstractFunctionalServiceTest
 {
-    /**
-     * @return string[]
-     */
-    public function formatProvider()
-    {
-        return [
-            'json' => [AbstractSerializableService::FORMAT_JSON],
-            'xml'  => [AbstractSerializableService::FORMAT_XML],
-        ];
-    }
-
     /**
      * @param AddressComponent $addressComponent
      * @param mixed[]          $options
@@ -127,7 +115,7 @@ abstract class AbstractSerializableServiceTest extends AbstractFunctionalService
 
         $this->assertInstanceOf(Distance::class, $distance);
 
-        $this->assertSame($options['value'], $distance->getValue());
+        $this->assertSame((float) $options['value'], $distance->getValue());
         $this->assertSame($options['text'], $distance->getText());
     }
 

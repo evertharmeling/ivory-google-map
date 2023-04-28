@@ -11,238 +11,171 @@
 
 namespace Ivory\GoogleMap\Service\Place\Base;
 
+use DateTime;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class Review
 {
-    /**
-     * @var string|null
-     */
-    private $authorName;
+    #[SerializedName('author_name')]
+    private ?string $authorName = null;
 
-    /**
-     * @var string|null
-     */
-    private $authorUrl;
+    #[SerializedName('author_url')]
+    private ?string $authorUrl = null;
 
-    /**
-     * @var string|null
-     */
-    private $text;
+    #[SerializedName('text')]
+    private ?string $text = null;
 
-    /**
-     * @var float|null
-     */
-    private $rating;
+    #[SerializedName('rating')]
+    private ?float $rating = null;
 
-    /**
-     * @var \DateTime|null
-     */
-    private $time;
+    #[SerializedName('time')]
+    private ?DateTime $time = null;
 
-    /**
-     * @var string|null
-     */
-    private $language;
+    #[SerializedName('language')]
+    private ?string $language = null;
 
     /**
      * @var AspectRating[]
+     * @deprecated
      */
-    private $aspects = [];
+    #[SerializedName('aspects')]
+    private array $aspects = [];
 
-    /**
-     * @return bool
-     */
-    public function hasAuthorName()
+    public function hasAuthorName(): bool
     {
         return null !== $this->authorName;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getAuthorName()
+    public function getAuthorName(): ?string
     {
         return $this->authorName;
     }
 
-    /**
-     * @param string|null $authorName
-     */
-    public function setAuthorName($authorName)
+    public function setAuthorName(?string $authorName): void
     {
         $this->authorName = $authorName;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAuthorUrl()
+    public function hasAuthorUrl(): bool
     {
         return null !== $this->authorUrl;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getAuthorUrl()
+    public function getAuthorUrl(): ?string
     {
         return $this->authorUrl;
     }
 
-    /**
-     * @param string|null $authorUrl
-     */
-    public function setAuthorUrl($authorUrl)
+    public function setAuthorUrl(?string $authorUrl): void
     {
         $this->authorUrl = $authorUrl;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasText()
+    public function hasText(): bool
     {
         return null !== $this->text;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getText()
+    public function getText(): ?string
     {
         return $this->text;
     }
 
-    /**
-     * @param string|null $text
-     */
-    public function setText($text)
+    public function setText(?string $text): void
     {
         $this->text = $text;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRating()
+    public function hasRating(): bool
     {
         return null !== $this->rating;
     }
 
-    /**
-     * @return float|null
-     */
-    public function getRating()
+    public function getRating(): ?float
     {
         return $this->rating;
     }
 
-    /**
-     * @param float|null $rating
-     */
-    public function setRating($rating)
+    public function setRating(?float $rating): void
     {
         $this->rating = $rating;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasTime()
+    public function hasTime(): bool
     {
         return null !== $this->time;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getTime()
+    public function getTime(): ?DateTime
     {
         return $this->time;
     }
 
-    public function setTime(\DateTime $time = null)
+    public function setTime(DateTime $time = null): void
     {
         $this->time = $time;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasLanguage()
+    public function hasLanguage(): bool
     {
         return null !== $this->language;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getLanguage()
+    public function getLanguage(): ?string
     {
         return $this->language;
     }
 
-    /**
-     * @param string|null $language
-     */
-    public function setLanguage($language)
+    public function setLanguage(?string $language): void
     {
         $this->language = $language;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAspects()
+    public function hasAspects(): bool
     {
         return !empty($this->aspects);
     }
 
     /**
      * @return AspectRating[]
+     * @deprecated
      */
-    public function getAspects()
+    public function getAspects(): array
     {
         return $this->aspects;
     }
 
-    /**
-     * @param AspectRating[] $aspects
-     */
-    public function setAspects(array $aspects)
+    /** @param AspectRating[] $aspects */
+    public function setAspects(array $aspects): void
     {
         $this->aspects = [];
         $this->addAspects($aspects);
     }
 
-    /**
-     * @param AspectRating[] $aspects
-     */
-    public function addAspects(array $aspects)
+    /** @param AspectRating[] $aspects */
+    public function addAspects(array $aspects): void
     {
         foreach ($aspects as $aspect) {
             $this->addAspect($aspect);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAspect(AspectRating $aspect)
+    public function hasAspect(AspectRating $aspect): bool
     {
         return in_array($aspect, $this->aspects, true);
     }
 
-    public function addAspect(AspectRating $aspect)
+    public function addAspect(AspectRating $aspect): void
     {
         if (!$this->hasAspect($aspect)) {
             $this->aspects[] = $aspect;
         }
     }
 
-    public function removeAspect(AspectRating $aspect)
+    public function removeAspect(AspectRating $aspect): void
     {
         unset($this->aspects[array_search($aspect, $this->aspects, true)]);
         $this->aspects = empty($this->aspects) ? [] : array_values($this->aspects);

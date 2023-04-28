@@ -12,253 +12,186 @@
 namespace Ivory\GoogleMap\Service\Direction\Response;
 
 use Ivory\GoogleMap\Service\Direction\Request\DirectionRequestInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class DirectionResponse
 {
-    /**
-     * @var string|null
-     */
-    private $status;
+    private ?DirectionRequestInterface $request = null;
 
-    /**
-     * @var DirectionRequestInterface|null
-     */
-    private $request;
+    #[SerializedName('status')]
+    private ?string $status = null;
 
-    /**
-     * @var DirectionRoute[]
-     */
-    private $routes = [];
+    /** @var DirectionRoute[] */
+    #[SerializedName('routes')]
+    private array $routes = [];
 
-    /**
-     * @var DirectionGeocoded[]
-     */
-    private $geocodedWaypoints = [];
+    /** @var DirectionGeocoded[] */
+    #[SerializedName('geocoded_waypoints')]
+    private array $geocodedWaypoints = [];
 
-    /**
-     * @var string[]
-     */
-    private $availableTravelModes = [];
+    /** @var string[] */
+    #[SerializedName('available_travel_modes')]
+    private array $availableTravelModes = [];
 
-    /**
-     * @return bool
-     */
-    public function hasStatus()
+    public function hasStatus(): bool
     {
         return null !== $this->status;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     */
-    public function setStatus($status = null)
+    public function setStatus(?string $status = null): void
     {
         $this->status = $status;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRequest()
+    public function hasRequest(): bool
     {
         return null !== $this->request;
     }
 
-    /**
-     * @return DirectionRequestInterface|null
-     */
-    public function getRequest()
+    public function getRequest(): ?DirectionRequestInterface
     {
         return $this->request;
     }
 
-    public function setRequest(DirectionRequestInterface $request = null)
+    public function setRequest(DirectionRequestInterface $request = null): void
     {
         $this->request = $request;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRoutes()
+    public function hasRoutes(): bool
     {
         return !empty($this->routes);
     }
 
-    /**
-     * @return DirectionRoute[]
-     */
-    public function getRoutes()
+    /** @return DirectionRoute[] */
+    public function getRoutes(): array
     {
         return $this->routes;
     }
 
-    /**
-     * @param DirectionRoute[] $routes
-     */
-    public function setRoutes(array $routes)
+    /** @param DirectionRoute[] $routes */
+    public function setRoutes(array $routes): void
     {
         $this->routes = [];
         $this->addRoutes($routes);
     }
 
-    /**
-     * @param DirectionRoute[] $routes
-     */
-    public function addRoutes(array $routes)
+    /** @param DirectionRoute[] $routes */
+    public function addRoutes(array $routes): void
     {
         foreach ($routes as $route) {
             $this->addRoute($route);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRoute(DirectionRoute $route)
+    public function hasRoute(DirectionRoute $route): bool
     {
         return in_array($route, $this->routes, true);
     }
 
-    public function addRoute(DirectionRoute $route)
+    public function addRoute(DirectionRoute $route): void
     {
         if (!$this->hasRoute($route)) {
             $this->routes[] = $route;
         }
     }
 
-    public function removeRoute(DirectionRoute $route)
+    public function removeRoute(DirectionRoute $route): void
     {
         unset($this->routes[array_search($route, $this->routes, true)]);
         $this->routes = empty($this->routes) ? [] : array_values($this->routes);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasGeocodedWaypoints()
+    public function hasGeocodedWaypoints(): bool
     {
         return !empty($this->geocodedWaypoints);
     }
 
-    /**
-     * @return DirectionGeocoded[]
-     */
-    public function getGeocodedWaypoints()
+    public function getGeocodedWaypoints(): array
     {
         return $this->geocodedWaypoints;
     }
 
-    /**
-     * @param DirectionGeocoded[] $geocodedWaypoints
-     */
-    public function setGeocodedWaypoints(array $geocodedWaypoints)
+    /** @param DirectionGeocoded[] $geocodedWaypoints */
+    public function setGeocodedWaypoints(array $geocodedWaypoints): void
     {
-        $this->geocodedWaypoints = [];
-        $this->addGeocodedWaypoints($geocodedWaypoints);
+        $this->geocodedWaypoints = $geocodedWaypoints;
     }
 
-    /**
-     * @param DirectionGeocoded[] $geocodedWaypoints
-     */
-    public function addGeocodedWaypoints(array $geocodedWaypoints)
+    /** @param DirectionGeocoded[] $geocodedWaypoints */
+    public function addGeocodedWaypoints(array $geocodedWaypoints): void
     {
         foreach ($geocodedWaypoints as $geocodedWaypoint) {
             $this->addGeocodedWaypoint($geocodedWaypoint);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasGeocodedWaypoint(DirectionGeocoded $geocodedWaypoint)
+    public function hasGeocodedWaypoint(DirectionGeocoded $geocodedWaypoint): bool
     {
         return in_array($geocodedWaypoint, $this->geocodedWaypoints, true);
     }
 
-    public function addGeocodedWaypoint(DirectionGeocoded $geocodedWaypoint)
+    /** @param DirectionGeocoded $geocodedWaypoint */
+    public function addGeocodedWaypoint(DirectionGeocoded $geocodedWaypoint): void
     {
         if (!$this->hasGeocodedWaypoint($geocodedWaypoint)) {
             $this->geocodedWaypoints[] = $geocodedWaypoint;
         }
     }
 
-    public function removeGeocodedWaypoint(DirectionGeocoded $geocodedWaypoint)
+    public function removeGeocodedWaypoint(DirectionGeocoded $geocodedWaypoint): void
     {
         unset($this->geocodedWaypoints[array_search($geocodedWaypoint, $this->geocodedWaypoints, true)]);
         $this->geocodedWaypoints = empty($this->geocodedWaypoints) ? [] : array_values($this->geocodedWaypoints);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAvailableTravelModes()
+    public function hasAvailableTravelModes(): bool
     {
         return !empty($this->availableTravelModes);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getAvailableTravelModes()
+    /** @return string[] */
+    public function getAvailableTravelModes(): array
     {
         return $this->availableTravelModes;
     }
 
-    /**
-     * @param string[] $availableTravelModes
-     */
-    public function setAvailableTravelModes(array $availableTravelModes)
+    /** @param string[] $availableTravelModes */
+    public function setAvailableTravelModes(array $availableTravelModes): void
     {
         $this->availableTravelModes = [];
         $this->addAvailableTravelModes($availableTravelModes);
     }
 
-    /**
-     * @param string[] $availableTravelModes
-     */
-    public function addAvailableTravelModes(array $availableTravelModes)
+    /** @param string[] $availableTravelModes */
+    public function addAvailableTravelModes(array $availableTravelModes): void
     {
         foreach ($availableTravelModes as $availableTravelMode) {
             $this->addAvailableTravelMode($availableTravelMode);
         }
     }
 
-    /**
-     * @param string $availableTravelMode
-     *
-     * @return bool
-     */
-    public function hasAvailableTravelMode($availableTravelMode)
+    public function hasAvailableTravelMode(string $availableTravelMode): bool
     {
         return in_array($availableTravelMode, $this->availableTravelModes, true);
     }
 
-    /**
-     * @param string $availableTravelMode
-     */
-    public function addAvailableTravelMode($availableTravelMode)
+    public function addAvailableTravelMode(string $availableTravelMode): void
     {
         if (!$this->hasAvailableTravelMode($availableTravelMode)) {
             $this->availableTravelModes[] = $availableTravelMode;
         }
     }
 
-    /**
-     * @param string $availableTravelMode
-     */
-    public function removeAvailableTravelMode($availableTravelMode)
+    public function removeAvailableTravelMode(string $availableTravelMode): void
     {
         unset($this->availableTravelModes[array_search($availableTravelMode, $this->availableTravelModes, true)]);
         $this->availableTravelModes = empty($this->availableTravelModes) ? [] : array_values($this->availableTravelModes);

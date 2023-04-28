@@ -14,7 +14,6 @@ namespace Ivory\Tests\GoogleMap\Service\DistanceMatrix;
 use Ivory\GoogleMap\Service\DistanceMatrix\DistanceMatrixService;
 use Ivory\GoogleMap\Service\DistanceMatrix\Request\DistanceMatrixRequestInterface;
 use Ivory\GoogleMap\Service\DistanceMatrix\Response\DistanceMatrixResponse;
-use Ivory\Serializer\Context\Context;
 use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
 use PHPUnit\Framework\MockObject\MockObject;
 
@@ -48,7 +47,7 @@ class DistanceMatrixServiceUnitTest extends AbstractUnitServiceTest
         $request
             ->expects($this->once())
             ->method('buildQuery')
-            ->will($this->returnValue($query = ['foo' => 'bar']));
+            ->willReturn($query = ['foo' => 'bar']);
 
         $url = 'https://maps.googleapis.com/maps/api/distancematrix/json?foo=bar&signature=signature';
 
@@ -59,23 +58,23 @@ class DistanceMatrixServiceUnitTest extends AbstractUnitServiceTest
                 $this->identicalTo('GET'),
                 $this->identicalTo($url)
             )
-            ->will($this->returnValue($httpRequest = $this->createHttpRequestMock()));
+            ->willReturn($httpRequest = $this->createHttpRequestMock());
 
         $this->client
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->identicalTo($httpRequest))
-            ->will($this->returnValue($httpResponse = $this->createHttpResponseMock()));
+            ->willReturn($httpResponse = $this->createHttpResponseMock());
 
         $httpResponse
             ->expects($this->once())
             ->method('getBody')
-            ->will($this->returnValue($httpStream = $this->createHttpStreamMock()));
+            ->willReturn($httpStream = $this->createHttpStreamMock());
 
         $httpStream
             ->expects($this->once())
             ->method('__toString')
-            ->will($this->returnValue($result = 'result'));
+            ->willReturn($result = 'result');
 
         $this->serializer
             ->expects($this->once())
@@ -84,9 +83,8 @@ class DistanceMatrixServiceUnitTest extends AbstractUnitServiceTest
                 $this->identicalTo($result),
                 $this->identicalTo(DistanceMatrixResponse::class),
                 $this->identicalTo($this->service->getFormat()),
-                $this->isInstanceOf(Context::class)
             )
-            ->will($this->returnValue($response = $this->createDistanceMatrixResponseMock()));
+            ->willReturn($response = $this->createDistanceMatrixResponseMock());
 
         $response
             ->expects($this->once())
@@ -98,7 +96,7 @@ class DistanceMatrixServiceUnitTest extends AbstractUnitServiceTest
             ->expects($this->once())
             ->method('signUrl')
             ->with($this->equalTo('https://maps.googleapis.com/maps/api/distancematrix/json?foo=bar'))
-            ->will($this->returnValue($url));
+            ->willReturn($url);
 
         $this->service->setBusinessAccount($businessAccount);
 

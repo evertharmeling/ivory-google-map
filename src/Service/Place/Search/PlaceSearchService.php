@@ -15,26 +15,20 @@ use Ivory\GoogleMap\Service\Place\AbstractPlaceSerializableService;
 use Ivory\GoogleMap\Service\Place\Search\Request\PlaceSearchRequestInterface;
 use Ivory\GoogleMap\Service\Place\Search\Response\PlaceSearchResponse;
 use Ivory\GoogleMap\Service\Place\Search\Response\PlaceSearchResponseIterator;
-use Ivory\Serializer\Context\Context;
-use Ivory\Serializer\Naming\SnakeCaseNamingStrategy;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class PlaceSearchService extends AbstractPlaceSerializableService
 {
-    /**
-     * @return PlaceSearchResponseIterator
-     */
-    public function process(PlaceSearchRequestInterface $request)
+    public function process(PlaceSearchRequestInterface $request): PlaceSearchResponseIterator
     {
         $httpRequest = $this->createRequest($request);
         $httpResponse = $this->getClient()->sendRequest($httpRequest);
 
         $response = $this->deserialize(
             $httpResponse,
-            PlaceSearchResponse::class,
-            (new Context())->setNamingStrategy(new SnakeCaseNamingStrategy())
+            PlaceSearchResponse::class
         );
 
         $response->setRequest($request);

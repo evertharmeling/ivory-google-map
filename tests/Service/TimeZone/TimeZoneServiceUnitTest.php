@@ -14,7 +14,6 @@ namespace Ivory\Tests\GoogleMap\Service\TimeZone;
 use Ivory\GoogleMap\Service\TimeZone\Request\TimeZoneRequest;
 use Ivory\GoogleMap\Service\TimeZone\Response\TimeZoneResponse;
 use Ivory\GoogleMap\Service\TimeZone\TimeZoneService;
-use Ivory\Serializer\Context\Context;
 use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
 use PHPUnit\Framework\MockObject\MockObject;
 
@@ -48,7 +47,7 @@ class TimeZoneServiceUnitTest extends AbstractUnitServiceTest
         $request
             ->expects($this->once())
             ->method('buildQuery')
-            ->will($this->returnValue($query = ['foo' => 'bar']));
+            ->willReturn($query = ['foo' => 'bar']);
 
         $url = 'https://maps.googleapis.com/maps/api/timezone/json?foo=bar&signature=signature';
 
@@ -59,23 +58,23 @@ class TimeZoneServiceUnitTest extends AbstractUnitServiceTest
                 $this->identicalTo('GET'),
                 $this->identicalTo($url)
             )
-            ->will($this->returnValue($httpRequest = $this->createHttpRequestMock()));
+            ->willReturn($httpRequest = $this->createHttpRequestMock());
 
         $this->client
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->identicalTo($httpRequest))
-            ->will($this->returnValue($httpResponse = $this->createHttpResponseMock()));
+            ->willReturn($httpResponse = $this->createHttpResponseMock());
 
         $httpResponse
             ->expects($this->once())
             ->method('getBody')
-            ->will($this->returnValue($httpStream = $this->createHttpStreamMock()));
+            ->willReturn($httpStream = $this->createHttpStreamMock());
 
         $httpStream
             ->expects($this->once())
             ->method('__toString')
-            ->will($this->returnValue($result = 'result'));
+            ->willReturn($result = 'result');
 
         $this->serializer
             ->expects($this->once())
@@ -83,10 +82,9 @@ class TimeZoneServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(TimeZoneResponse::class),
-                $this->identicalTo($this->service->getFormat()),
-                $this->isInstanceOf(Context::class)
+                $this->identicalTo($this->service->getFormat())
             )
-            ->will($this->returnValue($response = $this->createTimeZoneResponseMock()));
+            ->willReturn($response = $this->createTimeZoneResponseMock());
 
         $response
             ->expects($this->once())
@@ -98,7 +96,7 @@ class TimeZoneServiceUnitTest extends AbstractUnitServiceTest
             ->expects($this->once())
             ->method('signUrl')
             ->with($this->equalTo('https://maps.googleapis.com/maps/api/timezone/json?foo=bar'))
-            ->will($this->returnValue($url));
+            ->willReturn($url);
 
         $this->service->setBusinessAccount($businessAccount);
 

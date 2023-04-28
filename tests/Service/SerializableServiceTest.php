@@ -16,9 +16,9 @@ use Http\Message\MessageFactory;
 use Ivory\GoogleMap\Service\AbstractHttpService;
 use Ivory\GoogleMap\Service\AbstractSerializableService;
 use Ivory\GoogleMap\Service\BusinessAccount;
-use Ivory\Serializer\SerializerInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
@@ -107,13 +107,6 @@ class SerializableServiceTest extends TestCase
         $this->service->setSerializer($serializer = $this->createSerializerMock());
 
         $this->assertSame($serializer, $this->service->getSerializer());
-    }
-
-    public function testFormat()
-    {
-        $this->service->setFormat($format = AbstractSerializableService::FORMAT_XML);
-
-        $this->assertSame($format, $this->service->getFormat());
     }
 
     public function testKey()

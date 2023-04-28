@@ -55,112 +55,70 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $this->service->setKey($_SERVER['API_KEY']);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequest($format)
+    public function testProcessWithNearbyRequest()
     {
         $request = $this->createNearbyRequest();
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequestAndKeyword($format)
+    public function testProcessWithNearbyRequestAndKeyword()
     {
         $request = $this->createNearbyRequest(300);
         $request->setKeyword('Bank');
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequestAndMinPrice($format)
+    public function testProcessWithNearbyRequestAndMinPrice()
     {
         $request = $this->createNearbyRequest(100);
         $request->setMinPrice(PriceLevel::FREE);
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequestAndMaxPrice($format)
+    public function testProcessWithNearbyRequestAndMaxPrice()
     {
         $request = $this->createNearbyRequest(100);
         $request->setMaxPrice(PriceLevel::MODERATE);
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequestAndOpenNow($format)
+    public function testProcessWithNearbyRequestAndOpenNow()
     {
         $request = $this->createNearbyRequest(20);
         $request->setOpenNow(true);
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequestAndType($format)
+    public function testProcessWithNearbyRequestAndType()
     {
         $request = $this->createNearbyRequest(500);
         $request->setType(PlaceType::BANK);
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithNearbyRequestAndLanguage($format)
+    public function testProcessWithNearbyRequestAndLanguage()
     {
         $request = $this->createNearbyRequest();
         $request->setLanguage('fr');
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -199,17 +157,11 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithTextRequestWithMinPrice($format)
+    public function testProcessWithTextRequestWithMinPrice()
     {
         $request = $this->createTextRequest('Restaurants in Lille');
         $request->setMinPrice(PriceLevel::EXPENSIVE);
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -237,17 +189,11 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithTextRequestWithType($format)
+    public function testProcessWithTextRequestWithType()
     {
         $request = $this->createTextRequest();
         $request->setType(PlaceType::CASINO);
 
-        $this->service->setFormat($format);
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -284,16 +230,10 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $this->assertPlaceSearchIterator($iterator, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testErrorRequest($format)
+    public function testErrorRequest()
     {
         $this->expectException(ClientErrorException::class);
 
-        $this->service->setFormat($format);
         $this->service->setKey('invalid');
 
         $this->service->process($this->createNearbyRequest());

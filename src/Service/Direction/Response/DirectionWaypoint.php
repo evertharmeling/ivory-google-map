@@ -12,92 +12,63 @@
 namespace Ivory\GoogleMap\Service\Direction\Response;
 
 use Ivory\GoogleMap\Base\Coordinate;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class DirectionWaypoint
 {
-    /**
-     * @var Coordinate|null
-     */
-    private $location;
+    #[SerializedName('location')]
+    private ?Coordinate $location = null;
 
-    /**
-     * @var int|null
-     */
-    private $stepIndex;
+    #[SerializedName('step_index')]
+    private ?int $stepIndex = null;
 
-    /**
-     * @var float|null
-     */
-    private $stepInterpolation;
+    #[SerializedName('step_interpolation')]
+    private ?float $stepInterpolation = null;
 
-    /**
-     * @return bool
-     */
-    public function hasLocation()
+    public function hasLocation(): bool
     {
         return null !== $this->location;
     }
 
-    /**
-     * @return Coordinate|null
-     */
-    public function getLocation()
+    public function getLocation(): ?Coordinate
     {
         return $this->location;
     }
 
-    public function setLocation(Coordinate $location)
+    public function setLocation(Coordinate $location): void
     {
         $this->location = $location;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasStepIndex()
+    public function hasStepIndex(): bool
     {
         return null !== $this->stepIndex;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getStepIndex()
+    public function getStepIndex(): ?int
     {
         return $this->stepIndex;
     }
 
-    /**
-     * @param int|null $stepIndex
-     */
-    public function setStepIndex($stepIndex)
+    public function setStepIndex(?int $stepIndex): void
     {
         $this->stepIndex = $stepIndex;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasStepInterpolation()
+    public function hasStepInterpolation(): bool
     {
         return null !== $this->stepInterpolation;
     }
 
-    /**
-     * @return float|null
-     */
-    public function getStepInterpolation()
+    public function getStepInterpolation(): ?float
     {
         return $this->stepInterpolation;
     }
 
-    /**
-     * @param float|null $stepInterpolation
-     */
-    public function setStepInterpolation($stepInterpolation)
+    public function setStepInterpolation(?float $stepInterpolation): void
     {
         $this->stepInterpolation = $stepInterpolation;
     }

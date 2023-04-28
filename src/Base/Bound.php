@@ -14,6 +14,7 @@ namespace Ivory\GoogleMap\Base;
 use Ivory\GoogleMap\Overlay\ExtendableInterface;
 use Ivory\GoogleMap\Utility\VariableAwareInterface;
 use Ivory\GoogleMap\Utility\VariableAwareTrait;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @see http://code.google.com/apis/maps/documentation/javascript/reference.html#LatLngBounds
@@ -24,20 +25,15 @@ class Bound implements VariableAwareInterface
 {
     use VariableAwareTrait;
 
-    /**
-     * @var Coordinate|null
-     */
-    private $southWest;
+    #[SerializedName('southwest')]
+    private ?Coordinate $southWest = null;
 
-    /**
-     * @var Coordinate|null
-     */
-    private $northEast;
+    #[SerializedName('northeast')]
+    private ?Coordinate $northEast = null;
 
-    /**
-     * @var ExtendableInterface[]
-     */
-    private $extendables = [];
+    /** @var ExtendableInterface[] */
+    #[SerializedName('extendables')]
+    private array $extendables = [];
 
     public function __construct(Coordinate $southWest = null, Coordinate $northEast = null)
     {
@@ -45,107 +41,79 @@ class Bound implements VariableAwareInterface
         $this->setNorthEast($northEast);
     }
 
-    /**
-     * @return bool
-     */
-    public function hasCoordinates()
+    public function hasCoordinates(): bool
     {
         return $this->hasSouthWest() && $this->hasNorthEast();
     }
 
-    /**
-     * @return bool
-     */
-    public function hasSouthWest()
+    public function hasSouthWest(): bool
     {
         return null !== $this->southWest;
     }
 
-    /**
-     * @return Coordinate|null
-     */
-    public function getSouthWest()
+    public function getSouthWest(): ?Coordinate
     {
         return $this->southWest;
     }
 
-    public function setSouthWest(Coordinate $southWest = null)
+    public function setSouthWest(?Coordinate $southWest = null): void
     {
         $this->southWest = $southWest;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasNorthEast()
+    public function hasNorthEast(): bool
     {
         return null !== $this->northEast;
     }
 
-    /**
-     * @return Coordinate|null
-     */
-    public function getNorthEast()
+    public function getNorthEast(): ?Coordinate
     {
         return $this->northEast;
     }
 
-    public function setNorthEast(Coordinate $northEast = null)
+    public function setNorthEast(?Coordinate $northEast = null): void
     {
         $this->northEast = $northEast;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasExtendables()
+    public function hasExtendables(): bool
     {
         return !empty($this->extendables);
     }
 
-    /**
-     * @return ExtendableInterface[]
-     */
-    public function getExtendables()
+    /** @return ExtendableInterface[] */
+    public function getExtendables(): array
     {
         return $this->extendables;
     }
 
-    /**
-     * @param ExtendableInterface[] $extendables
-     */
-    public function setExtendables($extendables)
+    /** @param ExtendableInterface[] $extendables */
+    public function setExtendables(array $extendables): void
     {
-        $this->extendables = [];
-        $this->addExtendables($extendables);
+        $this->extendables = $extendables;
     }
 
-    /**
-     * @param ExtendableInterface[] $extendables
-     */
-    public function addExtendables($extendables)
+    /** @param ExtendableInterface[] $extendables */
+    public function addExtendables(array $extendables): void
     {
         foreach ($extendables as $extendable) {
             $this->addExtendable($extendable);
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function hasExtendable(ExtendableInterface $extendable)
+    public function hasExtendable(ExtendableInterface $extendable): bool
     {
         return in_array($extendable, $this->extendables, true);
     }
 
-    public function addExtendable(ExtendableInterface $extendable)
+    public function addExtendable(ExtendableInterface $extendable): void
     {
         if (!$this->hasExtendable($extendable)) {
             $this->extendables[] = $extendable;
         }
     }
 
-    public function removeExtendable(ExtendableInterface $extendable)
+    public function removeExtendable(ExtendableInterface $extendable): void
     {
         unset($this->extendables[array_search($extendable, $this->extendables, true)]);
         $this->extendables = empty($this->extendables) ? [] : array_values($this->extendables);

@@ -45,47 +45,29 @@ class TimeZoneServiceApiKeyTest extends AbstractSerializableServiceTest
         $this->service->setKey($_SERVER['API_KEY']);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcess($format)
+    public function testProcess()
     {
         $request = $this->createRequest();
 
-        $this->service->setFormat($format);
         $response = $this->service->process($request);
 
         $this->assertTimeZoneResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testProcessWithLanguage($format)
+    public function testProcessWithLanguage()
     {
         $request = $this->createRequest();
         $request->setLanguage('fr');
 
-        $this->service->setFormat($format);
         $response = $this->service->process($request);
 
         $this->assertTimeZoneResponse($response, $request);
     }
 
-    /**
-     * @param string $format
-     *
-     * @dataProvider formatProvider
-     */
-    public function testErrorRequest($format)
+    public function testErrorRequest()
     {
         $this->expectException(ClientErrorException::class);
 
-        $this->service->setFormat($format);
         $this->service->setKey('invalid');
 
         $this->service->process($this->createRequest());

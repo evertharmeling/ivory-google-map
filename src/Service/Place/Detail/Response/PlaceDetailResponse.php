@@ -13,157 +13,109 @@ namespace Ivory\GoogleMap\Service\Place\Detail\Response;
 
 use Ivory\GoogleMap\Service\Place\Base\Place;
 use Ivory\GoogleMap\Service\Place\Detail\Request\PlaceDetailRequestInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 class PlaceDetailResponse
 {
-    /**
-     * @var string|null
-     */
-    private $status;
+    private ?PlaceDetailRequestInterface $request = null;
 
-    /**
-     * @var PlaceDetailRequestInterface|null
-     */
-    private $request;
+    #[SerializedName('status')]
+    private ?string $status = null;
 
-    /**
-     * @var Place|null
-     */
-    private $result;
+    #[SerializedName('result')]
+    private ?Place $result = null;
 
-    /**
-     * @var string[]
-     */
-    private $htmlAttributions = [];
+    /** @var string[] */
+    #[SerializedName('html_attributions')]
+    private array $htmlAttributions = [];
 
-    /**
-     * @return bool
-     */
-    public function hasStatus()
+    public function hasStatus(): bool
     {
         return null !== $this->status;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     */
-    public function setStatus($status)
+    public function setStatus(?string $status): void
     {
         $this->status = $status;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasRequest()
+    public function hasRequest(): bool
     {
         return null !== $this->request;
     }
 
-    /**
-     * @return PlaceDetailRequestInterface|null
-     */
-    public function getRequest()
+    public function getRequest(): ?PlaceDetailRequestInterface
     {
         return $this->request;
     }
 
-    public function setRequest(PlaceDetailRequestInterface $request = null)
+    public function setRequest(PlaceDetailRequestInterface $request = null): void
     {
         $this->request = $request;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasResult()
+    public function hasResult(): bool
     {
         return null !== $this->result;
     }
 
-    /**
-     * @return Place|null
-     */
-    public function getResult()
+    public function getResult(): ?Place
     {
         return $this->result;
     }
 
-    public function setResult(Place $result = null)
+    public function setResult(Place $result = null): void
     {
         $this->result = $result;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasHtmlAttributions()
+    public function hasHtmlAttributions(): bool
     {
         return !empty($this->htmlAttributions);
     }
 
-    /**
-     * @return string[]
-     */
-    public function getHtmlAttributions()
+    /** @return string[] */
+    public function getHtmlAttributions(): array
     {
         return $this->htmlAttributions;
     }
 
-    /**
-     * @param string[] $htmlAttributions
-     */
-    public function setHtmlAttributions(array $htmlAttributions)
+    /** @param string[] $htmlAttributions */
+    public function setHtmlAttributions(array $htmlAttributions): void
     {
         $this->htmlAttributions = [];
         $this->addHtmlAttributions($htmlAttributions);
     }
 
-    /**
-     * @param string[] $htmlAttributions
-     */
-    public function addHtmlAttributions(array $htmlAttributions)
+    /** @param string[] $htmlAttributions */
+    public function addHtmlAttributions(array $htmlAttributions): void
     {
         foreach ($htmlAttributions as $htmlAttribution) {
             $this->addHtmlAttribution($htmlAttribution);
         }
     }
 
-    /**
-     * @param string $htmlAttribution
-     *
-     * @return bool
-     */
-    public function hasHtmlAttribution($htmlAttribution)
+    public function hasHtmlAttribution(string $htmlAttribution): bool
     {
         return in_array($htmlAttribution, $this->htmlAttributions, true);
     }
 
-    /**
-     * @param string $htmlAttribution
-     */
-    public function addHtmlAttribution($htmlAttribution)
+    public function addHtmlAttribution(string $htmlAttribution): void
     {
         if (!$this->hasHtmlAttribution($htmlAttribution)) {
             $this->htmlAttributions[] = $htmlAttribution;
         }
     }
 
-    /**
-     * @param string $htmlAttribution
-     */
-    public function removeHtmlAttribution($htmlAttribution)
+    public function removeHtmlAttribution(string $htmlAttribution): void
     {
         unset($this->htmlAttributions[array_search($htmlAttribution, $this->htmlAttributions, true)]);
         $this->htmlAttributions = empty($this->htmlAttributions) ? [] : array_values($this->htmlAttributions);
