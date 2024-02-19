@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "doctrine/annotations": "^1.13|^2.0",
         "symfony/event-dispatcher": "^5.0|^6.0",
         "symfony/serializer": "^5.0|^6.0",
         "symfony/property-access": "^5.0|^6.0",
