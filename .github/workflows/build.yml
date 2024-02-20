@@ -63,9 +63,9 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --configuration phpunit.ci.xml --coverage-clover clover.xml
 
-            -
-                name: Send coverage report
-                if: github.repository == 'bresam/ivory-google-map'
-                run: |
-                    wget https://scrutinizer-ci.com/ocular.phar
-                    php ocular.phar code-coverage:upload --format=php-clover clover.xml
+            #-
+                #name: Send coverage report
+                #if: github.repository == 'bresam/ivory-google-map'
+                #run: |
+                    #wget https://scrutinizer-ci.com/ocular.phar
+                    #php ocular.phar code-coverage:upload --format=php-clover clover.xml
