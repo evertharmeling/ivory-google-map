@@ -23,21 +23,10 @@ class Point implements VariableAwareInterface
 {
     use VariableAwareTrait;
 
-    /**
-     * @var float
-     */
-    private $x;
+    private float $x;
+    private float $y;
 
-    /**
-     * @var float
-     */
-    private $y;
-
-    /**
-     * @param float $x
-     * @param float $y
-     */
-    public function __construct($x = 0.0, $y = 0.0)
+    public function __construct(float $x = 0.0, float $y = 0.0)
     {
         $this->setX($x);
         $this->setY($y);

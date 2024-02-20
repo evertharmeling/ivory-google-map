@@ -7,12 +7,12 @@ All services (direction, distance matrix, geocoder, ...) share common features.
 If you want to update the service http client, you can use:
 
 ``` php
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 
 $service->setClient(new Client());
 ```
 
-Here, I have chosen to use the [Guzzle6](http://docs.guzzlephp.org/en/latest/psr7.html) client but since 
+Here, I have chosen to use the [Guzzle7](http://docs.guzzlephp.org/en/latest/psr7.html) client but since 
 [Httplug](http://httplug.io/) supports the most popular http clients, you can choose you preferred one instead.
 
 ## Configure http plugins
@@ -37,7 +37,7 @@ Here, I have chosen to use the Symfony Cache PSR-6 component but you can choose 
 Then, create a plugin client:
 
 ``` php
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 use Http\Client\Common\Plugin\CachePlugin;
 use Http\Client\Common\Plugin\ErrorPlugin as HttpErrorPlugin;
 use Http\Client\Common\Plugin\RetryPlugin;
@@ -74,7 +74,7 @@ use Http\Message\MessageFactory\GuzzleMessageFactory;
 $service->setMessageFactory(new GuzzleMessageFactory());
 ```
 
-Here, I have chosen to use the [Guzzle6](http://docs.guzzlephp.org/en/latest/psr7.html) message factory but since 
+Here, I have chosen to use the [Guzzle7](http://docs.guzzlephp.org/en/latest/psr7.html) message factory but since 
 [Httplug](http://httplug.io/) supports the most popular http clients, you can choose you preferred one instead.
 
 ## Configure serializer

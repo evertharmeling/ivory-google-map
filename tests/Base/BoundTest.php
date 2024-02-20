@@ -23,10 +23,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BoundTest extends TestCase
 {
-    /**
-     * @var Bound
-     */
-    private $bound;
+    private Bound $bound;
 
     /**
      * {@inheritdoc}

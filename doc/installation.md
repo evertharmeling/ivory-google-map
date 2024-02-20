@@ -29,11 +29,11 @@ If you want to use a service (geocoder, direction, ...), you will need an http c
 [Httplug](http://httplug.io/) which is an http client abstraction library:
 
 ``` bash
-$ composer require php-http/guzzle6-adapter
+$ composer require php-http/guzzle7-adapter
 $ composer require php-http/message
 ```
 
-Here, I have chosen to use [Guzzle6](http://docs.guzzlephp.org/en/latest/psr7.html) but since Httplug supports the 
+Here, I have chosen to use [Guzzle7](http://docs.guzzlephp.org/en/latest/psr7.html) but since Httplug supports the 
 most popular http clients, you can install your preferred one instead.
 
 ### Ivory Serializer
