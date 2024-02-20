@@ -11,7 +11,7 @@
 
 namespace Ivory\Tests\GoogleMap\Helper\Functional;
 
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 use Http\Client\Common\Plugin\CachePlugin;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
