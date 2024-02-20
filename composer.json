@@ -18,9 +18,9 @@
     "require": {
         "php": "^8.0",
         "doctrine/annotations": "^1.13 || ^2.0",
-        "symfony/event-dispatcher": "^5.0 || ^6.0",
-        "symfony/serializer": "^5.0 || ^6.0",
-        "symfony/property-access": "^5.0 || ^6.0",
+        "symfony/event-dispatcher": "^5.0 || ^6.0 || ^7.0",
+        "symfony/serializer": "^5.0 || ^6.0 || ^7.0",
+        "symfony/property-access": "^5.0 || ^6.0 || ^7.0",
         "phpdocumentor/reflection-docblock": "^5.3"
     },
     "require-dev": {
@@ -29,8 +29,8 @@
         "php-http/guzzle6-adapter": "^2.0",
         "phpunit/phpunit": "^8.5 || ^9.6",
         "phpunit/phpunit-selenium": "^8.0 || ^9.0",
-        "symfony/cache": "^5.4 || ^6.2",
-        "symfony/phpunit-bridge": "^5.4 || ^6.2",
+        "symfony/cache": "^5.0 || ^6.0 || ^7.0",
+        "symfony/phpunit-bridge": "^5.0 || ^6.0 || ^7.0",
         "ext-json": "*"
     },
     "suggest": {
