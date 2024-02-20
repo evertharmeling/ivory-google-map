@@ -29,8 +29,8 @@
         "php-http/guzzle6-adapter": "^2.0",
         "phpunit/phpunit": "^8.0",
         "phpunit/phpunit-selenium": "^8.0",
-        "symfony/cache": "^5.0",
-        "symfony/phpunit-bridge": "^5.0",
+        "symfony/cache": "^5.0|^6.0",
+        "symfony/phpunit-bridge": "^5.0|^6.0",
         "ext-json": "*"
     },
     "suggest": {
