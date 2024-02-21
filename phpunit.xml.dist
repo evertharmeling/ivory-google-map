@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         colors="true"
+         bootstrap="tests/autoload.php"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+>
+  <testsuites>
+    <testsuite name="Ivory Google Map Test Suite">
+      <directory>./tests/</directory>
+    </testsuite>
+  </testsuites>
 
-<phpunit colors="true" bootstrap="tests/autoload.php">
-    <testsuites>
-        <testsuite name="Ivory Google Map Test Suite">
-            <directory suffix="Test.php">./tests/</directory>
-        </testsuite>
-    </testsuites>
-    <php>
-        <server name="API_KEY" value="" />
-        <server name="API_SECRET" value="" />
-        <server name="BROWSER_NAME" value="chrome" />
-        <server name="SELENIUM_HOST" value="selenium-chrome" />
-        <server name="CACHE_PATH" value="tests/.cache" />
-        <server name="CACHE_RESET" value="false" />
-    </php>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src/</directory>
-        </whitelist>
-    </filter>
-    <groups>
-        <exclude>
-            <!-- Temporarily disabled due to incorrect batch execution errors -->
-            <group>functional</group>
-        </exclude>
-    </groups>
+  <php>
+    <server name="API_KEY" value=""/>
+    <server name="API_SECRET" value=""/>
+    <server name="BROWSER_NAME" value="chrome"/>
+    <server name="SELENIUM_HOST" value="selenium-chrome"/>
+    <server name="CACHE_PATH" value="tests/.cache"/>
+    <server name="CACHE_RESET" value="false"/>
+  </php>
+
+  <coverage>
+    <include>
+      <directory suffix=".php">./src/</directory>
+    </include>
+  </coverage>
+
+  <groups>
+    <exclude>
+      <!-- Temporarily disabled due to incorrect batch execution errors -->
+      <group>functional</group>
+    </exclude>
+  </groups>
 </phpunit>
