@@ -43,17 +43,19 @@ class PlaceSearchResponseIterator implements \Iterator
     /**
      * {@inheritdoc}
      */
-    public function current()
+    public function current(): mixed
     {
         if ($this->valid()) {
             return $this->responses[$this->position];
         }
+
+        return null;
     }
 
-    /**
+    /**s
      * {@inheritdoc}
      */
-    public function next()
+    public function next(): void
     {
         if (!$this->valid()) {
             return;
@@ -78,7 +80,7 @@ class PlaceSearchResponseIterator implements \Iterator
     /**
      * {@inheritdoc}
      */
-    public function key()
+    public function key(): mixed
     {
         return $this->position;
     }
@@ -86,7 +88,7 @@ class PlaceSearchResponseIterator implements \Iterator
     /**
      * {@inheritdoc}
      */
-    public function valid()
+    public function valid(): bool
     {
         return $this->position < count($this->responses);
     }
@@ -94,7 +96,7 @@ class PlaceSearchResponseIterator implements \Iterator
     /**
      * {@inheritdoc}
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }

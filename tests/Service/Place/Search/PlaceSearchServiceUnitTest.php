@@ -87,7 +87,6 @@ class PlaceSearchServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(PlaceSearchResponse::class),
-                $this->identicalTo($this->service->getFormat())
             )
             ->willReturn($response = $this->createPlaceSearchResponseMock());
 

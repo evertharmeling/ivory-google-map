@@ -82,7 +82,6 @@ class PlaceDetailServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(PlaceDetailResponse::class),
-                $this->identicalTo($this->service->getFormat()),
             )
             ->willReturn($response = $this->createPlaceDetailResponseMock());
 

@@ -81,8 +81,7 @@ class TimeZoneServiceUnitTest extends AbstractUnitServiceTest
             ->method('deserialize')
             ->with(
                 $this->identicalTo($result),
-                $this->identicalTo(TimeZoneResponse::class),
-                $this->identicalTo($this->service->getFormat())
+                $this->identicalTo(TimeZoneResponse::class)
             )
             ->willReturn($response = $this->createTimeZoneResponseMock());
 
