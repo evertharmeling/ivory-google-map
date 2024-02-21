@@ -11,7 +11,7 @@ jobs:
     tests:
         runs-on: ubuntu-latest
 
-        name: "PHP ${{ matrix.php }}"
+        name: PHP ${{ matrix.php }} - ${{ matrix.symfony-version }} - ${{ matrix.stability }}
 
         strategy:
             fail-fast: false
