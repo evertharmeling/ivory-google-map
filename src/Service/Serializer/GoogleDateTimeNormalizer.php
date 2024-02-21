@@ -120,14 +120,6 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function hasCacheableSupportsMethod(): bool
-    {
-        return __CLASS__ === static::class;
-    }
-
-    /**
      * Formats datetime errors.
      *
      * @return string[]
@@ -143,6 +135,9 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
         return $formattedErrors;
     }
 
+    /**
+     * @throws \Exception
+     */
     private function getTimezone(array $context): ?\DateTimeZone
     {
         $dateTimeZone = $context[self::TIMEZONE_KEY] ?? $this->defaultContext[self::TIMEZONE_KEY];
@@ -154,8 +149,11 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
         return $dateTimeZone instanceof \DateTimeZone ? $dateTimeZone : new \DateTimeZone($dateTimeZone);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getSupportedTypes(?string $format): array
     {
-        // TODO: Implement getSupportedTypes() method.
+        return self::SUPPORTED_TYPES;
     }
 }
