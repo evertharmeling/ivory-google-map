@@ -89,15 +89,9 @@ abstract class AbstractFunctionalServiceTest extends TestCase
         ]);
     }
 
-    /**
-     * @param string $key
-     * @param string $value
-     *
-     * @return \DateTime
-     */
-    protected function getDateTime($key, $value = 'now')
+    protected function getDateTime(string $key, string $value = 'now'): \DateTime
     {
-        $item = $this->pool->getItem(sha1(get_class().'::'.$key));
+        $item = $this->pool->getItem(sha1(__CLASS__ .'::'.$key));
 
         if (!$item->isHit()) {
             $item->set(new \DateTime($value));

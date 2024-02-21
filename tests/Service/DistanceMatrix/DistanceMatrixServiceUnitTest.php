@@ -82,7 +82,6 @@ class DistanceMatrixServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(DistanceMatrixResponse::class),
-                $this->identicalTo($this->service->getFormat()),
             )
             ->willReturn($response = $this->createDistanceMatrixResponseMock());
 

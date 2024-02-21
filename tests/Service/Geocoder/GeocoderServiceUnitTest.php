@@ -82,7 +82,6 @@ class GeocoderServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(GeocoderResponse::class),
-                $this->identicalTo($this->service->getFormat()),
             )
             ->willReturn($response = $this->createGeocoderResponseMock());
 

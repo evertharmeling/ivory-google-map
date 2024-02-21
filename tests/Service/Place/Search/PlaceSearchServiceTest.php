@@ -128,7 +128,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
     {
         $request = $this->createTextRequest();
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -139,7 +138,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $request = $this->createTextRequest();
         $request->setLocation(new Coordinate(50.637133, 3.063657));
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -151,7 +149,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $request->setLocation(new Coordinate(50.637133, 3.063657));
         $request->setRadius(1000);
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -172,7 +169,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $request = $this->createTextRequest('Pizza in Lille');
         $request->setMaxPrice(PriceLevel::MODERATE);
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -183,7 +179,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $request = $this->createTextRequest();
         $request->setOpenNow(true);
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -204,7 +199,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
         $request = $this->createTextRequest();
         $request->setLanguage('fr');
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);
@@ -224,7 +218,6 @@ class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
     {
         $request = $this->createTextRequest('Church in Lille');
 
-        $this->service->setFormat('json');
         $iterator = $this->service->process($request);
 
         $this->assertPlaceSearchIterator($iterator, $request);

@@ -87,7 +87,6 @@ class PlaceAutocompleteServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(PlaceAutocompleteResponse::class),
-                $this->identicalTo($this->service->getFormat()),
             )
             ->willReturn($response = $this->createPlaceAutocompleteResponseMock());
 
