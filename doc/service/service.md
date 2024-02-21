@@ -25,12 +25,12 @@ as a better experience with the library. The following are the most interesting 
  - Retry Plugin: Retry an error responses (exceptions).
  - Cache Plugin: Cache responses using a [PSR-6](http://www.php-fig.org/psr/psr-6/) compliant cache system.
 
-To use theses plugins, first install them:
+To use these plugins, first install them:
 
 ``` bash
-$ composer require php-http/client-common
-$ composer require php-http/cache-plugin
-$ composer require symfony/cache
+composer require php-http/client-common
+composer require php-http/cache-plugin
+composer require symfony/cache
 ```
 
 Here, I have chosen to use the Symfony Cache PSR-6 component but you can choose your preferred one instead. 

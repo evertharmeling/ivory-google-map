@@ -7,14 +7,18 @@
 ## Quickstart
 [Packagist: ivory/google-map](https://packagist.org/packages/ivory/google-map)
 
-```composer require ivory/google-map``` 
+``` bash
+composer require ivory/google-map
+``` 
 
 ### Symfony Bundle
 [Github: ivory/google-map-bundle](https://github.com/bresam/ivory-google-map-bundle)
 
 [Packagist: ivory/google-map-bundle](https://packagist.org/packages/ivory/google-map-bundle)
 
-```composer require ivory/google-map-bundle``` 
+``` bash
+composer require ivory/google-map-bundle
+``` 
 
 ### Contao Bundle
 

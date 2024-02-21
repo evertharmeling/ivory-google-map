@@ -6,19 +6,14 @@ you.
 
 ## Set up Composer
 
-Composer comes with a simple phar file. To easily access it from anywhere on your system, you can execute:
-
-``` bash
-$ curl -s https://getcomposer.org/installer | php
-$ sudo mv composer.phar /usr/local/bin/composer
-```
+[Install Composer](https://getcomposer.org/)
 
 ## Download the library
 
 Require the library in your `composer.json` file:
 
 ``` bash
-$ composer require ivory/google-map
+composer require ivory/google-map
 ```
 
 ## Download additional libraries
@@ -29,8 +24,8 @@ If you want to use a service (geocoder, direction, ...), you will need an http c
 [Httplug](http://httplug.io/) which is an http client abstraction library:
 
 ``` bash
-$ composer require php-http/guzzle7-adapter
-$ composer require php-http/message
+composer require php-http/guzzle7-adapter
+composer require php-http/message
 ```
 
 Here, I have chosen to use [Guzzle7](http://docs.guzzlephp.org/en/latest/psr7.html) but since Httplug supports the 
@@ -42,7 +37,7 @@ If you want to use a service (geocoder, direction, ...), you will need the
 [Ivory Serializer](https://github.com/egeloen/ivory-serializer) in order to deserialize the http response:
 
 ``` bash
-$ composer require egeloen/serializer
+composer require egeloen/serializer
 ```
 
 ## Autoload
