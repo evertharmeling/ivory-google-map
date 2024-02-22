@@ -37,8 +37,8 @@ class DistanceMatrixServiceApiKeyTest extends DistanceMatrixServiceTest
     public function testProcessWithPlaceIds()
     {
         $request = new DistanceMatrixRequest(
-            [new PlaceIdLocation('ChIJtdVv8-Fv5kcRV7t53Y2Ao3c')],
-            [new PlaceIdLocation('ChIJC_jkvdJv5kcRNX4NW3iuID8')]
+            [new PlaceIdLocation('ChIJAVkDPzdOqEcRcDteW0YgIQQ')],
+            [new PlaceIdLocation('ChIJGaK-SZcLkEcRA9wf5_GNbuY')]
         );
 
         $response = $this->service->process($request);
