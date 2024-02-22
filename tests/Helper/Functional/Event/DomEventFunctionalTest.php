@@ -18,7 +18,7 @@ use Ivory\GoogleMap\Map;
  *
  * @group functional
  */
-class DomEventFunctionalTest extends AbstractDomEventFunctionalTest
+class DomEventFunctionalTest extends AbstractDomEventFunctional
 {
     public function testRender()
     {

@@ -26,12 +26,12 @@ use Ivory\GoogleMap\Service\DistanceMatrix\Response\DistanceMatrixElementStatus;
 use Ivory\GoogleMap\Service\DistanceMatrix\Response\DistanceMatrixResponse;
 use Ivory\GoogleMap\Service\DistanceMatrix\Response\DistanceMatrixRow;
 use Ivory\GoogleMap\Service\DistanceMatrix\Response\DistanceMatrixStatus;
-use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class DistanceMatrixServiceTest extends AbstractSerializableServiceTest
+class DistanceMatrixServiceTest extends AbstractSerializableService
 {
     /**
      * @var DistanceMatrixService

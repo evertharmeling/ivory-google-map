@@ -14,14 +14,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Overlay;
 use Ivory\GoogleMap\Base\Coordinate;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\Polygon;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class PolygonFunctionalTest extends AbstractMapFunctionalTest
+class PolygonFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

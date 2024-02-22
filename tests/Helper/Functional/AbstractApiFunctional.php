@@ -23,7 +23,7 @@ use Ivory\GoogleMap\Utility\VariableAwareInterface;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractApiFunctionalTest extends AbstractFunctionalTest
+abstract class AbstractApiFunctional extends AbstractFunctional
 {
     /**
      * @var ApiHelper

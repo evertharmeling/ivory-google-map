@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Ivory\Tests\GoogleMap\Helper\Functional\Event;
+namespace Ivory\Tests\GoogleMap\Helper\Functional\Place\Event;
 
-use Ivory\GoogleMap\Map;
+use Ivory\GoogleMap\Event\MouseEvent;
+use Ivory\GoogleMap\Place\Autocomplete;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractDomEventFunctionalTest extends AbstractEventFunctionalTest
+abstract class AbstractDomEventFunctional extends AbstractEventFunctional
 {
     /**
      * @var string
@@ -36,9 +37,9 @@ abstract class AbstractDomEventFunctionalTest extends AbstractEventFunctionalTes
     /**
      * {@inheritdoc}
      */
-    protected function renderMap(Map $map, $html = null)
+    protected function renderAutocomplete(Autocomplete $autocomplete, $html = null)
     {
-        return parent::renderMap($map, $html ?: '<button id="'.$this->spyButton.'">Button</button>');
+        return parent::renderAutocomplete($autocomplete, $html ?: '<button id="'.$this->spyButton.'">Button</button>');
     }
 
     /**
@@ -46,7 +47,10 @@ abstract class AbstractDomEventFunctionalTest extends AbstractEventFunctionalTes
      */
     protected function createEvent($instance = null)
     {
-        return parent::createEvent($instance ?: 'document.getElementById("'.$this->spyButton.'")');
+        $event = parent::createEvent($instance ?: 'document.getElementById("'.$this->spyButton.'")');
+        $event->setTrigger(MouseEvent::CLICK);
+
+        return $event;
     }
 
     protected function clickSpyButton()

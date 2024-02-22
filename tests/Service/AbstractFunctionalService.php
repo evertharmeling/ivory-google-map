@@ -29,7 +29,7 @@ use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractFunctionalServiceTest extends TestCase
+abstract class AbstractFunctionalService extends TestCase
 {
     /**
      * @var Journal

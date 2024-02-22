@@ -15,14 +15,14 @@ use Ivory\GoogleMap\Control\ControlPosition;
 use Ivory\GoogleMap\Control\ScaleControl;
 use Ivory\GoogleMap\Control\ScaleControlStyle;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class ScaleControlFunctionalTest extends AbstractMapFunctionalTest
+class ScaleControlFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

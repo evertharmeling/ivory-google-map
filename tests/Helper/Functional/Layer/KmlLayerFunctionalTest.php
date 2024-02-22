@@ -13,14 +13,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Layer;
 
 use Ivory\GoogleMap\Layer\KmlLayer;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class KmlLayerFunctionalTest extends AbstractMapFunctionalTest
+class KmlLayerFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

@@ -14,14 +14,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Overlay;
 use Ivory\GoogleMap\Base\Coordinate;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\Circle;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class CircleFunctionalTest extends AbstractMapFunctionalTest
+class CircleFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

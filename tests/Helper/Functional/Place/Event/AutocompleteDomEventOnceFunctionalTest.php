@@ -18,7 +18,7 @@ use Ivory\GoogleMap\Place\Autocomplete;
  *
  * @group functional
  */
-class AutocompleteDomEventOnceFunctionalTest extends AbstractDomEventFunctionalTest
+class AutocompleteDomEventOnceFunctionalTest extends AbstractDomEventFunctional
 {
     public function testRender()
     {

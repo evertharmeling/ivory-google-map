@@ -22,12 +22,12 @@ use Ivory\GoogleMap\Service\Geocoder\Request\GeocoderRequestInterface;
 use Ivory\GoogleMap\Service\Geocoder\Response\GeocoderResponse;
 use Ivory\GoogleMap\Service\Geocoder\Response\GeocoderResult;
 use Ivory\GoogleMap\Service\Geocoder\Response\GeocoderStatus;
-use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class GeocoderServiceTest extends AbstractSerializableServiceTest
+class GeocoderServiceTest extends AbstractSerializableService
 {
     /**
      * @var GeocoderService

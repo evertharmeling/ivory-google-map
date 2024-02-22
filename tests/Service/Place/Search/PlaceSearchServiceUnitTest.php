@@ -14,13 +14,13 @@ namespace Ivory\Tests\GoogleMap\Service\Place\Search;
 use Ivory\GoogleMap\Service\Place\Search\PlaceSearchService;
 use Ivory\GoogleMap\Service\Place\Search\Request\PlaceSearchRequestInterface;
 use Ivory\GoogleMap\Service\Place\Search\Response\PlaceSearchResponse;
-use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractUnitService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class PlaceSearchServiceUnitTest extends AbstractUnitServiceTest
+class PlaceSearchServiceUnitTest extends AbstractUnitService
 {
     /**
      * @var PlaceSearchService

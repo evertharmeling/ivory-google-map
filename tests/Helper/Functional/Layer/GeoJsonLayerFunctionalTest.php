@@ -13,14 +13,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Layer;
 
 use Ivory\GoogleMap\Layer\GeoJsonLayer;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class GeoJsonLayerFunctionalTest extends AbstractMapFunctionalTest
+class GeoJsonLayerFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

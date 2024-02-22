@@ -9,16 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Ivory\Tests\GoogleMap\Helper\Functional\Event;
+namespace Ivory\Tests\GoogleMap\Helper\Functional\Place\Event;
 
 use Ivory\GoogleMap\Event\Event;
-use Ivory\GoogleMap\Event\MouseEvent;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\Place\AbstractAutocompleteFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractEventFunctionalTest extends AbstractMapFunctionalTest
+abstract class AbstractEventFunctional extends AbstractAutocompleteFunctional
 {
     /**
      * @var string
@@ -33,6 +32,16 @@ abstract class AbstractEventFunctionalTest extends AbstractMapFunctionalTest
         parent::setUp();
 
         $this->spyCount = 'spy_count';
+    }
+
+    protected function selectAutocomplete()
+    {
+        sleep(1);
+
+        $this->keys(\PHPUnit_Extensions_Selenium2TestCase_Keys::DOWN);
+        $this->keys(\PHPUnit_Extensions_Selenium2TestCase_Keys::ENTER);
+
+        sleep(1);
     }
 
     /**
@@ -52,7 +61,7 @@ abstract class AbstractEventFunctionalTest extends AbstractMapFunctionalTest
     {
         return new Event(
             $instance,
-            MouseEvent::CLICK,
+            'place_changed',
             <<<EOF
 function () { 
     if (typeof {$this->spyCount} === typeof undefined) { 

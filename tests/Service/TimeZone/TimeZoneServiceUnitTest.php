@@ -14,13 +14,13 @@ namespace Ivory\Tests\GoogleMap\Service\TimeZone;
 use Ivory\GoogleMap\Service\TimeZone\Request\TimeZoneRequest;
 use Ivory\GoogleMap\Service\TimeZone\Response\TimeZoneResponse;
 use Ivory\GoogleMap\Service\TimeZone\TimeZoneService;
-use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractUnitService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class TimeZoneServiceUnitTest extends AbstractUnitServiceTest
+class TimeZoneServiceUnitTest extends AbstractUnitService
 {
     /**
      * @var TimeZoneService

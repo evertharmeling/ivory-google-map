@@ -19,12 +19,12 @@ use Ivory\GoogleMap\Service\Place\Base\Period;
 use Ivory\GoogleMap\Service\Place\Base\Photo;
 use Ivory\GoogleMap\Service\Place\Base\Place;
 use Ivory\GoogleMap\Service\Place\Base\Review;
-use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractPlaceSerializableServiceTest extends AbstractSerializableServiceTest
+abstract class AbstractPlaceSerializableService extends AbstractSerializableService
 {
     /**
      * @param Place   $place

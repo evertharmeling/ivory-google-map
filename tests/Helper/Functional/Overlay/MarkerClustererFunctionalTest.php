@@ -15,14 +15,14 @@ use Ivory\GoogleMap\Base\Coordinate;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\Marker;
 use Ivory\GoogleMap\Overlay\MarkerClusterType;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class MarkerClustererFunctionalTest extends AbstractMapFunctionalTest
+class MarkerClustererFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

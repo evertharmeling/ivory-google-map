@@ -40,7 +40,7 @@ use Ivory\GoogleMap\Overlay\SymbolPath;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractMapFunctionalTest extends AbstractApiFunctionalTest
+abstract class AbstractMapFunctional extends AbstractApiFunctional
 {
     /**
      * @var MapHelper

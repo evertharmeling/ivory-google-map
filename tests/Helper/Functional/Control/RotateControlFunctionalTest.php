@@ -14,14 +14,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Control;
 use Ivory\GoogleMap\Control\ControlPosition;
 use Ivory\GoogleMap\Control\RotateControl;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class RotateControlFunctionalTest extends AbstractMapFunctionalTest
+class RotateControlFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

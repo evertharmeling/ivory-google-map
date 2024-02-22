@@ -15,12 +15,12 @@ use Ivory\GoogleMap\Base\Coordinate;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\InfoWindow;
 use Ivory\GoogleMap\Overlay\Marker;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractMarkerInfoWindowFunctionalTest extends AbstractMapFunctionalTest
+abstract class AbstractMarkerInfoWindowFunctional extends AbstractMapFunctional
 {
     public function testRender()
     {

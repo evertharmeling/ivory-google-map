@@ -16,14 +16,14 @@ use Ivory\GoogleMap\Base\Size;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\InfoWindow;
 use Ivory\GoogleMap\Overlay\InfoWindowType;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class InfoBoxFunctionalTest extends AbstractMapFunctionalTest
+class InfoBoxFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

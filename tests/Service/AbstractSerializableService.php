@@ -23,7 +23,7 @@ use Ivory\GoogleMap\Service\Base\Time;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractSerializableServiceTest extends AbstractFunctionalServiceTest
+abstract class AbstractSerializableService extends AbstractFunctionalService
 {
     /**
      * @param AddressComponent $addressComponent

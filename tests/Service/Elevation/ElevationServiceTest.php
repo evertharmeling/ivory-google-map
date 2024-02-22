@@ -22,12 +22,12 @@ use Ivory\GoogleMap\Service\Elevation\Request\PositionalElevationRequest;
 use Ivory\GoogleMap\Service\Elevation\Response\ElevationResponse;
 use Ivory\GoogleMap\Service\Elevation\Response\ElevationResult;
 use Ivory\GoogleMap\Service\Elevation\Response\ElevationStatus;
-use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class ElevationServiceTest extends AbstractSerializableServiceTest
+class ElevationServiceTest extends AbstractSerializableService
 {
     /**
      * @var ElevationService

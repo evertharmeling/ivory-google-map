@@ -24,12 +24,12 @@ use Ivory\GoogleMap\Service\Place\Search\Request\TextPlaceSearchRequest;
 use Ivory\GoogleMap\Service\Place\Search\Response\PlaceSearchResponse;
 use Ivory\GoogleMap\Service\Place\Search\Response\PlaceSearchResponseIterator;
 use Ivory\GoogleMap\Service\Place\Search\Response\PlaceSearchStatus;
-use Ivory\Tests\GoogleMap\Service\Place\AbstractPlaceSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\Place\AbstractPlaceSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class PlaceSearchServiceTest extends AbstractPlaceSerializableServiceTest
+class PlaceSearchServiceTest extends AbstractPlaceSerializableService
 {
     /**
      * @var PlaceSearchService

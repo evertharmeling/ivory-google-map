@@ -15,14 +15,14 @@ use Ivory\GoogleMap\Control\ControlPosition;
 use Ivory\GoogleMap\Control\ZoomControl;
 use Ivory\GoogleMap\Control\ZoomControlStyle;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class ZoomControlFunctionalTest extends AbstractMapFunctionalTest
+class ZoomControlFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

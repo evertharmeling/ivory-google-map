@@ -14,13 +14,13 @@ namespace Ivory\Tests\GoogleMap\Service\DistanceMatrix;
 use Ivory\GoogleMap\Service\DistanceMatrix\DistanceMatrixService;
 use Ivory\GoogleMap\Service\DistanceMatrix\Request\DistanceMatrixRequestInterface;
 use Ivory\GoogleMap\Service\DistanceMatrix\Response\DistanceMatrixResponse;
-use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractUnitService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class DistanceMatrixServiceUnitTest extends AbstractUnitServiceTest
+class DistanceMatrixServiceUnitTest extends AbstractUnitService
 {
     /**
      * @var DistanceMatrixService
