@@ -14,13 +14,13 @@ namespace Ivory\Tests\GoogleMap\Service\Geocoder;
 use Ivory\GoogleMap\Service\Geocoder\GeocoderService;
 use Ivory\GoogleMap\Service\Geocoder\Request\AbstractGeocoderRequest;
 use Ivory\GoogleMap\Service\Geocoder\Response\GeocoderResponse;
-use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractUnitService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class GeocoderServiceUnitTest extends AbstractUnitServiceTest
+class GeocoderServiceUnitTest extends AbstractUnitService
 {
     /**
      * @var GeocoderService
@@ -82,7 +82,6 @@ class GeocoderServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(GeocoderResponse::class),
-                $this->identicalTo($this->service->getFormat()),
             )
             ->willReturn($response = $this->createGeocoderResponseMock());
 

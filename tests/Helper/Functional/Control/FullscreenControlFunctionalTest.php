@@ -14,14 +14,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Control;
 use Ivory\GoogleMap\Control\ControlPosition;
 use Ivory\GoogleMap\Control\FullscreenControl;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class FullscreenControlFunctionalTest extends AbstractMapFunctionalTest
+class FullscreenControlFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

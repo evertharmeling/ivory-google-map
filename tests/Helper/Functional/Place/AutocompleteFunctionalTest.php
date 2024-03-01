@@ -22,7 +22,7 @@ use Ivory\GoogleMap\Place\AutocompleteType;
  *
  * @group functional
  */
-class AutocompleteFunctionalTest extends AbstractAutocompleteFunctionalTest
+class AutocompleteFunctionalTest extends AbstractAutocompleteFunctional
 {
     public function testRender()
     {

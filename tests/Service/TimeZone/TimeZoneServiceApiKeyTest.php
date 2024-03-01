@@ -18,12 +18,12 @@ use Ivory\GoogleMap\Service\TimeZone\Request\TimeZoneRequestInterface;
 use Ivory\GoogleMap\Service\TimeZone\Response\TimeZoneResponse;
 use Ivory\GoogleMap\Service\TimeZone\Response\TimeZoneStatus;
 use Ivory\GoogleMap\Service\TimeZone\TimeZoneService;
-use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class TimeZoneServiceApiKeyTest extends AbstractSerializableServiceTest
+class TimeZoneServiceApiKeyTest extends AbstractSerializableService
 {
     /**
      * @var TimeZoneService

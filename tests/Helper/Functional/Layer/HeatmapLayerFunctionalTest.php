@@ -14,14 +14,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Layer;
 use Ivory\GoogleMap\Base\Coordinate;
 use Ivory\GoogleMap\Layer\HeatmapLayer;
 use Ivory\GoogleMap\Map;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class HeatmapLayerFunctionalTest extends AbstractMapFunctionalTest
+class HeatmapLayerFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

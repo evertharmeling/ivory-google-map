@@ -18,7 +18,7 @@ use Ivory\GoogleMap\Overlay\InfoWindowType;
  *
  * @group functional
  */
-class MarkerInfoBoxFunctionalTest extends AbstractMarkerInfoWindowFunctionalTest
+class MarkerInfoBoxFunctionalTest extends AbstractMarkerInfoWindowFunctional
 {
     /**
      * {@inheritdoc}

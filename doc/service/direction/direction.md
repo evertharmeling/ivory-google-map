@@ -17,14 +17,14 @@ First of all, if you want to route a direction, you will need to build a directi
 
 ``` php
 use Ivory\GoogleMap\Service\Direction\DirectionService;
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
 
 $direction = new DirectionService(new Client(), new GuzzleMessageFactory());
 ```
 
 The direction constructor requires an `HttpClient` as first argument and a `MessageFactory` as second argument. Here, 
-I have chosen to use the [Guzzle6](http://docs.guzzlephp.org/en/latest/psr7.html) client as well as the Guzzle message 
+I have chosen to use the [Guzzle7](http://docs.guzzlephp.org/en/latest/psr7.html) client as well as the Guzzle message 
 factory. Httplug supports the most popular http clients, so, you can choose you preferred one instead.
 
 The direction constructor also accepts a `SerializerInterface` as third argument. It is highly recommended to use it 
@@ -33,7 +33,7 @@ in order to configure a PSR-6 cache pool and so avoid parsing the built-in metad
 ``` php
 use Ivory\GoogleMap\Service\Direction\DirectionService;
 use Ivory\GoogleMap\Service\Serializer\SerializerBuilder;
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
 
 $direction = new DirectionService(

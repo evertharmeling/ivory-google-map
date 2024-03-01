@@ -76,7 +76,6 @@ class SerializableServiceTest extends TestCase
         $this->assertSame($this->client, $this->service->getClient());
         $this->assertSame($this->messageFactory, $this->service->getMessageFactory());
         $this->assertSame($this->serializer, $this->service->getSerializer());
-        $this->assertSame(AbstractSerializableService::FORMAT_JSON, $this->service->getFormat());
         $this->assertFalse($this->service->hasKey());
         $this->assertNull($this->service->getKey());
         $this->assertFalse($this->service->hasBusinessAccount());

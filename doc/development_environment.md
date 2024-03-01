@@ -6,8 +6,8 @@ The most easy way to set up the project is to install [Docker](https://www.docke
 ## Configure
 
 ``` bash
-$ cp .env.dist .env
-$ cp phpunit.xml.dist phpunit.xml
+cp .env.dist .env
+cp phpunit.xml.dist phpunit.xml
 ```
 Add proper credentials in `phpunit.xml`
 
@@ -27,7 +27,7 @@ These Endpoints are used:
 Once you have configured your environment, you can build the project:
 
 ``` bash
-$ docker-compose build
+docker-compose build
 ```
 
 ## Composer
@@ -35,7 +35,7 @@ $ docker-compose build
 Install the dependencies via [Composer](https://getcomposer.org/):
 
 ``` bash
-$ docker-compose run --rm php composer install
+docker-compose run --rm php composer install
 ```
 
 ## Tests
@@ -43,13 +43,13 @@ $ docker-compose run --rm php composer install
 To start the test suite, you can use:
 
 ``` bash
-$ docker-compose up -d
+docker-compose up -d
 ```
 
 To run phpunit:
 
 ``` bash
-$ docker exec ivory-google-map_php_1 vendor/bin/phpunit
+docker exec ivory-google-map_php_1 vendor/bin/phpunit
 ```
 
 ## Tests with PHP Storm integration

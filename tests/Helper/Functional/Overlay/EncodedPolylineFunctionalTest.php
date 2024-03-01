@@ -13,14 +13,14 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Overlay;
 
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\EncodedPolyline;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class EncodedPolylineFunctionalTest extends AbstractMapFunctionalTest
+class EncodedPolylineFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

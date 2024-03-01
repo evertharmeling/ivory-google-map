@@ -1,20 +1,24 @@
 # README
 
-[![Travis Build Status](https://api.travis-ci.com/bresam/ivory-google-map.svg?branch=master)](https://travis-ci.com/github/bresam/ivory-google-map)
+[![Build](https://github.com/bresam/ivory-google-map/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/bresam/ivory-google-map/actions/workflows/build.yml)
 [![Code Coverage](https://scrutinizer-ci.com/g/bresam/ivory-google-map/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bresam/ivory-google-map/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bresam/ivory-google-map/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bresam/ivory-google-map/?branch=master)
 
 ## Quickstart
 [Packagist: ivory/google-map](https://packagist.org/packages/ivory/google-map)
 
-```composer require ivory/google-map``` 
+``` bash
+composer require ivory/google-map
+``` 
 
 ### Symfony Bundle
 [Github: ivory/google-map-bundle](https://github.com/bresam/ivory-google-map-bundle)
 
 [Packagist: ivory/google-map-bundle](https://packagist.org/packages/ivory/google-map-bundle)
 
-```composer require ivory/google-map-bundle``` 
+``` bash
+composer require ivory/google-map-bundle
+``` 
 
 ### Contao Bundle
 
@@ -94,8 +98,7 @@ echo $apiHelper->render([$map]);
 
 ## Testing
 
-The library is fully unit tested by [PHPUnit](http://www.phpunit.de/) with a code coverage close to **100%**. To
-execute the test suite, check the travis [configuration](/.travis.yml).
+The library is fully unit tested by [PHPUnit](http://www.phpunit.de/) with a code coverage close to **100%**.
 
 ## Contribute
 

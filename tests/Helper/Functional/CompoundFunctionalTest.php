@@ -25,7 +25,7 @@ use Ivory\GoogleMap\Place\Autocomplete;
  *
  * @group functional
  */
-class CompoundFunctionalTest extends AbstractApiFunctionalTest
+class CompoundFunctionalTest extends AbstractApiFunctional
 {
     /**
      * @var PlaceAutocompleteHelper

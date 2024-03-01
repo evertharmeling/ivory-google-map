@@ -16,6 +16,6 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Overlay;
  *
  * @group functional
  */
-class MarkerInfoWindowFunctionalTest extends AbstractMarkerInfoWindowFunctionalTest
+class MarkerInfoWindowFunctionalTest extends AbstractMarkerInfoWindowFunctional
 {
 }

@@ -16,14 +16,14 @@ use Ivory\GoogleMap\Control\MapTypeControl;
 use Ivory\GoogleMap\Control\MapTypeControlStyle;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\MapTypeId;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class MapTypeControlFunctionalTest extends AbstractMapFunctionalTest
+class MapTypeControlFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

@@ -15,14 +15,14 @@ use Ivory\GoogleMap\Base\Bound;
 use Ivory\GoogleMap\Base\Coordinate;
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\GroundOverlay;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class GroundOverlayFunctionalTest extends AbstractMapFunctionalTest
+class GroundOverlayFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

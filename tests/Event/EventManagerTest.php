@@ -21,10 +21,7 @@ use PHPUnit\Framework\TestCase;
  */
 class EventManagerTest extends TestCase
 {
-    /**
-     * @var EventManager
-     */
-    private $eventManager;
+    private EventManager $eventManager;
 
     /**
      * {@inheritdoc}

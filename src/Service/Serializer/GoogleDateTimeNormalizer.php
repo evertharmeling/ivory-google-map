@@ -7,11 +7,10 @@ namespace Ivory\GoogleMap\Service\Serializer;
 use Symfony\Component\PropertyInfo\Type;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
-use Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInterface, CacheableSupportsMethodInterface
+class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInterface
 {
     public const FORMAT_KEY = 'datetime_format';
     public const TIMEZONE_KEY = 'datetime_timezone';
@@ -39,12 +38,8 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
 
     /**
      * {@inheritdoc}
-     *
-     * @return string
-     *
-     * @throws InvalidArgumentException
      */
-    public function normalize($object, string $format = null, array $context = [])
+    public function normalize(mixed $object, string $format = null, array $context = []): float|int|bool|\ArrayObject|array|string|null
     {
         if (!$object instanceof \DateTimeInterface) {
             throw new InvalidArgumentException('The object must implement the "\DateTimeInterface".');
@@ -64,7 +59,7 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
     /**
      * {@inheritdoc}
      */
-    public function supportsNormalization($data, string $format = null)
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
         return $data instanceof \DateTimeInterface;
     }
@@ -76,7 +71,7 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
      *
      * @throws NotNormalizableValueException
      */
-    public function denormalize($data, string $type, string $format = null, array $context = [])
+    public function denormalize($data, string $type, string $format = null, array $context = []): mixed
     {
         $dateTimeFormat = $context[self::FORMAT_KEY] ?? null;
         $timezone = $this->getTimezone($context);
@@ -119,17 +114,9 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
     /**
      * {@inheritdoc}
      */
-    public function supportsDenormalization($data, string $type, string $format = null)
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
         return isset(self::SUPPORTED_TYPES[$type]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasCacheableSupportsMethod(): bool
-    {
-        return __CLASS__ === static::class;
     }
 
     /**
@@ -148,6 +135,9 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
         return $formattedErrors;
     }
 
+    /**
+     * @throws \Exception
+     */
     private function getTimezone(array $context): ?\DateTimeZone
     {
         $dateTimeZone = $context[self::TIMEZONE_KEY] ?? $this->defaultContext[self::TIMEZONE_KEY];
@@ -157,5 +147,13 @@ class GoogleDateTimeNormalizer implements NormalizerInterface, DenormalizerInter
         }
 
         return $dateTimeZone instanceof \DateTimeZone ? $dateTimeZone : new \DateTimeZone($dateTimeZone);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSupportedTypes(?string $format): array
+    {
+        return self::SUPPORTED_TYPES;
     }
 }

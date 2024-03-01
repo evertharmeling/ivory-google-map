@@ -24,12 +24,12 @@ use Ivory\GoogleMap\Service\Place\Autocomplete\Response\PlaceAutocompletePredict
 use Ivory\GoogleMap\Service\Place\Autocomplete\Response\PlaceAutocompleteResponse;
 use Ivory\GoogleMap\Service\Place\Autocomplete\Response\PlaceAutocompleteStatus;
 use Ivory\GoogleMap\Service\Place\Autocomplete\Response\PlaceAutocompleteTerm;
-use Ivory\Tests\GoogleMap\Service\Place\AbstractPlaceSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\Place\AbstractPlaceSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class PlaceAutocompleteServiceTest extends AbstractPlaceSerializableServiceTest
+class PlaceAutocompleteServiceTest extends AbstractPlaceSerializableService
 {
     /**
      * @var PlaceAutocompleteService

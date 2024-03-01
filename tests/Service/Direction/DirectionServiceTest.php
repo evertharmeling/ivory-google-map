@@ -36,12 +36,12 @@ use Ivory\GoogleMap\Service\Direction\Response\Transit\DirectionTransitDetails;
 use Ivory\GoogleMap\Service\Direction\Response\Transit\DirectionTransitLine;
 use Ivory\GoogleMap\Service\Direction\Response\Transit\DirectionTransitStop;
 use Ivory\GoogleMap\Service\Direction\Response\Transit\DirectionTransitVehicle;
-use Ivory\Tests\GoogleMap\Service\AbstractSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class DirectionServiceTest extends AbstractSerializableServiceTest
+class DirectionServiceTest extends AbstractSerializableService
 {
     protected ?DirectionService $service = null;
 

@@ -14,13 +14,13 @@ namespace Ivory\Tests\GoogleMap\Service\Place\Detail;
 use Ivory\GoogleMap\Service\Place\Detail\PlaceDetailService;
 use Ivory\GoogleMap\Service\Place\Detail\Request\PlaceDetailRequestInterface;
 use Ivory\GoogleMap\Service\Place\Detail\Response\PlaceDetailResponse;
-use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractUnitService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class PlaceDetailServiceUnitTest extends AbstractUnitServiceTest
+class PlaceDetailServiceUnitTest extends AbstractUnitService
 {
     /**
      * @var PlaceDetailService
@@ -82,7 +82,6 @@ class PlaceDetailServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(PlaceDetailResponse::class),
-                $this->identicalTo($this->service->getFormat()),
             )
             ->willReturn($response = $this->createPlaceDetailResponseMock());
 

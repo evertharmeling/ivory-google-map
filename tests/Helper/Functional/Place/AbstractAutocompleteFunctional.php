@@ -14,12 +14,12 @@ namespace Ivory\Tests\GoogleMap\Helper\Functional\Place;
 use Ivory\GoogleMap\Helper\Builder\PlaceAutocompleteHelperBuilder;
 use Ivory\GoogleMap\Helper\PlaceAutocompleteHelper;
 use Ivory\GoogleMap\Place\Autocomplete;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractApiFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractApiFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractAutocompleteFunctionalTest extends AbstractApiFunctionalTest
+abstract class AbstractAutocompleteFunctional extends AbstractApiFunctional
 {
     /**
      * @var PlaceAutocompleteHelper

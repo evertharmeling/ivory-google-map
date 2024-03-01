@@ -14,13 +14,13 @@ namespace Ivory\Tests\GoogleMap\Service\Elevation;
 use Ivory\GoogleMap\Service\Elevation\ElevationService;
 use Ivory\GoogleMap\Service\Elevation\Request\ElevationRequestInterface;
 use Ivory\GoogleMap\Service\Elevation\Response\ElevationResponse;
-use Ivory\Tests\GoogleMap\Service\AbstractUnitServiceTest;
+use Ivory\Tests\GoogleMap\Service\AbstractUnitService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class ElevationServiceUnitTest extends AbstractUnitServiceTest
+class ElevationServiceUnitTest extends AbstractUnitService
 {
     /**
      * @var ElevationService
@@ -82,7 +82,6 @@ class ElevationServiceUnitTest extends AbstractUnitServiceTest
             ->with(
                 $this->identicalTo($result),
                 $this->identicalTo(ElevationResponse::class),
-                $this->identicalTo($this->service->getFormat())
             )
             ->willReturn($response = $this->createElevationResponseMock());
 

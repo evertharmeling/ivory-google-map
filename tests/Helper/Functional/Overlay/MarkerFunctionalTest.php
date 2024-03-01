@@ -20,14 +20,14 @@ use Ivory\GoogleMap\Overlay\MarkerShape;
 use Ivory\GoogleMap\Overlay\MarkerShapeType;
 use Ivory\GoogleMap\Overlay\Symbol;
 use Ivory\GoogleMap\Overlay\SymbolPath;
-use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctionalTest;
+use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  *
  * @group functional
  */
-class MarkerFunctionalTest extends AbstractMapFunctionalTest
+class MarkerFunctionalTest extends AbstractMapFunctional
 {
     public function testRender()
     {

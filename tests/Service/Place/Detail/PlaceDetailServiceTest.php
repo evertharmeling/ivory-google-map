@@ -17,12 +17,12 @@ use Ivory\GoogleMap\Service\Place\Detail\Request\PlaceDetailRequest;
 use Ivory\GoogleMap\Service\Place\Detail\Request\PlaceDetailRequestInterface;
 use Ivory\GoogleMap\Service\Place\Detail\Response\PlaceDetailResponse;
 use Ivory\GoogleMap\Service\Place\Detail\Response\PlaceDetailStatus;
-use Ivory\Tests\GoogleMap\Service\Place\AbstractPlaceSerializableServiceTest;
+use Ivory\Tests\GoogleMap\Service\Place\AbstractPlaceSerializableService;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class PlaceDetailServiceTest extends AbstractPlaceSerializableServiceTest
+class PlaceDetailServiceTest extends AbstractPlaceSerializableService
 {
     /**
      * @var PlaceDetailService

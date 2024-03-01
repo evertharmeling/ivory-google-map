@@ -24,7 +24,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractUnitServiceTest extends TestCase
+abstract class AbstractUnitService extends TestCase
 {
     /**
      * @var HttpClient|MockObject

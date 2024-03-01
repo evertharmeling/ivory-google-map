@@ -60,7 +60,7 @@ class ErrorPlugin implements Plugin
 
         foreach (self::$errors as $error => $exception) {
             foreach (self::$placeholders as $placeholder) {
-                if (false !== strpos($body, sprintf($placeholder, $error))) {
+                if (str_contains($body, sprintf($placeholder, $error))) {
                     throw new $exception($error, $request, $response);
                 }
             }

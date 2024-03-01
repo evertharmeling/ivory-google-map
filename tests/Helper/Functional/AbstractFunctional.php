@@ -16,7 +16,7 @@ use PHPUnit\Extensions\Selenium2TestCase;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractFunctionalTest extends Selenium2TestCase
+abstract class AbstractFunctional extends Selenium2TestCase
 {
     /**
      * @var string
