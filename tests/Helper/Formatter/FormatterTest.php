@@ -247,7 +247,7 @@ class FormatterTest extends TestCase
         VariableAwareInterface $root,
         $declaration,
         $propertyPath = null,
-        VariableAwareInterface $object = null,
+        ?VariableAwareInterface $object = null,
         $semicolon = true,
         $newLine = true,
         $debug = false
@@ -275,7 +275,7 @@ class FormatterTest extends TestCase
         $expected,
         VariableAwareInterface $root,
         $propertyPath = null,
-        VariableAwareInterface $object = null,
+        ?VariableAwareInterface $object = null,
         $debug = false
     ) {
         $this->formatter->setDebug($debug);

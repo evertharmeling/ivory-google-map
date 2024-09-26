@@ -35,7 +35,7 @@ class Bound implements VariableAwareInterface
     #[SerializedName('extendables')]
     private array $extendables = [];
 
-    public function __construct(Coordinate $southWest = null, Coordinate $northEast = null)
+    public function __construct(?Coordinate $southWest = null, ?Coordinate $northEast = null)
     {
         $this->setSouthWest($southWest);
         $this->setNorthEast($northEast);

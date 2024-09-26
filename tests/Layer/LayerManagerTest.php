@@ -393,7 +393,7 @@ class LayerManagerTest extends TestCase
     /**
      * @return MockObject|Map
      */
-    private function createMapMock(Bound $bound = null)
+    private function createMapMock(?Bound $bound = null)
     {
         $map = $this->createMock(Map::class);
         $map

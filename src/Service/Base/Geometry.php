@@ -114,7 +114,7 @@ class Geometry
         return $this->bound;
     }
 
-    public function setBound(Bound $bound = null)
+    public function setBound(?Bound $bound = null)
     {
         $this->bound = $bound;
     }
