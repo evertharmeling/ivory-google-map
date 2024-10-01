@@ -31,7 +31,7 @@ abstract class AbstractSerializableService extends AbstractHttpService
         string $url,
         HttpClient $client,
         MessageFactory $messageFactory,
-        SerializerInterface $serializer = null
+        ?SerializerInterface $serializer = null
     ) {
         parent::__construct($url, $client, $messageFactory);
 

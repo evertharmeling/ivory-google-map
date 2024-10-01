@@ -60,7 +60,7 @@ class DirectionRoute
         return $this->bound;
     }
 
-    public function setBound(Bound $bound = null): void
+    public function setBound(?Bound $bound = null): void
     {
         $this->bound = $bound;
     }

@@ -26,7 +26,7 @@ class TimeZoneService extends AbstractSerializableService
     public function __construct(
         HttpClient $client,
         MessageFactory $messageFactory,
-        SerializerInterface $serializer = null
+        ?SerializerInterface $serializer = null
     ) {
         parent::__construct('https://maps.googleapis.com/maps/api/timezone', $client, $messageFactory, $serializer);
     }

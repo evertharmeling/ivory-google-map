@@ -42,7 +42,7 @@ class JsonBuilder
     private $jsonEncodeOptions;
 
 
-    public function __construct(PropertyAccessorInterface $propertyAccessor = null)
+    public function __construct(?PropertyAccessorInterface $propertyAccessor = null)
     {
         $this->accessor = $propertyAccessor ?: new PropertyAccessor();
 
@@ -71,7 +71,7 @@ class JsonBuilder
         return $this->values;
     }
 
-    public function setValues(array $values, string $pathPrefix = null): JsonBuilder
+    public function setValues(array $values, ?string $pathPrefix = null): JsonBuilder
     {
         foreach ($values as $key => $value) {
             $path = sprintf('%s[%s]', $pathPrefix, $key);

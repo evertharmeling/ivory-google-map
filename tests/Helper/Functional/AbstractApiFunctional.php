@@ -150,7 +150,7 @@ abstract class AbstractApiFunctional extends AbstractFunctional
     protected function assertSameContainerVariable(
         VariableAwareInterface $root,
         $propertyPath,
-        VariableAwareInterface $object = null,
+        ?VariableAwareInterface $object = null,
         $expected = null,
         $formatter = null
     ) {
@@ -191,7 +191,7 @@ abstract class AbstractApiFunctional extends AbstractFunctional
     private function getContainer(
         VariableAwareInterface $root,
         $propertyPath = null,
-        VariableAwareInterface $object = null
+        ?VariableAwareInterface $object = null
     ) {
         $variable = $root->getVariable().'_container';
 

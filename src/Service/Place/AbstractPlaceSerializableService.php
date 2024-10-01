@@ -27,7 +27,7 @@ abstract class AbstractPlaceSerializableService extends AbstractSerializableServ
     public function __construct(
         HttpClient $client,
         MessageFactory $messageFactory,
-        SerializerInterface $serializer = null,
+        ?SerializerInterface $serializer = null,
         $context = null
     ) {
         if (null !== $context) {
