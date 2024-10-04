@@ -88,7 +88,7 @@ abstract class AbstractService
     }
 
     /**
-     * @return BusinessAccount
+     * @return ?BusinessAccount
      */
     public function getBusinessAccount()
     {
@@ -96,9 +96,9 @@ abstract class AbstractService
     }
 
     /**
-     * @param BusinessAccount $businessAccount
+     * @param ?BusinessAccount $businessAccount
      */
-    public function setBusinessAccount(BusinessAccount $businessAccount = null)
+    public function setBusinessAccount(?BusinessAccount $businessAccount = null)
     {
         $this->businessAccount = $businessAccount;
     }
