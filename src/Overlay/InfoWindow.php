@@ -72,7 +72,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
      * @param string $content
      * @param string $type
      */
-    public function __construct($content, $type = InfoWindowType::DEFAULT_, Coordinate $position = null)
+    public function __construct($content, $type = InfoWindowType::DEFAULT_, ?Coordinate $position = null)
     {
         $this->setContent($content);
         $this->setType($type);
@@ -127,7 +127,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
         return $this->position;
     }
 
-    public function setPosition(Coordinate $position = null)
+    public function setPosition(?Coordinate $position = null)
     {
         $this->position = $position;
     }
@@ -148,7 +148,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
         return $this->pixedOffset;
     }
 
-    public function setPixelOffset(Size $pixelOffset = null)
+    public function setPixelOffset(?Size $pixelOffset = null)
     {
         $this->pixedOffset = $pixelOffset;
     }
