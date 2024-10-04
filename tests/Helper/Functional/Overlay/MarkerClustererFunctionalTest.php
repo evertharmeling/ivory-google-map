@@ -52,7 +52,7 @@ class MarkerClustererFunctionalTest extends AbstractMapFunctional
     /**
      * @return Marker
      */
-    private function createMarker(Coordinate $position = null)
+    private function createMarker(?Coordinate $position = null)
     {
         return new Marker($position ?: new Coordinate());
     }
