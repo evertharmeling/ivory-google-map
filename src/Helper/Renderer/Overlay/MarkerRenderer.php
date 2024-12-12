@@ -53,7 +53,7 @@ class MarkerRenderer extends AbstractJsonRenderer
     /**
      * @return string
      */
-    public function render(Marker $marker, Map $map = null)
+    public function render(Marker $marker, ?Map $map = null)
     {
         $formatter = $this->getFormatter();
         $jsonBuilder = $this->getJsonBuilder()

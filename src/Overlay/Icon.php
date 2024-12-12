@@ -62,11 +62,11 @@ class Icon implements VariableAwareInterface
      */
     public function __construct(
         $url = self::DEFAULT_URL,
-        Point $anchor = null,
-        Point $origin = null,
-        Size $scaledSize = null,
-        Size $size = null,
-        Point $labelOrigin = null
+        ?Point $anchor = null,
+        ?Point $origin = null,
+        ?Size $scaledSize = null,
+        ?Size $size = null,
+        ?Point $labelOrigin = null
     ) {
         $this->setUrl($url);
         $this->setAnchor($anchor);
@@ -108,7 +108,7 @@ class Icon implements VariableAwareInterface
         return $this->anchor;
     }
 
-    public function setAnchor(Point $anchor = null)
+    public function setAnchor(?Point $anchor = null)
     {
         $this->anchor = $anchor;
     }
@@ -129,7 +129,7 @@ class Icon implements VariableAwareInterface
         return $this->origin;
     }
 
-    public function setOrigin(Point $origin = null)
+    public function setOrigin(?Point $origin = null)
     {
         $this->origin = $origin;
     }
@@ -150,7 +150,7 @@ class Icon implements VariableAwareInterface
         return $this->scaledSize;
     }
 
-    public function setScaledSize(Size $scaledSize = null)
+    public function setScaledSize(?Size $scaledSize = null)
     {
         $this->scaledSize = $scaledSize;
     }

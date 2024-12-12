@@ -58,8 +58,8 @@ class ApiHelperBuilder extends AbstractJavascriptHelperBuilder
      * @param string|null $key
      */
     public function __construct(
-        Formatter $formatter = null,
-        JsonBuilder $jsonBuilder = null,
+        ?Formatter $formatter = null,
+        ?JsonBuilder $jsonBuilder = null,
         $language = 'en',
         $key = null
     ) {

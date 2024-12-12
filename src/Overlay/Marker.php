@@ -66,9 +66,9 @@ class Marker implements ExtendableInterface, OptionsAwareInterface, StaticOption
     public function __construct(
         Coordinate $position,
         $animation = null,
-        Icon $icon = null,
-        Symbol $symbol = null,
-        MarkerShape $shape = null,
+        ?Icon $icon = null,
+        ?Symbol $symbol = null,
+        ?MarkerShape $shape = null,
         array $options = []
     ) {
         $this->setPosition($position);
@@ -136,7 +136,7 @@ class Marker implements ExtendableInterface, OptionsAwareInterface, StaticOption
         return $this->icon;
     }
 
-    public function setIcon(Icon $icon = null)
+    public function setIcon(?Icon $icon = null)
     {
         $this->icon = $icon;
 
@@ -161,7 +161,7 @@ class Marker implements ExtendableInterface, OptionsAwareInterface, StaticOption
         return $this->symbol;
     }
 
-    public function setSymbol(Symbol $symbol = null)
+    public function setSymbol(?Symbol $symbol = null)
     {
         $this->symbol = $symbol;
 
@@ -186,7 +186,7 @@ class Marker implements ExtendableInterface, OptionsAwareInterface, StaticOption
         return $this->shape;
     }
 
-    public function setShape(MarkerShape $shape = null)
+    public function setShape(?MarkerShape $shape = null)
     {
         $this->shape = $shape;
     }
@@ -207,7 +207,7 @@ class Marker implements ExtendableInterface, OptionsAwareInterface, StaticOption
         return $this->infoWindow;
     }
 
-    public function setInfoWindow(InfoWindow $infoWindow = null)
+    public function setInfoWindow(?InfoWindow $infoWindow = null)
     {
         $this->infoWindow = $infoWindow;
     }
