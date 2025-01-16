@@ -38,7 +38,7 @@ class AddressComponent
         return $this->longName;
     }
 
-    public function setLongName(string $longName = null): void
+    public function setLongName(?string $longName = null): void
     {
         $this->longName = $longName;
     }
@@ -53,7 +53,7 @@ class AddressComponent
         return $this->shortName;
     }
 
-    public function setShortName(string $shortName = null): void
+    public function setShortName(?string $shortName = null): void
     {
         $this->shortName = $shortName;
     }

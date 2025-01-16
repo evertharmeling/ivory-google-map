@@ -67,7 +67,7 @@ class ControlManager
         return $this->fullscreenControl;
     }
 
-    public function setFullscreenControl(FullscreenControl $fullscreenControl = null)
+    public function setFullscreenControl(?FullscreenControl $fullscreenControl = null)
     {
         $this->fullscreenControl = $fullscreenControl;
     }
@@ -88,7 +88,7 @@ class ControlManager
         return $this->mapTypeControl;
     }
 
-    public function setMapTypeControl(MapTypeControl $mapTypeControl = null)
+    public function setMapTypeControl(?MapTypeControl $mapTypeControl = null)
     {
         $this->mapTypeControl = $mapTypeControl;
     }
@@ -109,7 +109,7 @@ class ControlManager
         return $this->rotateControl;
     }
 
-    public function setRotateControl(RotateControl $rotateControl = null)
+    public function setRotateControl(?RotateControl $rotateControl = null)
     {
         $this->rotateControl = $rotateControl;
     }
@@ -130,7 +130,7 @@ class ControlManager
         return $this->scaleControl;
     }
 
-    public function setScaleControl(ScaleControl $scaleControl = null)
+    public function setScaleControl(?ScaleControl $scaleControl = null)
     {
         $this->scaleControl = $scaleControl;
     }
@@ -151,7 +151,7 @@ class ControlManager
         return $this->streetViewControl;
     }
 
-    public function setStreetViewControl(StreetViewControl $streetViewControl = null)
+    public function setStreetViewControl(?StreetViewControl $streetViewControl = null)
     {
         $this->streetViewControl = $streetViewControl;
     }
@@ -172,7 +172,7 @@ class ControlManager
         return $this->zoomControl;
     }
 
-    public function setZoomControl(ZoomControl $zoomControl = null)
+    public function setZoomControl(?ZoomControl $zoomControl = null)
     {
         $this->zoomControl = $zoomControl;
     }
