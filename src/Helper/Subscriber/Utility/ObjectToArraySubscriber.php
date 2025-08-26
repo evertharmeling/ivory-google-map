@@ -41,12 +41,16 @@ class ObjectToArraySubscriber extends AbstractSubscriber
     {
         return $this->objectToArrayRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setObjectToArrayRenderer(ObjectToArrayRenderer $objectToArrayRenderer)
     {
         $this->objectToArrayRenderer = $objectToArrayRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $event->addCode($this->getFormatter()->renderContainerAssignment(
@@ -58,6 +62,7 @@ class ObjectToArraySubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

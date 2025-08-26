@@ -114,7 +114,9 @@ class DirectionResponse
     {
         return !empty($this->geocodedWaypoints);
     }
-
+    /**
+     * @return DirectionGeocoded[]
+     */
     public function getGeocodedWaypoints(): array
     {
         return $this->geocodedWaypoints;

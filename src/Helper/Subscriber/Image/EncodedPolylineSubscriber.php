@@ -39,7 +39,9 @@ class EncodedPolylineSubscriber implements EventSubscriberInterface
         $this->encodedPolylineCollector = $encodedPolylineCollector;
         $this->encodedPolylineRenderer = $encodedPolylineRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         foreach ($this->encodedPolylineCollector->collect($event->getMap()) as $encodedPolylines) {
@@ -49,6 +51,7 @@ class EncodedPolylineSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

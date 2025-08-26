@@ -70,7 +70,9 @@ class DistanceMatrixResponse
     {
         return !empty($this->origins);
     }
-
+    /**
+     * @return string[]
+     */
     public function getOrigins(): array
     {
         return $this->origins;

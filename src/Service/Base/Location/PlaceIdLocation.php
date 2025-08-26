@@ -39,6 +39,7 @@ class PlaceIdLocation implements LocationInterface
 
     /**
      * @param string $placeId
+     * @return void
      */
     public function setPlaceId($placeId)
     {

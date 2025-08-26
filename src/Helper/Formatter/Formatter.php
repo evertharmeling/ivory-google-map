@@ -48,6 +48,7 @@ class Formatter
 
     /**
      * @param bool $debug
+     * @return void
      */
     public function setDebug($debug)
     {
@@ -64,6 +65,7 @@ class Formatter
 
     /**
      * @param int $indentationStep
+     * @return void
      */
     public function setIndentationStep($indentationStep)
     {

@@ -138,7 +138,9 @@ class GeocoderResult
     {
         return !empty($this->postcodeLocalities);
     }
-
+    /**
+     * @return string[]
+     */
     public function getPostcodeLocalities(): array
     {
         return $this->postcodeLocalities;

@@ -51,7 +51,9 @@ class PointSubscriber extends AbstractSubscriber
     {
         return $this->pointCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setPointCollector(PointCollector $pointCollector)
     {
         $this->pointCollector = $pointCollector;
@@ -64,7 +66,9 @@ class PointSubscriber extends AbstractSubscriber
     {
         return $this->pointRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setPointRenderer(PointRenderer $pointRenderer)
     {
         $this->pointRenderer = $pointRenderer;
@@ -72,6 +76,7 @@ class PointSubscriber extends AbstractSubscriber
 
     /***
      * @param MapEvent $event
+     * @return void
      */
     public function handleMap(MapEvent $event)
     {
@@ -90,6 +95,7 @@ class PointSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

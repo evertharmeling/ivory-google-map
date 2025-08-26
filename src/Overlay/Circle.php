@@ -54,7 +54,9 @@ class Circle implements ExtendableInterface, OptionsAwareInterface
     {
         return $this->center;
     }
-
+    /**
+     * @return void
+     */
     public function setCenter(Coordinate $center)
     {
         $this->center = $center;
@@ -70,6 +72,7 @@ class Circle implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param float $radius
+     * @return void
      */
     public function setRadius($radius)
     {

@@ -30,7 +30,9 @@ class SizeSubscriber implements EventSubscriberInterface
     {
         $this->sizeRenderer = $sizeRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         $event->setParameter('size', $this->sizeRenderer->render($event->getMap()));
@@ -38,6 +40,7 @@ class SizeSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

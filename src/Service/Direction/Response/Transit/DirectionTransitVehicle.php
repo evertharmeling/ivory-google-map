@@ -54,6 +54,7 @@ class DirectionTransitVehicle
 
     /**
      * @param string|null $name
+     * @return void
      */
     public function setName($name)
     {
@@ -78,6 +79,7 @@ class DirectionTransitVehicle
 
     /**
      * @param string|null $icon
+     * @return void
      */
     public function setIcon($icon)
     {
@@ -102,6 +104,7 @@ class DirectionTransitVehicle
 
     /**
      * @param string|null $type
+     * @return void
      */
     public function setType($type)
     {
@@ -126,6 +129,7 @@ class DirectionTransitVehicle
 
     /**
      * @param string|null $localIcon
+     * @return void
      */
     public function setLocalIcon($localIcon)
     {

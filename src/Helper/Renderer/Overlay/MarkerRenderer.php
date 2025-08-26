@@ -44,7 +44,9 @@ class MarkerRenderer extends AbstractJsonRenderer
     {
         return $this->animationRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setAnimationRenderer(AnimationRenderer $animationRenderer)
     {
         $this->animationRenderer = $animationRenderer;

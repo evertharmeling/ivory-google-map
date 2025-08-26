@@ -48,6 +48,7 @@ class ScaleControl
 
     /**
      * @param string $position
+     * @return void
      */
     public function setPosition($position)
     {
@@ -64,6 +65,7 @@ class ScaleControl
 
     /**
      * @param string $style
+     * @return void
      */
     public function setStyle($style)
     {

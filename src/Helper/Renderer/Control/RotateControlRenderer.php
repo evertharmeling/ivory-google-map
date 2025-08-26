@@ -43,7 +43,9 @@ class RotateControlRenderer extends AbstractJsonRenderer implements ControlRende
     {
         return $this->controlPositionRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlPositionRenderer(ControlPositionRenderer $controlPositionRenderer)
     {
         $this->controlPositionRenderer = $controlPositionRenderer;

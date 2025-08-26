@@ -46,12 +46,16 @@ class MarkerClustererSubscriber extends AbstractSubscriber
     {
         return $this->markerClustererRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerClustererRenderer(MarkerClustererRenderer $markerClustererRenderer)
     {
         $this->markerClustererRenderer = $markerClustererRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleApi(ApiEvent $event)
     {
         foreach ($event->getObjects(Map::class) as $map) {
@@ -63,7 +67,9 @@ class MarkerClustererSubscriber extends AbstractSubscriber
             }
         }
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -83,6 +89,7 @@ class MarkerClustererSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

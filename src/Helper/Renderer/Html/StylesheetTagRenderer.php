@@ -37,7 +37,9 @@ class StylesheetTagRenderer extends AbstractTagRenderer
     {
         return $this->stylesheetRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setStylesheetRenderer(StylesheetRenderer $stylesheetRenderer)
     {
         $this->stylesheetRenderer = $stylesheetRenderer;

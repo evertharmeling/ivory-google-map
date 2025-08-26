@@ -54,7 +54,9 @@ class LayerManager
     {
         return $this->map;
     }
-
+    /**
+     * @return void
+     */
     public function setMap(Map $map)
     {
         $this->map = $map;
@@ -82,6 +84,7 @@ class LayerManager
 
     /**
      * @param GeoJsonLayer[] $geoJsonLayers
+     * @return void
      */
     public function setGeoJsonLayers(array $geoJsonLayers)
     {
@@ -91,6 +94,7 @@ class LayerManager
 
     /**
      * @param GeoJsonLayer[] $geoJsonLayers
+     * @return void
      */
     public function addGeoJsonLayers(array $geoJsonLayers)
     {
@@ -106,14 +110,18 @@ class LayerManager
     {
         return in_array($geoJsonLayer, $this->geoJsonLayers, true);
     }
-
+    /**
+     * @return void
+     */
     public function addGeoJsonLayer(GeoJsonLayer $geoJsonLayer)
     {
         if (!$this->hasGeoJsonLayer($geoJsonLayer)) {
             $this->geoJsonLayers[] = $geoJsonLayer;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeGeoJsonLayer(GeoJsonLayer $geoJsonLayer)
     {
         unset($this->geoJsonLayers[array_search($geoJsonLayer, $this->geoJsonLayers, true)]);
@@ -138,6 +146,7 @@ class LayerManager
 
     /**
      * @param HeatmapLayer[] $heatmapLayers
+     * @return void
      */
     public function setHeatmapLayers(array $heatmapLayers)
     {
@@ -150,6 +159,7 @@ class LayerManager
 
     /**
      * @param HeatmapLayer[] $heatmapLayers
+     * @return void
      */
     public function addHeatmapLayers(array $heatmapLayers)
     {
@@ -165,7 +175,9 @@ class LayerManager
     {
         return in_array($heatmapLayer, $this->heatmapLayers, true);
     }
-
+    /**
+     * @return void
+     */
     public function addHeatmapLayer(HeatmapLayer $heatmapLayer)
     {
         if (!$this->hasHeatmapLayer($heatmapLayer)) {
@@ -174,7 +186,9 @@ class LayerManager
 
         $this->addExtendable($heatmapLayer);
     }
-
+    /**
+     * @return void
+     */
     public function removeHeatmapLayer(HeatmapLayer $heatmapLayer)
     {
         unset($this->heatmapLayers[array_search($heatmapLayer, $this->heatmapLayers, true)]);
@@ -200,6 +214,7 @@ class LayerManager
 
     /**
      * @param KmlLayer[] $kmlLayers
+     * @return void
      */
     public function setKmlLayers(array $kmlLayers)
     {
@@ -212,6 +227,7 @@ class LayerManager
 
     /**
      * @param KmlLayer[] $kmlLayers
+     * @return void
      */
     public function addKmlLayers(array $kmlLayers)
     {
@@ -227,7 +243,9 @@ class LayerManager
     {
         return in_array($kmlLayer, $this->kmlLayers, true);
     }
-
+    /**
+     * @return void
+     */
     public function addKmlLayer(KmlLayer $kmlLayer)
     {
         if (!$this->hasKmlLayer($kmlLayer)) {
@@ -236,21 +254,27 @@ class LayerManager
 
         $this->addExtendable($kmlLayer);
     }
-
+    /**
+     * @return void
+     */
     public function removeKmlLayer(KmlLayer $kmlLayer)
     {
         unset($this->kmlLayers[array_search($kmlLayer, $this->kmlLayers, true)]);
         $this->kmlLayers = empty($this->kmlLayers) ? [] : array_values($this->kmlLayers);
         $this->removeExtendable($kmlLayer);
     }
-
+    /**
+     * @return void
+     */
     private function addExtendable(ExtendableInterface $extendable)
     {
         if ($this->isAutoZoom()) {
             $this->getMap()->getBound()->addExtendable($extendable);
         }
     }
-
+    /**
+     * @return void
+     */
     private function removeExtendable(ExtendableInterface $extendable)
     {
         if ($this->isAutoZoom()) {

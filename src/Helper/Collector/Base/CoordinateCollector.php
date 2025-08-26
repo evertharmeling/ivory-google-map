@@ -86,7 +86,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->boundCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setBoundCollector(BoundCollector $boundCollector)
     {
         $this->boundCollector = $boundCollector;
@@ -99,7 +101,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->circleCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setCircleCollector(CircleCollector $circleCollector)
     {
         $this->circleCollector = $circleCollector;
@@ -112,7 +116,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->infoWindowCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowCollector(InfoWindowCollector $infoWindowCollector)
     {
         $this->infoWindowCollector = $infoWindowCollector;
@@ -125,7 +131,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->markerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerCollector(MarkerCollector $markerCollector)
     {
         $this->markerCollector = $markerCollector;
@@ -138,7 +146,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->polygonCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setPolygonCollector(PolygonCollector $polygonCollector)
     {
         $this->polygonCollector = $polygonCollector;
@@ -151,7 +161,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->polylineCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setPolylineCollector(PolylineCollector $polylineCollector)
     {
         $this->polylineCollector = $polylineCollector;
@@ -164,7 +176,9 @@ class CoordinateCollector extends AbstractCollector
     {
         return $this->heatmapLayerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setHeatmapLayerCollector(HeatmapLayerCollector $heatmapLayerCollector)
     {
         $this->heatmapLayerCollector = $heatmapLayerCollector;

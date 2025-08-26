@@ -64,7 +64,9 @@ class AutocompleteJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->autocompleteRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setAutocompleteRenderer(AutocompleteRenderer $autocompleteRenderer)
     {
         $this->autocompleteRenderer = $autocompleteRenderer;
@@ -77,7 +79,9 @@ class AutocompleteJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->callbackRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setCallbackRenderer(CallbackRenderer $callbackRenderer)
     {
         $this->callbackRenderer = $callbackRenderer;
@@ -90,7 +94,9 @@ class AutocompleteJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->javascriptTagRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setJavascriptTagRenderer(JavascriptTagRenderer $javascriptTagRenderer)
     {
         $this->javascriptTagRenderer = $javascriptTagRenderer;
@@ -125,7 +131,9 @@ class AutocompleteJavascriptSubscriber extends AbstractDelegateSubscriber
             ],
         ];
     }
-
+    /**
+     * @return void
+     */
     private function handleApi(ApiEvent $event)
     {
         foreach ($event->getObjects(Autocomplete::class) as $autocomplete) {
@@ -134,7 +142,9 @@ class AutocompleteJavascriptSubscriber extends AbstractDelegateSubscriber
             $event->addRequirement($autocomplete, $this->autocompleteRenderer->renderRequirement());
         }
     }
-
+    /**
+     * @return void
+     */
     private function handleAutocomplete(PlaceAutocompleteEvent $event)
     {
         $formatter = $this->getFormatter();

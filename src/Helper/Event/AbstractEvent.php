@@ -41,6 +41,7 @@ class AbstractEvent extends Event
 
     /**
      * @param string $code
+     * @return void
      */
     public function setCode($code)
     {
@@ -49,6 +50,7 @@ class AbstractEvent extends Event
 
     /**
      * @param string $code
+     * @return void
      */
     public function addCode($code)
     {

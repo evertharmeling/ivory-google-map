@@ -40,12 +40,16 @@ class MapContainerSubscriber extends AbstractSubscriber
     {
         return $this->containerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setContainerRenderer(MapContainerRenderer $containerRenderer)
     {
         $this->containerRenderer = $containerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -59,6 +63,7 @@ class MapContainerSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

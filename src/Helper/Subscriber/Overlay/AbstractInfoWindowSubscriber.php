@@ -39,7 +39,9 @@ abstract class AbstractInfoWindowSubscriber extends AbstractSubscriber
     {
         return $this->infoWindowCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowCollector(InfoWindowCollector $infoWindowCollector)
     {
         $this->infoWindowCollector = $infoWindowCollector;

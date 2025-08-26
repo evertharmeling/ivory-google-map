@@ -51,7 +51,9 @@ class SizeSubscriber extends AbstractSubscriber
     {
         return $this->sizeCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setSizeCollector(SizeCollector $sizeCollector)
     {
         $this->sizeCollector = $sizeCollector;
@@ -64,12 +66,16 @@ class SizeSubscriber extends AbstractSubscriber
     {
         return $this->sizeRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setSizeRenderer(SizeRenderer $sizeRenderer)
     {
         $this->sizeRenderer = $sizeRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class SizeSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

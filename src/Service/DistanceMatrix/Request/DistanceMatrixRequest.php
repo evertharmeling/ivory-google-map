@@ -11,6 +11,7 @@
 
 namespace Ivory\GoogleMap\Service\DistanceMatrix\Request;
 
+use DateTime;
 use Ivory\GoogleMap\Service\Base\Location\EncodedPolylineLocation;
 use Ivory\GoogleMap\Service\Base\Location\LocationInterface;
 
@@ -109,6 +110,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param LocationInterface[] $origins
+     * @return void
      */
     public function setOrigins(array $origins)
     {
@@ -118,6 +120,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param LocationInterface[] $origins
+     * @return void
      */
     public function addOrigins(array $origins)
     {
@@ -133,14 +136,18 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
     {
         return in_array($origin, $this->origins, true);
     }
-
+    /**
+     * @return void
+     */
     public function addOrigin(LocationInterface $origin)
     {
         if (!$this->hasOrigin($origin)) {
             $this->origins[] = $origin;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeOrigin(LocationInterface $origin)
     {
         unset($this->origins[array_search($origin, $this->origins, true)]);
@@ -165,6 +172,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param LocationInterface[] $destinations
+     * @return void
      */
     public function setDestinations(array $destinations)
     {
@@ -174,6 +182,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param LocationInterface[] $destinations
+     * @return void
      */
     public function addDestinations(array $destinations)
     {
@@ -189,14 +198,18 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
     {
         return in_array($destination, $this->destinations, true);
     }
-
+    /**
+     * @return void
+     */
     public function addDestination(LocationInterface $destination)
     {
         if (!$this->hasDestination($destination)) {
             $this->destinations[] = $destination;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeDestination(LocationInterface $destination)
     {
         unset($this->destinations[array_search($destination, $this->destinations, true)]);
@@ -218,7 +231,9 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
     {
         return $this->departureTime;
     }
-
+    /**
+     * @return void
+     */
     public function setDepartureTime(\DateTime $departureTime = null)
     {
         $this->departureTime = $departureTime;
@@ -239,7 +254,9 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
     {
         return $this->arrivalTime;
     }
-
+    /**
+     * @return void
+     */
     public function setArrivalTime(\DateTime $arrivalTime = null)
     {
         $this->arrivalTime = $arrivalTime;
@@ -263,6 +280,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $travelMode
+     * @return void
      */
     public function setTravelMode($travelMode = null)
     {
@@ -287,6 +305,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $avoid
+     * @return void
      */
     public function setAvoid($avoid = null)
     {
@@ -311,6 +330,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $trafficModel
+     * @return void
      */
     public function setTrafficModel($trafficModel)
     {
@@ -335,6 +355,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string[] $transitModes
+     * @return void
      */
     public function setTransitModes(array $transitModes)
     {
@@ -344,6 +365,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string[] $transitModes
+     * @return void
      */
     public function addTransitModes(array $transitModes)
     {
@@ -364,6 +386,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string $transitMode
+     * @return void
      */
     public function addTransitMode($transitMode)
     {
@@ -374,6 +397,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string $transitMode
+     * @return void
      */
     public function removeTransitMode($transitMode)
     {
@@ -399,6 +423,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $transitRoutingPreference
+     * @return void
      */
     public function setTransitRoutingPreference($transitRoutingPreference)
     {
@@ -423,6 +448,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $region
+     * @return void
      */
     public function setRegion($region = null)
     {
@@ -447,6 +473,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $unitSystem
+     * @return void
      */
     public function setUnitSystem($unitSystem = null)
     {
@@ -471,6 +498,7 @@ class DistanceMatrixRequest implements DistanceMatrixRequestInterface
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language = null)
     {

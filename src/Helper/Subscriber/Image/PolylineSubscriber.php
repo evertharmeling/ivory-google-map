@@ -37,7 +37,9 @@ class PolylineSubscriber implements EventSubscriberInterface
         $this->polylineCollector = $polylineCollector;
         $this->polylineRenderer = $polylineRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         $result = [];
@@ -53,6 +55,7 @@ class PolylineSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

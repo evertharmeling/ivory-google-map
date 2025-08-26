@@ -46,6 +46,7 @@ class GeoJsonLayer implements OptionsAwareInterface
 
     /**
      * @param string $url
+     * @return void
      */
     public function setUrl($url)
     {

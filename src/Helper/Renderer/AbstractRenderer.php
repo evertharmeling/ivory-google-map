@@ -38,6 +38,7 @@ abstract class AbstractRenderer
 
     /**
      * @param Formatter $formatter
+     * @return void
      */
     public function setFormatter($formatter)
     {

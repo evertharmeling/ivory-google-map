@@ -47,7 +47,9 @@ class Geometry
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(Coordinate $location = null)
     {
         $this->location = $location;
@@ -71,6 +73,7 @@ class Geometry
 
     /**
      * @param string|null $locationType
+     * @return void
      */
     public function setLocationType($locationType = null)
     {
@@ -92,7 +95,9 @@ class Geometry
     {
         return $this->viewport;
     }
-
+    /**
+     * @return void
+     */
     public function setViewport(Bound $viewport = null)
     {
         $this->viewport = $viewport;
@@ -113,7 +118,9 @@ class Geometry
     {
         return $this->bound;
     }
-
+    /**
+     * @return void
+     */
     public function setBound(?Bound $bound = null)
     {
         $this->bound = $bound;

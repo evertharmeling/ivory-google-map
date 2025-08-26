@@ -51,7 +51,9 @@ class CoordinateSubscriber extends AbstractSubscriber
     {
         return $this->coordinateCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setCoordinateCollector(CoordinateCollector $coordinateCollector)
     {
         $this->coordinateCollector = $coordinateCollector;
@@ -64,12 +66,16 @@ class CoordinateSubscriber extends AbstractSubscriber
     {
         return $this->coordinateRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setCoordinateRenderer(CoordinateRenderer $coordinateRenderer)
     {
         $this->coordinateRenderer = $coordinateRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class CoordinateSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

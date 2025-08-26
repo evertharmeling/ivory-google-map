@@ -46,7 +46,9 @@ class DirectionWaypoint
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(LocationInterface $location)
     {
         $this->location = $location;
@@ -70,6 +72,7 @@ class DirectionWaypoint
 
     /**
      * @param bool|null $stopover
+     * @return void
      */
     public function setStopover($stopover = null)
     {

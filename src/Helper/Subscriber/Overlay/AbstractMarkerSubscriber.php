@@ -41,7 +41,9 @@ abstract class AbstractMarkerSubscriber extends AbstractSubscriber
     {
         return $this->markerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerCollector(MarkerCollector $markerCollector)
     {
         $this->markerCollector = $markerCollector;

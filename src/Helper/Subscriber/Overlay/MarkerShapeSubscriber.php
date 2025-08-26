@@ -51,7 +51,9 @@ class MarkerShapeSubscriber extends AbstractSubscriber
     {
         return $this->markerShapeCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerShapeCollector(MarkerShapeCollector $markerShapeCollector)
     {
         $this->markerShapeCollector = $markerShapeCollector;
@@ -64,12 +66,16 @@ class MarkerShapeSubscriber extends AbstractSubscriber
     {
         return $this->markerShapeRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerShapeRenderer(MarkerShapeRenderer $markerShapeRenderer)
     {
         $this->markerShapeRenderer = $markerShapeRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class MarkerShapeSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

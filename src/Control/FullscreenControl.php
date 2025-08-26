@@ -39,6 +39,7 @@ class FullscreenControl
 
     /**
      * @param string $position
+     * @return void
      */
     public function setPosition($position)
     {

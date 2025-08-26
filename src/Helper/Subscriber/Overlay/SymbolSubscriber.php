@@ -51,7 +51,9 @@ class SymbolSubscriber extends AbstractSubscriber
     {
         return $this->symbolCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setSymbolCollector(SymbolCollector $symbolCollector)
     {
         $this->symbolCollector = $symbolCollector;
@@ -64,12 +66,16 @@ class SymbolSubscriber extends AbstractSubscriber
     {
         return $this->symbolRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setSymbolRenderer(SymbolRenderer $symbolRenderer)
     {
         $this->symbolRenderer = $symbolRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class SymbolSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

@@ -44,6 +44,7 @@ class AlternatePlaceId
 
     /**
      * @param string|null $placeId
+     * @return void
      */
     public function setPlaceId($placeId)
     {
@@ -68,6 +69,7 @@ class AlternatePlaceId
 
     /**
      * @param string|null $scope
+     * @return void
      */
     public function setScope($scope)
     {

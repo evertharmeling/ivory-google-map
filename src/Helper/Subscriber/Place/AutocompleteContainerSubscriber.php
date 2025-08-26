@@ -41,12 +41,16 @@ class AutocompleteContainerSubscriber extends AbstractSubscriber
     {
         return $this->containerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setContainerRenderer(AutocompleteContainerRenderer $containerRenderer)
     {
         $this->containerRenderer = $containerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleAutocomplete(PlaceAutocompleteEvent $event)
     {
         $autocomplete = $event->getAutocomplete();
@@ -59,6 +63,7 @@ class AutocompleteContainerSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

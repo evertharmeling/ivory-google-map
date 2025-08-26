@@ -49,7 +49,9 @@ class InfoWindowCollector extends AbstractCollector
     {
         return $this->markerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerCollector(MarkerCollector $markerCollector)
     {
         $this->markerCollector = $markerCollector;
@@ -65,6 +67,7 @@ class InfoWindowCollector extends AbstractCollector
 
     /**
      * @param string|null $type
+     * @return void
      */
     public function setType($type)
     {

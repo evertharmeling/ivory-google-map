@@ -51,6 +51,7 @@ class LoaderRenderer extends AbstractJsonRenderer
 
     /**
      * @param string $language
+     * @return void
      */
     public function setLanguage($language)
     {
@@ -75,6 +76,7 @@ class LoaderRenderer extends AbstractJsonRenderer
 
     /**
      * @param string|null $key
+     * @return void
      */
     public function setKey($key)
     {

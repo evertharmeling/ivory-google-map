@@ -55,6 +55,7 @@ class EncodedPolyline implements ExtendableInterface, OptionsAwareInterface, Sta
 
     /**
      * @param string $value
+     * @return void
      */
     public function setValue($value)
     {

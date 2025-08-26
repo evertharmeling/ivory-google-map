@@ -14,6 +14,7 @@ namespace Ivory\GoogleMap\Helper\Renderer;
 use Ivory\GoogleMap\Helper\Formatter\Formatter;
 use Ivory\GoogleMap\Helper\Renderer\Utility\RequirementLoaderRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Utility\SourceRenderer;
+use SplObjectStorage;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
@@ -62,7 +63,9 @@ class ApiRenderer extends AbstractRenderer
     {
         return $this->apiInitRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setApiInitRenderer(ApiInitRenderer $apiInitRenderer)
     {
         $this->apiInitRenderer = $apiInitRenderer;
@@ -75,7 +78,9 @@ class ApiRenderer extends AbstractRenderer
     {
         return $this->loaderRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setLoaderRenderer(LoaderRenderer $loaderRenderer)
     {
         $this->loaderRenderer = $loaderRenderer;
@@ -88,7 +93,9 @@ class ApiRenderer extends AbstractRenderer
     {
         return $this->requirementLoaderRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setRequirementLoaderRenderer(RequirementLoaderRenderer $requirementLoaderRenderer)
     {
         $this->requirementLoaderRenderer = $requirementLoaderRenderer;
@@ -101,7 +108,9 @@ class ApiRenderer extends AbstractRenderer
     {
         return $this->sourceRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setSourceRenderer(SourceRenderer $sourceRenderer)
     {
         $this->sourceRenderer = $sourceRenderer;

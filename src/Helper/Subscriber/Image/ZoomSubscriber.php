@@ -20,6 +20,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class ZoomSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         $map = $event->getMap();
@@ -37,6 +40,7 @@ class ZoomSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

@@ -23,6 +23,7 @@ class StaticSubscriber implements DelegateSubscriberInterface
 {
     /**
      * @param string $eventName
+     * @return void
      */
     public function handle(Event $event, $eventName, EventDispatcherInterface $eventDispatcher)
     {
@@ -37,6 +38,7 @@ class StaticSubscriber implements DelegateSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<<missing>,string>
      */
     public static function getSubscribedEvents()
     {

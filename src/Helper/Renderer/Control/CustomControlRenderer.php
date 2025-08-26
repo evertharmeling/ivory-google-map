@@ -40,7 +40,9 @@ class CustomControlRenderer extends AbstractRenderer
     {
         return $this->controlPositionRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlPositionRenderer(ControlPositionRenderer $controlPositionRenderer)
     {
         $this->controlPositionRenderer = $controlPositionRenderer;

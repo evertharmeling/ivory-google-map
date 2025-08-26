@@ -44,6 +44,7 @@ class PlaceDetailRequest implements PlaceDetailRequestInterface
 
     /**
      * @param string $placeId
+     * @return void
      */
     public function setPlaceId($placeId)
     {
@@ -68,6 +69,7 @@ class PlaceDetailRequest implements PlaceDetailRequestInterface
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language)
     {

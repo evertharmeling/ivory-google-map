@@ -39,6 +39,7 @@ class TextPlaceSearchRequest extends AbstractPlaceSearchRequest
 
     /**
      * @param string $query
+     * @return void
      */
     public function setQuery($query)
     {

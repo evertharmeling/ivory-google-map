@@ -54,7 +54,9 @@ class MarkerCluster implements OptionsAwareInterface, VariableAwareInterface
     {
         return $this->overlayManager;
     }
-
+    /**
+     * @return void
+     */
     public function setOverlayManager(OverlayManager $overlayManager)
     {
         $this->overlayManager = $overlayManager;
@@ -74,6 +76,7 @@ class MarkerCluster implements OptionsAwareInterface, VariableAwareInterface
 
     /**
      * @param string $type
+     * @return void
      */
     public function setType($type)
     {
@@ -98,6 +101,7 @@ class MarkerCluster implements OptionsAwareInterface, VariableAwareInterface
 
     /**
      * @param Marker[] $markers
+     * @return void
      */
     public function setMarkers(array $markers)
     {
@@ -110,6 +114,7 @@ class MarkerCluster implements OptionsAwareInterface, VariableAwareInterface
 
     /**
      * @param Marker[] $markers
+     * @return void
      */
     public function addMarkers(array $markers)
     {
@@ -125,7 +130,9 @@ class MarkerCluster implements OptionsAwareInterface, VariableAwareInterface
     {
         return in_array($marker, $this->markers, true);
     }
-
+    /**
+     * @return void
+     */
     public function addMarker(Marker $marker)
     {
         if (!$this->hasMarker($marker)) {
@@ -134,21 +141,27 @@ class MarkerCluster implements OptionsAwareInterface, VariableAwareInterface
 
         $this->addExtendable($marker);
     }
-
+    /**
+     * @return void
+     */
     public function removeMarker(Marker $marker)
     {
         unset($this->markers[array_search($marker, $this->markers, true)]);
         $this->markers = empty($this->markers) ? [] : array_values($this->markers);
         $this->removeExtendable($marker);
     }
-
+    /**
+     * @return void
+     */
     private function addExtendable(ExtendableInterface $extendable)
     {
         if ($this->isAutoZoom()) {
             $this->getOverlayManager()->getMap()->getBound()->addExtendable($extendable);
         }
     }
-
+    /**
+     * @return void
+     */
     private function removeExtendable(ExtendableInterface $extendable)
     {
         if ($this->isAutoZoom()) {

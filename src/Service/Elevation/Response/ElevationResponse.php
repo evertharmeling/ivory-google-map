@@ -51,6 +51,7 @@ class ElevationResponse
 
     /**
      * @param string|null $status
+     * @return void
      */
     public function setStatus($status)
     {
@@ -72,7 +73,9 @@ class ElevationResponse
     {
         return $this->request;
     }
-
+    /**
+     * @return void
+     */
     public function setRequest(ElevationRequestInterface $request = null)
     {
         $this->request = $request;
@@ -96,6 +99,7 @@ class ElevationResponse
 
     /**
      * @param ElevationResult[] $results
+     * @return void
      */
     public function setResults(array $results)
     {
@@ -105,6 +109,7 @@ class ElevationResponse
 
     /**
      * @param ElevationResult[] $results
+     * @return void
      */
     public function addResults(array $results)
     {
@@ -120,14 +125,18 @@ class ElevationResponse
     {
         return in_array($result, $this->results, true);
     }
-
+    /**
+     * @return void
+     */
     public function addResult(ElevationResult $result)
     {
         if (!$this->hasResult($result)) {
             $this->results[] = $result;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeResult(ElevationResult $result)
     {
         unset($this->results[array_search($result, $this->results, true)]);

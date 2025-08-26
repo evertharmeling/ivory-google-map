@@ -45,7 +45,9 @@ class BoundCollector extends AbstractCollector
     {
         return $this->groundOverlayCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setGroundOverlayCollector(GroundOverlayCollector $groundOverlayCollector)
     {
         $this->groundOverlayCollector = $groundOverlayCollector;
@@ -58,7 +60,9 @@ class BoundCollector extends AbstractCollector
     {
         return $this->rectangleCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setRectangleCollector(RectangleCollector $rectangleCollector)
     {
         $this->rectangleCollector = $rectangleCollector;

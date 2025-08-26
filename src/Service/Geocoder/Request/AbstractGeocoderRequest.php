@@ -43,6 +43,7 @@ abstract class AbstractGeocoderRequest implements GeocoderRequestInterface
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language = null)
     {

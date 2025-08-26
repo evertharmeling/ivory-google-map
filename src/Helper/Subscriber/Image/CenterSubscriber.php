@@ -31,7 +31,9 @@ class CenterSubscriber implements EventSubscriberInterface
     {
         $this->coordinateRenderer = $coordinateRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         $map = $event->getMap();
@@ -53,6 +55,7 @@ class CenterSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

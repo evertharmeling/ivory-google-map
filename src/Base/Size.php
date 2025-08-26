@@ -67,6 +67,7 @@ class Size implements VariableAwareInterface
 
     /**
      * @param float $width
+     * @return void
      */
     public function setWidth($width)
     {
@@ -83,6 +84,7 @@ class Size implements VariableAwareInterface
 
     /**
      * @param float $height
+     * @return void
      */
     public function setHeight($height)
     {
@@ -115,6 +117,7 @@ class Size implements VariableAwareInterface
 
     /**
      * @param string|null $widthUnit
+     * @return void
      */
     public function setWidthUnit($widthUnit = null)
     {
@@ -139,6 +142,7 @@ class Size implements VariableAwareInterface
 
     /**
      * @param string|null $heightUnit
+     * @return void
      */
     public function setHeightUnit($heightUnit = null)
     {

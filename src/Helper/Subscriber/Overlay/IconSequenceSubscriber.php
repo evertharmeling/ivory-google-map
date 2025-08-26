@@ -51,7 +51,9 @@ class IconSequenceSubscriber extends AbstractSubscriber
     {
         return $this->iconSequenceCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setIconSequenceCollector(IconSequenceCollector $iconSequenceCollector)
     {
         $this->iconSequenceCollector = $iconSequenceCollector;
@@ -64,12 +66,16 @@ class IconSequenceSubscriber extends AbstractSubscriber
     {
         return $this->iconSequenceRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setIconSequenceRenderer(IconSequenceRenderer $iconSequenceRenderer)
     {
         $this->iconSequenceRenderer = $iconSequenceRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class IconSequenceSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

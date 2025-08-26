@@ -51,7 +51,9 @@ class CircleSubscriber extends AbstractSubscriber
     {
         return $this->circleCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setCircleCollector(CircleCollector $circleCollector)
     {
         $this->circleCollector = $circleCollector;
@@ -64,12 +66,16 @@ class CircleSubscriber extends AbstractSubscriber
     {
         return $this->circleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setCircleRenderer(CircleRenderer $circleRenderer)
     {
         $this->circleRenderer = $circleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class CircleSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

@@ -58,6 +58,7 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
 
     /**
      * @param string $address
+     * @return void
      */
     public function setAddress($address)
     {
@@ -82,6 +83,7 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
 
     /**
      * @param mixed[] $components
+     * @return void
      */
     public function setComponents(array $components)
     {
@@ -91,6 +93,7 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
 
     /**
      * @param mixed[] $components
+     * @return void
      */
     public function addComponents(array $components)
     {
@@ -122,6 +125,7 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
     /**
      * @param string $type
      * @param mixed  $value
+     * @return void
      */
     public function setComponent($type, $value)
     {
@@ -130,6 +134,7 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
 
     /**
      * @param string $type
+     * @return void
      */
     public function removeComponent($type)
     {
@@ -151,7 +156,9 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
     {
         return $this->bound;
     }
-
+    /**
+     * @return void
+     */
     public function setBound(?Bound $bound = null)
     {
         $this->bound = $bound;
@@ -175,6 +182,7 @@ class GeocoderAddressRequest extends AbstractGeocoderRequest
 
     /**
      * @param string|null $region
+     * @return void
      */
     public function setRegion($region = null)
     {

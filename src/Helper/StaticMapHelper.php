@@ -73,6 +73,7 @@ class StaticMapHelper extends AbstractHelper
 
     /**
      * @param string|null $secret
+     * @return void
      */
     public function setSecret($secret)
     {
@@ -97,6 +98,7 @@ class StaticMapHelper extends AbstractHelper
 
     /**
      * @param string|null $clientId
+     * @return void
      */
     public function setClientId($clientId)
     {
@@ -121,6 +123,7 @@ class StaticMapHelper extends AbstractHelper
 
     /**
      * @param string|null $channel
+     * @return void
      */
     public function setChannel($channel)
     {

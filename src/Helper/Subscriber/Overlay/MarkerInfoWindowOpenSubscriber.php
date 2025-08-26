@@ -55,7 +55,9 @@ class MarkerInfoWindowOpenSubscriber extends AbstractMarkerSubscriber
     {
         return $this->infoWindowOpenRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowOpenRenderer(InfoWindowOpenRenderer $infoWindowOpenRenderer)
     {
         $this->infoWindowOpenRenderer = $infoWindowOpenRenderer;
@@ -68,12 +70,16 @@ class MarkerInfoWindowOpenSubscriber extends AbstractMarkerSubscriber
     {
         return $this->eventRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setEventRenderer(EventRenderer $eventRenderer)
     {
         $this->eventRenderer = $eventRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -97,6 +103,7 @@ class MarkerInfoWindowOpenSubscriber extends AbstractMarkerSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

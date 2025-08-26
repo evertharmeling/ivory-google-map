@@ -47,12 +47,16 @@ class DefaultInfoWindowSubscriber extends AbstractInfoWindowSubscriber
     {
         return $this->infoWindowRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowRenderer(DefaultInfoWindowRenderer $infoWindowRenderer)
     {
         $this->infoWindowRenderer = $infoWindowRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $map = $event->getMap();
@@ -69,6 +73,7 @@ class DefaultInfoWindowSubscriber extends AbstractInfoWindowSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

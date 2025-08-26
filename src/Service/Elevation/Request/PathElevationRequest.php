@@ -56,6 +56,7 @@ class PathElevationRequest implements ElevationRequestInterface
 
     /**
      * @param LocationInterface[] $paths
+     * @return void
      */
     public function setPaths(array $paths)
     {
@@ -65,6 +66,7 @@ class PathElevationRequest implements ElevationRequestInterface
 
     /**
      * @param LocationInterface[] $paths
+     * @return void
      */
     public function addPaths(array $paths)
     {
@@ -80,14 +82,18 @@ class PathElevationRequest implements ElevationRequestInterface
     {
         return in_array($path, $this->paths, true);
     }
-
+    /**
+     * @return void
+     */
     public function addPath(LocationInterface $path)
     {
         if (!$this->hasPath($path)) {
             $this->paths[] = $path;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removePath(LocationInterface $path)
     {
         unset($this->paths[array_search($path, $this->paths, true)]);
@@ -104,6 +110,7 @@ class PathElevationRequest implements ElevationRequestInterface
 
     /**
      * @param int $samples
+     * @return void
      */
     public function setSamples($samples)
     {

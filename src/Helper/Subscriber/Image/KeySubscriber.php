@@ -32,7 +32,9 @@ class KeySubscriber implements EventSubscriberInterface
     {
         $this->key = $key;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         if (null !== $this->key) {
@@ -42,6 +44,7 @@ class KeySubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

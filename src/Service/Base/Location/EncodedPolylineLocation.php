@@ -39,6 +39,7 @@ class EncodedPolylineLocation implements LocationInterface
 
     /**
      * @param string $encodedPolyline
+     * @return void
      */
     public function setEncodedPolyline($encodedPolyline)
     {

@@ -112,6 +112,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string $htmlId
+     * @return void
      */
     public function setHtmlId($htmlId)
     {
@@ -128,6 +129,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param bool $autoZoom
+     * @return void
      */
     public function setAutoZoom($autoZoom)
     {
@@ -141,7 +143,9 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     {
         return $this->center;
     }
-
+    /**
+     * @return void
+     */
     public function setCenter(Coordinate $center)
     {
         $this->center = $center;
@@ -154,7 +158,9 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     {
         return $this->bound;
     }
-
+    /**
+     * @return void
+     */
     public function setBound(Bound $bound)
     {
         $this->bound = $bound;
@@ -167,7 +173,9 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     {
         return $this->controlManager;
     }
-
+    /**
+     * @return void
+     */
     public function setControlManager(ControlManager $controlManager)
     {
         $this->controlManager = $controlManager;
@@ -180,7 +188,9 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     {
         return $this->eventManager;
     }
-
+    /**
+     * @return void
+     */
     public function setEventManager(EventManager $eventManager)
     {
         $this->eventManager = $eventManager;
@@ -193,7 +203,9 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     {
         return $this->layerManager;
     }
-
+    /**
+     * @return void
+     */
     public function setLayerManager(LayerManager $layerManager)
     {
         $this->layerManager = $layerManager;
@@ -210,7 +222,9 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     {
         return $this->overlayManager;
     }
-
+    /**
+     * @return void
+     */
     public function setOverlayManager(OverlayManager $overlayManager)
     {
         $this->overlayManager = $overlayManager;
@@ -238,6 +252,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string[] $libraries
+     * @return void
      */
     public function setLibraries(array $libraries)
     {
@@ -247,6 +262,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string[] $libraries
+     * @return void
      */
     public function addLibraries(array $libraries)
     {
@@ -267,6 +283,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string $library
+     * @return void
      */
     public function addLibrary($library)
     {
@@ -277,6 +294,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string $library
+     * @return void
      */
     public function removeLibrary($library)
     {
@@ -302,6 +320,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param mixed[] $mapOptions
+     * @return void
      */
     public function setMapOptions(array $mapOptions)
     {
@@ -311,6 +330,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param mixed[] $mapOptions
+     * @return void
      */
     public function addMapOptions(array $mapOptions)
     {
@@ -342,6 +362,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     /**
      * @param string $mapOption
      * @param mixed  $value
+     * @return void
      */
     public function setMapOption($mapOption, $value)
     {
@@ -350,6 +371,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string $mapOption
+     * @return void
      */
     public function removeMapOption($mapOption)
     {
@@ -374,6 +396,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string[] $stylesheetOptions
+     * @return void
      */
     public function setStylesheetOptions(array $stylesheetOptions)
     {
@@ -383,6 +406,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string[] $stylesheetOptions
+     * @return void
      */
     public function addStylesheetOptions(array $stylesheetOptions)
     {
@@ -414,6 +438,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     /**
      * @param string $stylesheetOption
      * @param string $value
+     * @return void
      */
     public function setStylesheetOption($stylesheetOption, $value)
     {
@@ -422,6 +447,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string $stylesheetOption
+     * @return void
      */
     public function removeStylesheetOption($stylesheetOption)
     {
@@ -446,6 +472,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string[] $htmlAttributes
+     * @return void
      */
     public function setHtmlAttributes(array $htmlAttributes)
     {
@@ -455,6 +482,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string[] $htmlAttributes
+     * @return void
      */
     public function addHtmlAttributes(array $htmlAttributes)
     {
@@ -486,6 +514,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
     /**
      * @param string $htmlAttribute
      * @param string $value
+     * @return void
      */
     public function setHtmlAttribute($htmlAttribute, $value)
     {
@@ -494,6 +523,7 @@ class Map implements VariableAwareInterface, StaticOptionsAwareInterface
 
     /**
      * @param string $htmlAttribute
+     * @return void
      */
     public function removeHtmlAttribute($htmlAttribute)
     {

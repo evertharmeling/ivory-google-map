@@ -46,6 +46,7 @@ class DirectionTransitStop
 
     /**
      * @param string|null $name
+     * @return void
      */
     public function setName($name)
     {
@@ -67,7 +68,9 @@ class DirectionTransitStop
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(Coordinate $location = null)
     {
         $this->location = $location;

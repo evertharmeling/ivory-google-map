@@ -64,6 +64,7 @@ class StaticMapEvent extends Event
 
     /**
      * @param mixed[] $parameters
+     * @return void
      */
     public function setParameters(array $parameters)
     {
@@ -73,6 +74,7 @@ class StaticMapEvent extends Event
 
     /**
      * @param mixed[] $parameters
+     * @return void
      */
     public function addParameters(array $parameters)
     {
@@ -104,6 +106,7 @@ class StaticMapEvent extends Event
     /**
      * @param string $parameter
      * @param mixed  $value
+     * @return void
      */
     public function setParameter($parameter, $value)
     {
@@ -112,6 +115,7 @@ class StaticMapEvent extends Event
 
     /**
      * @param string $parameter
+     * @return void
      */
     public function removeParameter($parameter)
     {

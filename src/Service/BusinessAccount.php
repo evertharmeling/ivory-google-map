@@ -53,6 +53,7 @@ class BusinessAccount
 
     /**
      * @param string $clientId
+     * @return void
      */
     public function setClientId($clientId)
     {
@@ -69,6 +70,7 @@ class BusinessAccount
 
     /**
      * @param string $secret
+     * @return void
      */
     public function setSecret($secret)
     {
@@ -93,6 +95,7 @@ class BusinessAccount
 
     /**
      * @param string|null $channel
+     * @return void
      */
     public function setChannel($channel = null)
     {

@@ -35,7 +35,9 @@ class PageTokenPlaceSearchRequest implements PlaceSearchRequestInterface
     {
         return $this->response;
     }
-
+    /**
+     * @return void
+     */
     public function setResponse(PlaceSearchResponse $response)
     {
         $this->response = $response;

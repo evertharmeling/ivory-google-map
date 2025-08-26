@@ -59,6 +59,7 @@ class Polygon implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param Coordinate[] $coordinates
+     * @return void
      */
     public function setCoordinates(array $coordinates)
     {
@@ -68,6 +69,7 @@ class Polygon implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param Coordinate[] $coordinates
+     * @return void
      */
     public function addCoordinates(array $coordinates)
     {
@@ -83,12 +85,16 @@ class Polygon implements ExtendableInterface, OptionsAwareInterface
     {
         return in_array($coordinate, $this->coordinates, true);
     }
-
+    /**
+     * @return void
+     */
     public function addCoordinate(Coordinate $coordinate)
     {
         $this->coordinates[] = $coordinate;
     }
-
+    /**
+     * @return void
+     */
     public function removeCoordinate(Coordinate $coordinate)
     {
         unset($this->coordinates[array_search($coordinate, $this->coordinates, true)]);

@@ -53,6 +53,7 @@ class MarkerShape implements VariableAwareInterface
 
     /**
      * @param string $type
+     * @return void
      */
     public function setType($type)
     {
@@ -77,6 +78,7 @@ class MarkerShape implements VariableAwareInterface
 
     /**
      * @param float[] $coordinates
+     * @return void
      */
     public function setCoordinates(array $coordinates)
     {
@@ -86,6 +88,7 @@ class MarkerShape implements VariableAwareInterface
 
     /**
      * @param float[] $coordinates
+     * @return void
      */
     public function addCoordinates(array $coordinates)
     {
@@ -106,6 +109,7 @@ class MarkerShape implements VariableAwareInterface
 
     /**
      * @param float $coordinate
+     * @return void
      */
     public function addCoordinate($coordinate)
     {

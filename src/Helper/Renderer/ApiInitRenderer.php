@@ -11,6 +11,9 @@
 
 namespace Ivory\GoogleMap\Helper\Renderer;
 
+use SplObjectStorage;
+
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */

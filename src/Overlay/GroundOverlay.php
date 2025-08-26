@@ -57,6 +57,7 @@ class GroundOverlay implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param string $url
+     * @return void
      */
     public function setUrl($url)
     {
@@ -70,7 +71,9 @@ class GroundOverlay implements ExtendableInterface, OptionsAwareInterface
     {
         return $this->bound;
     }
-
+    /**
+     * @return void
+     */
     public function setBound(Bound $bound)
     {
         $this->bound = $bound;

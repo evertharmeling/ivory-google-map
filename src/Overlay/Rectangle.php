@@ -45,7 +45,9 @@ class Rectangle implements ExtendableInterface, OptionsAwareInterface
     {
         return $this->bound;
     }
-
+    /**
+     * @return void
+     */
     public function setBound(Bound $bound)
     {
         $this->bound = $bound;

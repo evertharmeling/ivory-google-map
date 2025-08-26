@@ -48,7 +48,9 @@ abstract class AbstractJsonRenderer extends AbstractRenderer
             ->reset()
             ->setJsonEncodeOptions($jsonEncodeOptions);
     }
-
+    /**
+     * @return void
+     */
     public function setJsonBuilder(JsonBuilder $jsonBuilder)
     {
         $this->jsonBuilder = $jsonBuilder;

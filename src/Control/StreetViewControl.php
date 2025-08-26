@@ -41,6 +41,7 @@ class StreetViewControl
 
     /**
      * @param string $position
+     * @return void
      */
     public function setPosition($position)
     {

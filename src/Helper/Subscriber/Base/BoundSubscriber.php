@@ -51,7 +51,9 @@ class BoundSubscriber extends AbstractSubscriber
     {
         return $this->boundCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setBoundCollector(BoundCollector $boundCollector)
     {
         $this->boundCollector = $boundCollector;
@@ -64,12 +66,16 @@ class BoundSubscriber extends AbstractSubscriber
     {
         return $this->boundRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setBoundRenderer(BoundRenderer $boundRenderer)
     {
         $this->boundRenderer = $boundRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class BoundSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

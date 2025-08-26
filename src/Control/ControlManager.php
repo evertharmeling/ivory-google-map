@@ -66,7 +66,9 @@ class ControlManager
     {
         return $this->fullscreenControl;
     }
-
+    /**
+     * @return void
+     */
     public function setFullscreenControl(?FullscreenControl $fullscreenControl = null)
     {
         $this->fullscreenControl = $fullscreenControl;
@@ -87,7 +89,9 @@ class ControlManager
     {
         return $this->mapTypeControl;
     }
-
+    /**
+     * @return void
+     */
     public function setMapTypeControl(?MapTypeControl $mapTypeControl = null)
     {
         $this->mapTypeControl = $mapTypeControl;
@@ -108,7 +112,9 @@ class ControlManager
     {
         return $this->rotateControl;
     }
-
+    /**
+     * @return void
+     */
     public function setRotateControl(?RotateControl $rotateControl = null)
     {
         $this->rotateControl = $rotateControl;
@@ -129,7 +135,9 @@ class ControlManager
     {
         return $this->scaleControl;
     }
-
+    /**
+     * @return void
+     */
     public function setScaleControl(?ScaleControl $scaleControl = null)
     {
         $this->scaleControl = $scaleControl;
@@ -150,7 +158,9 @@ class ControlManager
     {
         return $this->streetViewControl;
     }
-
+    /**
+     * @return void
+     */
     public function setStreetViewControl(?StreetViewControl $streetViewControl = null)
     {
         $this->streetViewControl = $streetViewControl;
@@ -171,7 +181,9 @@ class ControlManager
     {
         return $this->zoomControl;
     }
-
+    /**
+     * @return void
+     */
     public function setZoomControl(?ZoomControl $zoomControl = null)
     {
         $this->zoomControl = $zoomControl;
@@ -195,6 +207,7 @@ class ControlManager
 
     /**
      * @param CustomControl[] $customControls
+     * @return void
      */
     public function setCustomControls(array $customControls)
     {
@@ -204,6 +217,7 @@ class ControlManager
 
     /**
      * @param CustomControl[] $customControls
+     * @return void
      */
     public function addCustomControls(array $customControls)
     {
@@ -219,14 +233,18 @@ class ControlManager
     {
         return in_array($customControl, $this->customControls, true);
     }
-
+    /**
+     * @return void
+     */
     public function addCustomControl(CustomControl $customControl)
     {
         if (!$this->hasCustomControl($customControl)) {
             $this->customControls[] = $customControl;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeCustomControl(CustomControl $customControl)
     {
         unset($this->customControls[array_search($customControl, $this->customControls, true)]);

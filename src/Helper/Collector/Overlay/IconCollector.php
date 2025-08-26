@@ -37,7 +37,9 @@ class IconCollector extends AbstractCollector
     {
         return $this->markerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerCollector(MarkerCollector $markerCollector)
     {
         $this->markerCollector = $markerCollector;

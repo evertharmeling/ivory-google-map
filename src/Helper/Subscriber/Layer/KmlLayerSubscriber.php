@@ -51,7 +51,9 @@ class KmlLayerSubscriber extends AbstractSubscriber
     {
         return $this->kmlLayerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setKmlLayerCollector(KmlLayerCollector $kmlLayerCollector)
     {
         $this->kmlLayerCollector = $kmlLayerCollector;
@@ -64,12 +66,16 @@ class KmlLayerSubscriber extends AbstractSubscriber
     {
         return $this->kmlLayerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setKmlLayerRenderer(KmlLayerRenderer $kmlLayerRenderer)
     {
         $this->kmlLayerRenderer = $kmlLayerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class KmlLayerSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

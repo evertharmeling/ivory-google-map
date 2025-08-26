@@ -51,7 +51,9 @@ class GeoJsonLayerSubscriber extends AbstractSubscriber
     {
         return $this->geoJsonLayerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setGeoJsonLayerCollector(GeoJsonLayerCollector $geoJsonLayerCollector)
     {
         $this->geoJsonLayerCollector = $geoJsonLayerCollector;
@@ -64,12 +66,16 @@ class GeoJsonLayerSubscriber extends AbstractSubscriber
     {
         return $this->geoJsonLayerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setGeoJsonLayerRenderer(GeoJsonLayerRenderer $geoJsonLayerRenderer)
     {
         $this->geoJsonLayerRenderer = $geoJsonLayerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -82,6 +88,7 @@ class GeoJsonLayerSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

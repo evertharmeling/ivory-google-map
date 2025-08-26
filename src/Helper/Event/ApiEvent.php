@@ -11,6 +11,9 @@
 
 namespace Ivory\GoogleMap\Helper\Event;
 
+use SplObjectStorage;
+
+
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
@@ -103,6 +106,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string[] $sources
+     * @return void
      */
     public function setSources(array $sources)
     {
@@ -112,6 +116,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string[] $sources
+     * @return void
      */
     public function addSources(array $sources)
     {
@@ -132,6 +137,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string $source
+     * @return void
      */
     public function addSource($source)
     {
@@ -142,6 +148,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string $source
+     * @return void
      */
     public function removeSource($source)
     {
@@ -167,6 +174,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string[] $libraries
+     * @return void
      */
     public function setLibraries(array $libraries)
     {
@@ -176,6 +184,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string[] $libraries
+     * @return void
      */
     public function addLibraries(array $libraries)
     {
@@ -196,6 +205,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string $library
+     * @return void
      */
     public function addLibrary($library)
     {
@@ -206,6 +216,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string $library
+     * @return void
      */
     public function removeLibrary($library)
     {
@@ -284,6 +295,7 @@ class ApiEvent extends AbstractEvent
     /**
      * @param object $object
      * @param string $callback
+     * @return void
      */
     public function addCallback($object, $callback)
     {
@@ -294,6 +306,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param object $object
+     * @return void
      */
     public function removeCallbackObject($object)
     {
@@ -302,6 +315,7 @@ class ApiEvent extends AbstractEvent
 
     /**
      * @param string $callback
+     * @return void
      */
     public function removeCallback($callback)
     {
@@ -347,6 +361,7 @@ class ApiEvent extends AbstractEvent
     /**
      * @param object   $object
      * @param string[] $requirements
+     * @return void
      */
     public function setRequirements($object, array $requirements)
     {
@@ -357,6 +372,7 @@ class ApiEvent extends AbstractEvent
     /**
      * @param object   $object
      * @param string[] $requirements
+     * @return void
      */
     public function addRequirements($object, array $requirements)
     {
@@ -380,6 +396,7 @@ class ApiEvent extends AbstractEvent
     /**
      * @param object $object
      * @param string $requirement
+     * @return void
      */
     public function addRequirement($object, $requirement)
     {
@@ -398,6 +415,7 @@ class ApiEvent extends AbstractEvent
     /**
      * @param object      $object
      * @param string|null $requirement
+     * @return void
      */
     public function removeRequirement($object, $requirement = null)
     {

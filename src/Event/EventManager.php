@@ -56,6 +56,7 @@ class EventManager
 
     /**
      * @param Event[] $domEvents
+     * @return void
      */
     public function setDomEvents(array $domEvents)
     {
@@ -65,6 +66,7 @@ class EventManager
 
     /**
      * @param Event[] $domEvents
+     * @return void
      */
     public function addDomEvents(array $domEvents)
     {
@@ -80,14 +82,18 @@ class EventManager
     {
         return in_array($domEvent, $this->domEvents, true);
     }
-
+    /**
+     * @return void
+     */
     public function addDomEvent(Event $domEvent)
     {
         if (!$this->hasDomEvent($domEvent)) {
             $this->domEvents[] = $domEvent;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeDomEvent(Event $domEvent)
     {
         unset($this->domEvents[array_search($domEvent, $this->domEvents, true)]);
@@ -112,6 +118,7 @@ class EventManager
 
     /**
      * @param Event[] $domEventsOnce
+     * @return void
      */
     public function setDomEventsOnce(array $domEventsOnce)
     {
@@ -121,6 +128,7 @@ class EventManager
 
     /**
      * @param Event[] $domEventsOnce
+     * @return void
      */
     public function addDomEventsOnce(array $domEventsOnce)
     {
@@ -136,14 +144,18 @@ class EventManager
     {
         return in_array($domEventOnce, $this->domEventsOnce, true);
     }
-
+    /**
+     * @return void
+     */
     public function addDomEventOnce(Event $domEventOnce)
     {
         if (!$this->hasDomEventOnce($domEventOnce)) {
             $this->domEventsOnce[] = $domEventOnce;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeDomEventOnce(Event $domEventOnce)
     {
         unset($this->domEventsOnce[array_search($domEventOnce, $this->domEventsOnce, true)]);
@@ -168,6 +180,7 @@ class EventManager
 
     /**
      * @param Event[] $events
+     * @return void
      */
     public function setEvents(array $events)
     {
@@ -177,6 +190,7 @@ class EventManager
 
     /**
      * @param Event[] $events
+     * @return void
      */
     public function addEvents(array $events)
     {
@@ -192,14 +206,18 @@ class EventManager
     {
         return in_array($event, $this->events, true);
     }
-
+    /**
+     * @return void
+     */
     public function addEvent(Event $event)
     {
         if (!$this->hasEvent($event)) {
             $this->events[] = $event;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeEvent(Event $event)
     {
         unset($this->events[array_search($event, $this->events, true)]);
@@ -224,6 +242,7 @@ class EventManager
 
     /**
      * @param Event[] $eventsOnce
+     * @return void
      */
     public function setEventsOnce(array $eventsOnce)
     {
@@ -233,6 +252,7 @@ class EventManager
 
     /**
      * @param Event[] $eventsOnce
+     * @return void
      */
     public function addEventsOnce(array $eventsOnce)
     {
@@ -248,12 +268,16 @@ class EventManager
     {
         return in_array($eventOnce, $this->eventsOnce, true);
     }
-
+    /**
+     * @return void
+     */
     public function addEventOnce(Event $eventOnce)
     {
         $this->eventsOnce[] = $eventOnce;
     }
-
+    /**
+     * @return void
+     */
     public function removeEventOnce(Event $eventOnce)
     {
         unset($this->eventsOnce[array_search($eventOnce, $this->eventsOnce, true)]);

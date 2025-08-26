@@ -37,7 +37,9 @@ class GeocoderCoordinateRequest extends AbstractGeocoderReverseRequest
     {
         return $this->coordinate;
     }
-
+    /**
+     * @return void
+     */
     public function setCoordinate(Coordinate $coordinate)
     {
         $this->coordinate = $coordinate;

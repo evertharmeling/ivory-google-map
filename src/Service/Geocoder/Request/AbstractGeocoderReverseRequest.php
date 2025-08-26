@@ -46,6 +46,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string[] $resultTypes
+     * @return void
      */
     public function setResultTypes(array $resultTypes)
     {
@@ -55,6 +56,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string[] $resultTypes
+     * @return void
      */
     public function addResultTypes(array $resultTypes)
     {
@@ -75,6 +77,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string $resultType
+     * @return void
      */
     public function addResultType($resultType)
     {
@@ -85,6 +88,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string $resultType
+     * @return void
      */
     public function removeResultType($resultType)
     {
@@ -110,6 +114,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string[] $locationTypes
+     * @return void
      */
     public function setLocationTypes(array $locationTypes)
     {
@@ -119,6 +124,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string[] $locationTypes
+     * @return void
      */
     public function addLocationTypes(array $locationTypes)
     {
@@ -139,6 +145,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string $locationType
+     * @return void
      */
     public function addLocationType($locationType)
     {
@@ -149,6 +156,7 @@ abstract class AbstractGeocoderReverseRequest extends AbstractGeocoderRequest
 
     /**
      * @param string $locationType
+     * @return void
      */
     public function removeLocationType($locationType)
     {

@@ -50,7 +50,9 @@ class ZoomControlRenderer extends AbstractJsonRenderer implements ControlRendere
     {
         return $this->controlPositionRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlPositionRenderer(ControlPositionRenderer $controlPositionRenderer)
     {
         $this->controlPositionRenderer = $controlPositionRenderer;
@@ -63,7 +65,9 @@ class ZoomControlRenderer extends AbstractJsonRenderer implements ControlRendere
     {
         return $this->zoomControlStyleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setZoomControlStyleRenderer(ZoomControlStyleRenderer $zoomControlStyleRenderer)
     {
         $this->zoomControlStyleRenderer = $zoomControlStyleRenderer;

@@ -42,6 +42,7 @@ class Point implements VariableAwareInterface
 
     /**
      * @param float $x
+     * @return void
      */
     public function setX($x)
     {
@@ -58,6 +59,7 @@ class Point implements VariableAwareInterface
 
     /**
      * @param float $y
+     * @return void
      */
     public function setY($y)
     {

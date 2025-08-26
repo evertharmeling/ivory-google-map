@@ -89,6 +89,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param string $content
+     * @return void
      */
     public function setContent($content)
     {
@@ -105,6 +106,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param string $type
+     * @return void
      */
     public function setType($type)
     {
@@ -126,7 +128,9 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
     {
         return $this->position;
     }
-
+    /**
+     * @return void
+     */
     public function setPosition(?Coordinate $position = null)
     {
         $this->position = $position;
@@ -147,7 +151,9 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
     {
         return $this->pixedOffset;
     }
-
+    /**
+     * @return void
+     */
     public function setPixelOffset(?Size $pixelOffset = null)
     {
         $this->pixedOffset = $pixelOffset;
@@ -163,6 +169,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param bool $open
+     * @return void
      */
     public function setOpen($open)
     {
@@ -179,6 +186,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param bool $autoOpen
+     * @return void
      */
     public function setAutoOpen($autoOpen)
     {
@@ -195,6 +203,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param string $openEvent
+     * @return void
      */
     public function setOpenEvent($openEvent)
     {
@@ -211,6 +220,7 @@ class InfoWindow implements ExtendableInterface, OptionsAwareInterface
 
     /**
      * @param bool $autoClose
+     * @return void
      */
     public function setAutoClose($autoClose)
     {

@@ -66,6 +66,7 @@ class TimeZoneResponse
 
     /**
      * @param string|null $status
+     * @return void
      */
     public function setStatus($status)
     {
@@ -87,7 +88,9 @@ class TimeZoneResponse
     {
         return $this->request;
     }
-
+    /**
+     * @return void
+     */
     public function setRequest(TimeZoneRequestInterface $request = null)
     {
         $this->request = $request;
@@ -111,6 +114,7 @@ class TimeZoneResponse
 
     /**
      * @param int|null $dstOffset
+     * @return void
      */
     public function setDstOffset($dstOffset)
     {
@@ -135,6 +139,7 @@ class TimeZoneResponse
 
     /**
      * @param int|null $rawOffset
+     * @return void
      */
     public function setRawOffset($rawOffset)
     {
@@ -159,6 +164,7 @@ class TimeZoneResponse
 
     /**
      * @param string|null $timeZoneId
+     * @return void
      */
     public function setTimeZoneId($timeZoneId)
     {
@@ -183,6 +189,7 @@ class TimeZoneResponse
 
     /**
      * @param string|null $timeZoneName
+     * @return void
      */
     public function setTimeZoneName($timeZoneName)
     {

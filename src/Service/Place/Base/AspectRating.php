@@ -44,6 +44,7 @@ class AspectRating
 
     /**
      * @param string|null $type
+     * @return void
      */
     public function setType($type)
     {
@@ -68,6 +69,7 @@ class AspectRating
 
     /**
      * @param float|null $rating
+     * @return void
      */
     public function setRating($rating)
     {
