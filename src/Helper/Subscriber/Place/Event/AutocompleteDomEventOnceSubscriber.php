@@ -51,7 +51,9 @@ class AutocompleteDomEventOnceSubscriber extends AbstractSubscriber
     {
         return $this->domEventOnceCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setDomEventOnceCollector(AutocompleteDomEventOnceCollector $domEventOnceCollector)
     {
         $this->domEventOnceCollector = $domEventOnceCollector;
@@ -64,12 +66,16 @@ class AutocompleteDomEventOnceSubscriber extends AbstractSubscriber
     {
         return $this->domEventOnceRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setDomEventOnceRenderer(DomEventOnceRenderer $domEventOnceRenderer)
     {
         $this->domEventOnceRenderer = $domEventOnceRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleAutocomplete(PlaceAutocompleteEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class AutocompleteDomEventOnceSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

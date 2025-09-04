@@ -49,6 +49,7 @@ class DirectionTransitAgency
 
     /**
      * @param string|null $name
+     * @return void
      */
     public function setName($name)
     {
@@ -73,6 +74,7 @@ class DirectionTransitAgency
 
     /**
      * @param string|null $phone
+     * @return void
      */
     public function setPhone($phone)
     {
@@ -97,6 +99,7 @@ class DirectionTransitAgency
 
     /**
      * @param string|null $url
+     * @return void
      */
     public function setUrl($url)
     {

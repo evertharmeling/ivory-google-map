@@ -51,7 +51,9 @@ class CustomControlSubscriber extends AbstractSubscriber
     {
         return $this->customControlCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setCustomControlCollector(CustomControlCollector $customControlCollector)
     {
         $this->customControlCollector = $customControlCollector;
@@ -64,12 +66,16 @@ class CustomControlSubscriber extends AbstractSubscriber
     {
         return $this->customControlRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setCustomControlRenderer(CustomControlRenderer $customControlRenderer)
     {
         $this->customControlRenderer = $customControlRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -82,6 +88,7 @@ class CustomControlSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

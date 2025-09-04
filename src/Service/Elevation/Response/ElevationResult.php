@@ -48,7 +48,9 @@ class ElevationResult
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(Coordinate $location = null)
     {
         $this->location = $location;
@@ -72,6 +74,7 @@ class ElevationResult
 
     /**
      * @param float|null $elevation
+     * @return void
      */
     public function setElevation($elevation)
     {
@@ -96,6 +99,7 @@ class ElevationResult
 
     /**
      * @param float|null $resolution
+     * @return void
      */
     public function setResolution($resolution)
     {

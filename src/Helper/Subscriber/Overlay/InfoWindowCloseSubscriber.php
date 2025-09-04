@@ -44,12 +44,16 @@ class InfoWindowCloseSubscriber extends AbstractInfoWindowSubscriber
     {
         return $this->infoWindowCloseRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowCloseRenderer(InfoWindowCloseRenderer $infoWindowCloseRenderer)
     {
         $this->infoWindowCloseRenderer = $infoWindowCloseRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -71,6 +75,7 @@ class InfoWindowCloseSubscriber extends AbstractInfoWindowSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

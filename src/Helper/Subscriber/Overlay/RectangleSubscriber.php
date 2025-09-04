@@ -51,7 +51,9 @@ class RectangleSubscriber extends AbstractSubscriber
     {
         return $this->rectangleCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setRectangleCollector(RectangleCollector $rectangleCollector)
     {
         $this->rectangleCollector = $rectangleCollector;
@@ -64,12 +66,16 @@ class RectangleSubscriber extends AbstractSubscriber
     {
         return $this->rectangleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setRectangleRenderer(RectangleRenderer $rectangleRenderer)
     {
         $this->rectangleRenderer = $rectangleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class RectangleSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

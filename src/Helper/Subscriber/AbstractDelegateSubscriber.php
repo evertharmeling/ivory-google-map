@@ -21,6 +21,7 @@ abstract class AbstractDelegateSubscriber extends AbstractSubscriber implements 
 {
     /**
      * @param string $eventName
+     * @return void
      */
     public function handle(Event $event, $eventName, EventDispatcherInterface $eventDispatcher)
     {
@@ -35,6 +36,7 @@ abstract class AbstractDelegateSubscriber extends AbstractSubscriber implements 
 
     /**
      * {@inheritdoc}
+     * @return array<<missing>,string>
      */
     public static function getSubscribedEvents()
     {

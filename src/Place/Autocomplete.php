@@ -78,6 +78,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $inputId
+     * @return void
      */
     public function setInputId($inputId)
     {
@@ -91,7 +92,9 @@ class Autocomplete implements VariableAwareInterface
     {
         return $this->eventManager;
     }
-
+    /**
+     * @return void
+     */
     public function setEventManager(EventManager $eventManager)
     {
         $this->eventManager = $eventManager;
@@ -112,7 +115,9 @@ class Autocomplete implements VariableAwareInterface
     {
         return $this->bound;
     }
-
+    /**
+     * @return void
+     */
     public function setBound(?Bound $bound = null)
     {
         $this->bound = $bound;
@@ -136,6 +141,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string[] $types
+     * @return void
      */
     public function setTypes(array $types)
     {
@@ -145,6 +151,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string[] $types
+     * @return void
      */
     public function addTypes(array $types)
     {
@@ -165,6 +172,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $type
+     * @return void
      */
     public function addType($type)
     {
@@ -175,6 +183,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $type
+     * @return void
      */
     public function removeType($type)
     {
@@ -200,6 +209,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param mixed[] $components
+     * @return void
      */
     public function setComponents(array $components)
     {
@@ -209,6 +219,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param mixed[] $components
+     * @return void
      */
     public function addComponents(array $components)
     {
@@ -240,6 +251,7 @@ class Autocomplete implements VariableAwareInterface
     /**
      * @param string $type
      * @param mixed  $value
+     * @return void
      */
     public function setComponent($type, $value)
     {
@@ -248,6 +260,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $type
+     * @return void
      */
     public function removeComponent($type)
     {
@@ -272,6 +285,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string|null $value
+     * @return void
      */
     public function setValue($value = null)
     {
@@ -296,6 +310,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string[] $inputAttributes
+     * @return void
      */
     public function setInputAttributes(array $inputAttributes)
     {
@@ -305,6 +320,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string[] $inputAttributes
+     * @return void
      */
     public function addInputAttributes(array $inputAttributes)
     {
@@ -336,6 +352,7 @@ class Autocomplete implements VariableAwareInterface
     /**
      * @param string $name
      * @param string $value
+     * @return void
      */
     public function setInputAttribute($name, $value)
     {
@@ -344,6 +361,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $name
+     * @return void
      */
     public function removeInputAttribute($name)
     {
@@ -368,6 +386,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string[] $libraries
+     * @return void
      */
     public function setLibraries(array $libraries)
     {
@@ -377,6 +396,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string[] $libraries
+     * @return void
      */
     public function addLibraries(array $libraries)
     {
@@ -397,6 +417,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $library
+     * @return void
      */
     public function addLibrary($library)
     {
@@ -407,6 +428,7 @@ class Autocomplete implements VariableAwareInterface
 
     /**
      * @param string $library
+     * @return void
      */
     public function removeLibrary($library)
     {

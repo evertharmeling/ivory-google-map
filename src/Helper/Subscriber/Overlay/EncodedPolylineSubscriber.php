@@ -54,7 +54,9 @@ class EncodedPolylineSubscriber extends AbstractSubscriber
     {
         return $this->encodedPolylineCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setEncodedPolylineCollector(EncodedPolylineCollector $encodedPolylineCollector)
     {
         $this->encodedPolylineCollector = $encodedPolylineCollector;
@@ -67,12 +69,16 @@ class EncodedPolylineSubscriber extends AbstractSubscriber
     {
         return $this->encodedPolylineRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setEncodedPolylineRenderer(EncodedPolylineRenderer $encodedPolylineRenderer)
     {
         $this->encodedPolylineRenderer = $encodedPolylineRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleApi(ApiEvent $event)
     {
         foreach ($event->getObjects(Map::class) as $map) {
@@ -85,7 +91,9 @@ class EncodedPolylineSubscriber extends AbstractSubscriber
             }
         }
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -103,6 +111,7 @@ class EncodedPolylineSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

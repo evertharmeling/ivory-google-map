@@ -49,12 +49,16 @@ class InfoBoxSubscriber extends AbstractInfoWindowSubscriber
     {
         return $this->infoBoxRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoBoxRenderer(InfoBoxRenderer $infoBoxRenderer)
     {
         $this->infoBoxRenderer = $infoBoxRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleApi(ApiEvent $event)
     {
         foreach ($event->getObjects(Map::class) as $map) {
@@ -68,7 +72,9 @@ class InfoBoxSubscriber extends AbstractInfoWindowSubscriber
             }
         }
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $map = $event->getMap();
@@ -85,6 +91,7 @@ class InfoBoxSubscriber extends AbstractInfoWindowSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

@@ -45,12 +45,16 @@ class MarkerSubscriber extends AbstractMarkerSubscriber
     {
         return $this->markerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerRenderer(MarkerRenderer $markerRenderer)
     {
         $this->markerRenderer = $markerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -73,6 +77,7 @@ class MarkerSubscriber extends AbstractMarkerSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

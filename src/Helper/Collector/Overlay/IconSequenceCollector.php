@@ -37,7 +37,9 @@ class IconSequenceCollector extends AbstractCollector
     {
         return $this->polylineCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setPolylineCollector(PolylineCollector $polylineCollector)
     {
         $this->polylineCollector = $polylineCollector;

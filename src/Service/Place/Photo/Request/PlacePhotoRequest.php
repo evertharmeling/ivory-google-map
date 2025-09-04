@@ -49,6 +49,7 @@ class PlacePhotoRequest implements PlacePhotoRequestInterface
 
     /**
      * @param string $reference
+     * @return void
      */
     public function setReference($reference)
     {
@@ -73,6 +74,7 @@ class PlacePhotoRequest implements PlacePhotoRequestInterface
 
     /**
      * @param int|null $maxWidth
+     * @return void
      */
     public function setMaxWidth($maxWidth)
     {
@@ -97,6 +99,7 @@ class PlacePhotoRequest implements PlacePhotoRequestInterface
 
     /**
      * @param int|null $maxHeight
+     * @return void
      */
     public function setMaxHeight($maxHeight)
     {

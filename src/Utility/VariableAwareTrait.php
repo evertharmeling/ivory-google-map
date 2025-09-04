@@ -36,6 +36,7 @@ trait VariableAwareTrait
 
     /**
      * @param string $variable
+     * @return void
      */
     public function setVariable($variable)
     {

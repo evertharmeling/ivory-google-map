@@ -51,7 +51,9 @@ class PolygonSubscriber extends AbstractSubscriber
     {
         return $this->polygonCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setPolygonCollector(PolygonCollector $polygonCollector)
     {
         $this->polygonCollector = $polygonCollector;
@@ -64,12 +66,16 @@ class PolygonSubscriber extends AbstractSubscriber
     {
         return $this->polygonRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setPolygonRenderer(PolygonRenderer $polygonRenderer)
     {
         $this->polygonRenderer = $polygonRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class PolygonSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

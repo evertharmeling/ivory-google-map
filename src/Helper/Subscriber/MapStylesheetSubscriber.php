@@ -40,12 +40,16 @@ class MapStylesheetSubscriber extends AbstractSubscriber
     {
         return $this->stylesheetTagRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setStylesheetTagRenderer(StylesheetTagRenderer $stylesheetTagRenderer)
     {
         $this->stylesheetTagRenderer = $stylesheetTagRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $map = $event->getMap();
@@ -57,6 +61,7 @@ class MapStylesheetSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

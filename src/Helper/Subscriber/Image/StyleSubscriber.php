@@ -30,7 +30,9 @@ class StyleSubscriber implements EventSubscriberInterface
     {
         $this->styleRenderer = $styleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         $map = $event->getMap();
@@ -52,6 +54,7 @@ class StyleSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

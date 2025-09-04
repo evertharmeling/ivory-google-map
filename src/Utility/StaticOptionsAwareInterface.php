@@ -28,11 +28,13 @@ interface StaticOptionsAwareInterface
 
     /**
      * @param mixed[] $options
+     * @return void
      */
     public function setStaticOptions(array $options);
 
     /**
      * @param mixed[] $options
+     * @return void
      */
     public function addStaticOptions(array $options);
 
@@ -53,11 +55,13 @@ interface StaticOptionsAwareInterface
     /**
      * @param string $option
      * @param mixed  $value
+     * @return void
      */
     public function setStaticOption($option, $value);
 
     /**
      * @param string $option
+     * @return void
      */
     public function removeStaticOption($option);
 }

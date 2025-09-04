@@ -47,7 +47,9 @@ class IconSequence implements OptionsAwareInterface, VariableAwareInterface
     {
         return $this->symbol;
     }
-
+    /**
+     * @return void
+     */
     public function setSymbol(Symbol $symbol)
     {
         $this->symbol = $symbol;

@@ -51,7 +51,9 @@ class ExtendableSubscriber extends AbstractSubscriber
     {
         return $this->extendableCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setExtendableCollector(ExtendableCollector $extendableCollector)
     {
         $this->extendableCollector = $extendableCollector;
@@ -64,12 +66,16 @@ class ExtendableSubscriber extends AbstractSubscriber
     {
         return $this->extendableRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setExtendableRenderer(ExtendableRenderer $extendableRenderer)
     {
         $this->extendableRenderer = $extendableRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -82,6 +88,7 @@ class ExtendableSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

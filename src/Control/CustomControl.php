@@ -46,6 +46,7 @@ class CustomControl
 
     /**
      * @param string $position
+     * @return void
      */
     public function setPosition($position)
     {
@@ -62,6 +63,7 @@ class CustomControl
 
     /**
      * @param string $control
+     * @return void
      */
     public function setControl($control)
     {

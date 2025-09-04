@@ -40,7 +40,9 @@ class SymbolRenderer extends AbstractJsonRenderer
     {
         return $this->symbolPathRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setSymbolPathRenderer(SymbolPathRenderer $symbolPathRenderer)
     {
         $this->symbolPathRenderer = $symbolPathRenderer;

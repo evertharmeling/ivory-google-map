@@ -44,6 +44,7 @@ class NearbyPlaceSearchRequest extends AbstractTextualPlaceSearchRequest
 
     /**
      * @param string $rankBy
+     * @return void
      */
     public function setRankBy($rankBy)
     {

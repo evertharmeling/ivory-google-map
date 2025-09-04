@@ -51,7 +51,9 @@ class SimpleEventSubscriber extends AbstractSubscriber
     {
         return $this->eventCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setEventCollector(EventCollector $eventCollector)
     {
         $this->eventCollector = $eventCollector;
@@ -64,12 +66,16 @@ class SimpleEventSubscriber extends AbstractSubscriber
     {
         return $this->eventRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setEventRenderer(EventRenderer $eventRenderer)
     {
         $this->eventRenderer = $eventRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class SimpleEventSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

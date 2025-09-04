@@ -11,6 +11,7 @@
 
 namespace Ivory\GoogleMap\Service\TimeZone\Request;
 
+use DateTime;
 use Ivory\GoogleMap\Base\Coordinate;
 
 /**
@@ -46,7 +47,9 @@ class TimeZoneRequest implements TimeZoneRequestInterface
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(Coordinate $location)
     {
         $this->location = $location;
@@ -59,7 +62,9 @@ class TimeZoneRequest implements TimeZoneRequestInterface
     {
         return $this->date;
     }
-
+    /**
+     * @return void
+     */
     public function setDate(\DateTime $date)
     {
         $this->date = $date;
@@ -83,6 +88,7 @@ class TimeZoneRequest implements TimeZoneRequestInterface
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language)
     {

@@ -40,12 +40,16 @@ class MapSubscriber extends AbstractSubscriber
     {
         return $this->mapRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMapRenderer(MapRenderer $mapRenderer)
     {
         $this->mapRenderer = $mapRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $map = $event->getMap();
@@ -59,6 +63,7 @@ class MapSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

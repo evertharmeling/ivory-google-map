@@ -37,7 +37,9 @@ class MarkerSubscriber implements EventSubscriberInterface
         $this->markerCollector = $markerCollector;
         $this->markerRenderer = $markerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(StaticMapEvent $event)
     {
         $result = [];
@@ -53,6 +55,7 @@ class MarkerSubscriber implements EventSubscriberInterface
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

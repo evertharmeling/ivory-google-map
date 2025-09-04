@@ -63,6 +63,7 @@ class Symbol implements OptionsAwareInterface, VariableAwareInterface
 
     /**
      * @param string $path
+     * @return void
      */
     public function setPath($path)
     {
@@ -84,7 +85,9 @@ class Symbol implements OptionsAwareInterface, VariableAwareInterface
     {
         return $this->anchor;
     }
-
+    /**
+     * @return void
+     */
     public function setAnchor(?Point $anchor = null)
     {
         $this->anchor = $anchor;
@@ -105,7 +108,9 @@ class Symbol implements OptionsAwareInterface, VariableAwareInterface
     {
         return $this->labelOrigin;
     }
-
+    /**
+     * @return void
+     */
     public function setLabelOrigin(?Point $labelOrigin = null)
     {
         $this->labelOrigin = $labelOrigin;

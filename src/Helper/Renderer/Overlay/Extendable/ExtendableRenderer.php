@@ -42,6 +42,7 @@ class ExtendableRenderer implements ExtendableRendererInterface
 
     /**
      * @param ExtendableRendererInterface[] $renderers
+     * @return void
      */
     public function setRenderers(array $renderers)
     {
@@ -51,6 +52,7 @@ class ExtendableRenderer implements ExtendableRendererInterface
 
     /**
      * @param ExtendableRendererInterface[] $renderers
+     * @return void
      */
     public function addRenderers(array $renderers)
     {
@@ -81,6 +83,7 @@ class ExtendableRenderer implements ExtendableRendererInterface
 
     /**
      * @param string $name
+     * @return void
      */
     public function setRenderer($name, ExtendableRendererInterface $renderer)
     {
@@ -89,6 +92,7 @@ class ExtendableRenderer implements ExtendableRendererInterface
 
     /**
      * @param string $name
+     * @return void
      */
     public function removeRenderer($name)
     {

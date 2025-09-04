@@ -42,7 +42,9 @@ class InfoBoxRenderer extends AbstractInfoWindowRenderer
     {
         return $this->requirementRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setRequirementRenderer(RequirementRenderer $requirementRenderer)
     {
         $this->requirementRenderer = $requirementRenderer;

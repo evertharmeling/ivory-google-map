@@ -51,7 +51,9 @@ class AutocompleteBoundSubscriber extends AbstractSubscriber
     {
         return $this->boundCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setBoundCollector(AutocompleteBoundCollector $boundCollector)
     {
         $this->boundCollector = $boundCollector;
@@ -64,12 +66,16 @@ class AutocompleteBoundSubscriber extends AbstractSubscriber
     {
         return $this->boundRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setBoundRenderer(BoundRenderer $boundRenderer)
     {
         $this->boundRenderer = $boundRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleAutocomplete(PlaceAutocompleteEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class AutocompleteBoundSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

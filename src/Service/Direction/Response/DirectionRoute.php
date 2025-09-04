@@ -173,7 +173,9 @@ class DirectionRoute
     {
         return !empty($this->warnings);
     }
-
+    /**
+     * @return string[]
+     */
     public function getWarnings(): array
     {
         return $this->warnings;

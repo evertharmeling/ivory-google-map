@@ -43,7 +43,9 @@ class SymbolCollector extends AbstractCollector
     {
         return $this->markerCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerCollector(MarkerCollector $markerCollector)
     {
         $this->markerCollector = $markerCollector;
@@ -56,7 +58,9 @@ class SymbolCollector extends AbstractCollector
     {
         return $this->iconSequenceCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setIconSequenceCollector(IconSequenceCollector $iconSequenceCollector)
     {
         $this->iconSequenceCollector = $iconSequenceCollector;

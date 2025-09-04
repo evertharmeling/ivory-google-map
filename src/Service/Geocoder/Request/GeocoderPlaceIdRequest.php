@@ -41,6 +41,7 @@ class GeocoderPlaceIdRequest extends AbstractGeocoderReverseRequest
 
     /**
      * @param string $placeId
+     * @return void
      */
     public function setPlaceId($placeId)
     {

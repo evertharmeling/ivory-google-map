@@ -74,6 +74,7 @@ class DirectionTransitLine
 
     /**
      * @param string|null $name
+     * @return void
      */
     public function setName($name)
     {
@@ -98,6 +99,7 @@ class DirectionTransitLine
 
     /**
      * @param string|null $shortName
+     * @return void
      */
     public function setShortName($shortName)
     {
@@ -122,6 +124,7 @@ class DirectionTransitLine
 
     /**
      * @param string|null $color
+     * @return void
      */
     public function setColor($color)
     {
@@ -146,6 +149,7 @@ class DirectionTransitLine
 
     /**
      * @param string|null $url
+     * @return void
      */
     public function setUrl($url)
     {
@@ -170,6 +174,7 @@ class DirectionTransitLine
 
     /**
      * @param string|null $icon
+     * @return void
      */
     public function setIcon($icon)
     {
@@ -194,6 +199,7 @@ class DirectionTransitLine
 
     /**
      * @param string|null $textColor
+     * @return void
      */
     public function setTextColor($textColor)
     {
@@ -215,7 +221,9 @@ class DirectionTransitLine
     {
         return $this->vehicle;
     }
-
+    /**
+     * @return void
+     */
     public function setVehicle(DirectionTransitVehicle $vehicle = null)
     {
         $this->vehicle = $vehicle;
@@ -239,6 +247,7 @@ class DirectionTransitLine
 
     /**
      * @param DirectionTransitAgency[] $agencies
+     * @return void
      */
     public function setAgencies(array $agencies)
     {
@@ -248,6 +257,7 @@ class DirectionTransitLine
 
     /**
      * @param DirectionTransitAgency[] $agencies
+     * @return void
      */
     public function addAgencies(array $agencies)
     {
@@ -263,14 +273,18 @@ class DirectionTransitLine
     {
         return in_array($agency, $this->agencies, true);
     }
-
+    /**
+     * @return void
+     */
     public function addAgency(DirectionTransitAgency $agency)
     {
         if (!$this->hasAgency($agency)) {
             $this->agencies[] = $agency;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeAgency(DirectionTransitAgency $agency)
     {
         unset($this->agencies[array_search($agency, $this->agencies, true)]);

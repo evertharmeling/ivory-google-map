@@ -67,6 +67,7 @@ class Event implements VariableAwareInterface
 
     /**
      * @param string $instance
+     * @return void
      */
     public function setInstance($instance)
     {
@@ -83,6 +84,7 @@ class Event implements VariableAwareInterface
 
     /**
      * @param string $trigger
+     * @return void
      */
     public function setTrigger($trigger)
     {
@@ -99,6 +101,7 @@ class Event implements VariableAwareInterface
 
     /**
      * @param string $handle
+     * @return void
      */
     public function setHandle($handle)
     {
@@ -115,6 +118,7 @@ class Event implements VariableAwareInterface
 
     /**
      * @param bool $capture
+     * @return void
      */
     public function setCapture($capture)
     {

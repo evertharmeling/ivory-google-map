@@ -62,6 +62,7 @@ class PlaceSearchResponse
 
     /**
      * @param string|null $status
+     * @return void
      */
     public function setStatus($status)
     {
@@ -83,7 +84,9 @@ class PlaceSearchResponse
     {
         return $this->request;
     }
-
+    /**
+     * @return void
+     */
     public function setRequest(PlaceSearchRequestInterface $request = null)
     {
         $this->request = $request;
@@ -107,6 +110,7 @@ class PlaceSearchResponse
 
     /**
      * @param Place[] $results
+     * @return void
      */
     public function setResults(array $results)
     {
@@ -116,6 +120,7 @@ class PlaceSearchResponse
 
     /**
      * @param Place[] $results
+     * @return void
      */
     public function addResults(array $results)
     {
@@ -131,14 +136,18 @@ class PlaceSearchResponse
     {
         return in_array($result, $this->results, true);
     }
-
+    /**
+     * @return void
+     */
     public function addResult(Place $result)
     {
         if (!$this->hasResult($result)) {
             $this->results[] = $result;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeResult(Place $result)
     {
         unset($this->results[array_search($result, $this->results, true)]);
@@ -163,6 +172,7 @@ class PlaceSearchResponse
 
     /**
      * @param string[] $htmlAttributions
+     * @return void
      */
     public function setHtmlAttributions(array $htmlAttributions)
     {
@@ -172,6 +182,7 @@ class PlaceSearchResponse
 
     /**
      * @param string[] $htmlAttributions
+     * @return void
      */
     public function addHtmlAttributions(array $htmlAttributions)
     {
@@ -192,6 +203,7 @@ class PlaceSearchResponse
 
     /**
      * @param string $htmlAttribution
+     * @return void
      */
     public function addHtmlAttribution($htmlAttribution)
     {
@@ -202,6 +214,7 @@ class PlaceSearchResponse
 
     /**
      * @param string $htmlAttribution
+     * @return void
      */
     public function removeHtmlAttribution($htmlAttribution)
     {
@@ -227,6 +240,7 @@ class PlaceSearchResponse
 
     /**
      * @param string|null $nextPageToken
+     * @return void
      */
     public function setNextPageToken($nextPageToken)
     {

@@ -11,6 +11,7 @@
 
 namespace Ivory\GoogleMap\Service\Direction\Request;
 
+use DateTime;
 use Ivory\GoogleMap\Service\Base\Location\LocationInterface;
 
 /**
@@ -108,7 +109,9 @@ class DirectionRequest implements DirectionRequestInterface
     {
         return $this->origin;
     }
-
+    /**
+     * @return void
+     */
     public function setOrigin(LocationInterface $origin)
     {
         $this->origin = $origin;
@@ -121,7 +124,9 @@ class DirectionRequest implements DirectionRequestInterface
     {
         return $this->destination;
     }
-
+    /**
+     * @return void
+     */
     public function setDestination(LocationInterface $destination)
     {
         $this->destination = $destination;
@@ -142,7 +147,9 @@ class DirectionRequest implements DirectionRequestInterface
     {
         return $this->departureTime;
     }
-
+    /**
+     * @return void
+     */
     public function setDepartureTime(\DateTime $departureTime = null)
     {
         $this->departureTime = $departureTime;
@@ -163,7 +170,9 @@ class DirectionRequest implements DirectionRequestInterface
     {
         return $this->arrivalTime;
     }
-
+    /**
+     * @return void
+     */
     public function setArrivalTime(\DateTime $arrivalTime = null)
     {
         $this->arrivalTime = $arrivalTime;
@@ -187,6 +196,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param DirectionWaypoint[] $waypoints
+     * @return void
      */
     public function setWaypoints(array $waypoints)
     {
@@ -196,6 +206,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param DirectionWaypoint[] $waypoints
+     * @return void
      */
     public function addWaypoints(array $waypoints)
     {
@@ -211,14 +222,18 @@ class DirectionRequest implements DirectionRequestInterface
     {
         return in_array($waypoint, $this->waypoints, true);
     }
-
+    /**
+     * @return void
+     */
     public function addWaypoint(DirectionWaypoint $waypoint)
     {
         if (!$this->hasWaypoint($waypoint)) {
             $this->waypoints[] = $waypoint;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeWaypoint(DirectionWaypoint $waypoint)
     {
         unset($this->waypoints[array_search($waypoint, $this->waypoints, true)]);
@@ -243,6 +258,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param bool|null $optimizeWaypoints
+     * @return void
      */
     public function setOptimizeWaypoints($optimizeWaypoints = null)
     {
@@ -267,6 +283,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $travelMode
+     * @return void
      */
     public function setTravelMode($travelMode = null)
     {
@@ -291,6 +308,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $avoid
+     * @return void
      */
     public function setAvoid($avoid = null)
     {
@@ -315,6 +333,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param bool|null $provideRouteAlternatives
+     * @return void
      */
     public function setProvideRouteAlternatives($provideRouteAlternatives = null)
     {
@@ -339,6 +358,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $trafficModel
+     * @return void
      */
     public function setTrafficModel($trafficModel)
     {
@@ -363,6 +383,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string[] $transitModes
+     * @return void
      */
     public function setTransitModes(array $transitModes)
     {
@@ -372,6 +393,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string[] $transitModes
+     * @return void
      */
     public function addTransitModes(array $transitModes)
     {
@@ -392,6 +414,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string $transitMode
+     * @return void
      */
     public function addTransitMode($transitMode)
     {
@@ -402,6 +425,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string $transitMode
+     * @return void
      */
     public function removeTransitMode($transitMode)
     {
@@ -427,6 +451,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $transitRoutingPreference
+     * @return void
      */
     public function setTransitRoutingPreference($transitRoutingPreference)
     {
@@ -451,6 +476,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $region
+     * @return void
      */
     public function setRegion($region = null)
     {
@@ -475,6 +501,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $unitSystem
+     * @return void
      */
     public function setUnitSystem($unitSystem = null)
     {
@@ -499,6 +526,7 @@ class DirectionRequest implements DirectionRequestInterface
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language = null)
     {

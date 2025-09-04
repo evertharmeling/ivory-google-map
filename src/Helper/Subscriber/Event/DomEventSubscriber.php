@@ -51,7 +51,9 @@ class DomEventSubscriber extends AbstractSubscriber
     {
         return $this->domEventCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setDomEventCollector(DomEventCollector $domEventCollector)
     {
         $this->domEventCollector = $domEventCollector;
@@ -64,12 +66,16 @@ class DomEventSubscriber extends AbstractSubscriber
     {
         return $this->domEventRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setDomEventRenderer(DomEventRenderer $domEventRenderer)
     {
         $this->domEventRenderer = $domEventRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class DomEventSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

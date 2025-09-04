@@ -44,6 +44,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string[] $types
+     * @return void
      */
     public function setTypes(array $types)
     {
@@ -53,6 +54,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string[] $types
+     * @return void
      */
     public function addTypes(array $types)
     {
@@ -73,6 +75,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string $type
+     * @return void
      */
     public function addType($type)
     {
@@ -83,6 +86,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string $type
+     * @return void
      */
     public function removeType($type)
     {
@@ -108,6 +112,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string[] $components
+     * @return void
      */
     public function setComponents(array $components)
     {
@@ -117,6 +122,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string[] $components
+     * @return void
      */
     public function addComponents(array $components)
     {
@@ -148,6 +154,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
     /**
      * @param string $type
      * @param string $value
+     * @return void
      */
     public function setComponent($type, $value)
     {
@@ -156,6 +163,7 @@ class PlaceAutocompleteRequest extends AbstractPlaceAutocompleteRequest
 
     /**
      * @param string $type
+     * @return void
      */
     public function removeComponent($type)
     {

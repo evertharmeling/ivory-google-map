@@ -68,6 +68,7 @@ class MapTypeControl
 
     /**
      * @param string[] $ids
+     * @return void
      */
     public function setIds(array $ids)
     {
@@ -77,6 +78,7 @@ class MapTypeControl
 
     /**
      * @param string[] $ids
+     * @return void
      */
     public function addIds(array $ids)
     {
@@ -97,6 +99,7 @@ class MapTypeControl
 
     /**
      * @param string $id
+     * @return void
      */
     public function addId($id)
     {
@@ -107,6 +110,7 @@ class MapTypeControl
 
     /**
      * @param string $id
+     * @return void
      */
     public function removeId($id)
     {
@@ -124,6 +128,7 @@ class MapTypeControl
 
     /**
      * @param string $position
+     * @return void
      */
     public function setPosition($position)
     {
@@ -140,6 +145,7 @@ class MapTypeControl
 
     /**
      * @param string $style
+     * @return void
      */
     public function setStyle($style)
     {

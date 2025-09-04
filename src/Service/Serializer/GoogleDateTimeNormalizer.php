@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Ivory\GoogleMap\Service\Serializer;
 
+use ArrayObject;
+use DateTimeZone;
 use Symfony\Component\PropertyInfo\Type;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;

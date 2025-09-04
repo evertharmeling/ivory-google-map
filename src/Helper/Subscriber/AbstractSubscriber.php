@@ -36,7 +36,9 @@ abstract class AbstractSubscriber implements EventSubscriberInterface
     {
         return $this->formatter;
     }
-
+    /**
+     * @return void
+     */
     public function setFormatter(Formatter $formatter)
     {
         $this->formatter = $formatter;

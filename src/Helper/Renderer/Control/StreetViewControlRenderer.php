@@ -43,7 +43,9 @@ class StreetViewControlRenderer extends AbstractJsonRenderer implements ControlR
     {
         return $this->controlPositionRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlPositionRenderer(ControlPositionRenderer $controlPositionRenderer)
     {
         $this->controlPositionRenderer = $controlPositionRenderer;

@@ -41,12 +41,16 @@ class AutocompleteHtmlSubscriber extends AbstractSubscriber
     {
         return $this->htmlRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setHtmlRenderer(AutocompleteHtmlRenderer $htmlRenderer)
     {
         $this->htmlRenderer = $htmlRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleAutocomplete(PlaceAutocompleteEvent $event)
     {
         $event->addCode($this->htmlRenderer->render($event->getAutocomplete()));
@@ -54,6 +58,7 @@ class AutocompleteHtmlSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

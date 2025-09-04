@@ -68,7 +68,9 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(Coordinate $location = null)
     {
         $this->location = $location;
@@ -92,6 +94,7 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
 
     /**
      * @param float $radius
+     * @return void
      */
     public function setRadius($radius)
     {
@@ -116,6 +119,7 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
 
     /**
      * @param int|null $minPrice
+     * @return void
      */
     public function setMinPrice($minPrice)
     {
@@ -140,6 +144,7 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
 
     /**
      * @param int|null $maxPrice
+     * @return void
      */
     public function setMaxPrice($maxPrice)
     {
@@ -164,6 +169,7 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
 
     /**
      * @param bool|null $openNow
+     * @return void
      */
     public function setOpenNow($openNow)
     {
@@ -188,6 +194,7 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
 
     /**
      * @param string|null $type
+     * @return void
      */
     public function setType($type)
     {
@@ -212,6 +219,7 @@ abstract class AbstractPlaceSearchRequest implements PlaceSearchRequestInterface
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language)
     {

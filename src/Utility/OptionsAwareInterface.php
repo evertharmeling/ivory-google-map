@@ -28,11 +28,13 @@ interface OptionsAwareInterface
 
     /**
      * @param mixed[] $options
+     * @return void
      */
     public function setOptions(array $options);
 
     /**
      * @param mixed[] $options
+     * @return void
      */
     public function addOptions(array $options);
 
@@ -53,11 +55,13 @@ interface OptionsAwareInterface
     /**
      * @param string $option
      * @param mixed  $value
+     * @return void
      */
     public function setOption($option, $value);
 
     /**
      * @param string $option
+     * @return void
      */
     public function removeOption($option);
 }

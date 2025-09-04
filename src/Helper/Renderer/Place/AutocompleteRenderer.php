@@ -44,7 +44,9 @@ class AutocompleteRenderer extends AbstractJsonRenderer
     {
         return $this->requirementRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setRequirementRenderer(RequirementRenderer $requirementRenderer)
     {
         $this->requirementRenderer = $requirementRenderer;

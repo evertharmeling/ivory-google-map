@@ -45,7 +45,9 @@ class EncodedPolylineRenderer extends AbstractJsonRenderer
     {
         return $this->encodingRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setEncodingRenderer(EncodingRenderer $encodingRenderer)
     {
         $this->encodingRenderer = $encodingRenderer;

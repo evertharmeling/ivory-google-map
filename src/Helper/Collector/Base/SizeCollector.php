@@ -45,7 +45,9 @@ class SizeCollector extends AbstractCollector
     {
         return $this->infoWindowCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowCollector(InfoWindowCollector $infoWindowCollector)
     {
         $this->infoWindowCollector = $infoWindowCollector;
@@ -58,7 +60,9 @@ class SizeCollector extends AbstractCollector
     {
         return $this->iconCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setIconCollector(IconCollector $iconCollector)
     {
         $this->iconCollector = $iconCollector;

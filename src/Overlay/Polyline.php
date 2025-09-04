@@ -69,6 +69,7 @@ class Polyline implements ExtendableInterface, OptionsAwareInterface, StaticOpti
 
     /**
      * @param Coordinate[] $coordinates
+     * @return void
      */
     public function setCoordinates($coordinates)
     {
@@ -78,6 +79,7 @@ class Polyline implements ExtendableInterface, OptionsAwareInterface, StaticOpti
 
     /**
      * @param Coordinate[] $coordinates
+     * @return void
      */
     public function addCoordinates($coordinates)
     {
@@ -93,12 +95,16 @@ class Polyline implements ExtendableInterface, OptionsAwareInterface, StaticOpti
     {
         return in_array($coordinate, $this->coordinates, true);
     }
-
+    /**
+     * @return void
+     */
     public function addCoordinate(Coordinate $coordinate)
     {
         $this->coordinates[] = $coordinate;
     }
-
+    /**
+     * @return void
+     */
     public function removeCoordinate(Coordinate $coordinate)
     {
         unset($this->coordinates[array_search($coordinate, $this->coordinates, true)]);
@@ -123,6 +129,7 @@ class Polyline implements ExtendableInterface, OptionsAwareInterface, StaticOpti
 
     /**
      * @param IconSequence[] $iconSequences
+     * @return void
      */
     public function setIconSequences($iconSequences)
     {
@@ -132,6 +139,7 @@ class Polyline implements ExtendableInterface, OptionsAwareInterface, StaticOpti
 
     /**
      * @param IconSequence[] $iconSequences
+     * @return void
      */
     public function addIconSequences($iconSequences)
     {
@@ -147,12 +155,16 @@ class Polyline implements ExtendableInterface, OptionsAwareInterface, StaticOpti
     {
         return in_array($iconSequence, $this->iconSequences, true);
     }
-
+    /**
+     * @return void
+     */
     public function addIconSequence(IconSequence $iconSequence)
     {
         $this->iconSequences[] = $iconSequence;
     }
-
+    /**
+     * @return void
+     */
     public function removeIconSequence(IconSequence $iconSequence)
     {
         unset($this->iconSequences[array_search($iconSequence, $this->iconSequences, true)]);

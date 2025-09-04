@@ -51,7 +51,9 @@ class PolylineSubscriber extends AbstractSubscriber
     {
         return $this->polylineCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setPolylineCollector(PolylineCollector $polylineCollector)
     {
         $this->polylineCollector = $polylineCollector;
@@ -64,12 +66,16 @@ class PolylineSubscriber extends AbstractSubscriber
     {
         return $this->polylineRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setPolylineRenderer(PolylineRenderer $polylineRenderer)
     {
         $this->polylineRenderer = $polylineRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class PolylineSubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

@@ -44,12 +44,16 @@ class InfoWindowOpenSubscriber extends AbstractInfoWindowSubscriber
     {
         return $this->infoWindowOpenRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setInfoWindowOpenRenderer(InfoWindowOpenRenderer $infoWindowOpenRenderer)
     {
         $this->infoWindowOpenRenderer = $infoWindowOpenRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -64,6 +68,7 @@ class InfoWindowOpenSubscriber extends AbstractInfoWindowSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

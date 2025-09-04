@@ -39,6 +39,7 @@ abstract class AbstractTextualPlaceSearchRequest extends AbstractPlaceSearchRequ
 
     /**
      * @param string|null $keyword
+     * @return void
      */
     public function setKeyword($keyword)
     {

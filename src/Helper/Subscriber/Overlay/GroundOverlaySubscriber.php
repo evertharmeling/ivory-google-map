@@ -51,7 +51,9 @@ class GroundOverlaySubscriber extends AbstractSubscriber
     {
         return $this->groundOverlayCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setGroundOverlayCollector(GroundOverlayCollector $groundOverlayCollector)
     {
         $this->groundOverlayCollector = $groundOverlayCollector;
@@ -64,12 +66,16 @@ class GroundOverlaySubscriber extends AbstractSubscriber
     {
         return $this->groundOverlayRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setGroundOverlayRenderer(GroundOverlayRenderer $groundOverlayRenderer)
     {
         $this->groundOverlayRenderer = $groundOverlayRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
@@ -87,6 +93,7 @@ class GroundOverlaySubscriber extends AbstractSubscriber
 
     /**
      * {@inheritdoc}
+     * @return array<string,string>
      */
     public static function getSubscribedEvents()
     {

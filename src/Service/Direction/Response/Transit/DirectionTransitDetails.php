@@ -122,7 +122,9 @@ class DirectionTransitDetails
     {
         return null !== $this->headWay;
     }
-
+    /**
+     * @return string|int|null
+     */
     public function getHeadWay()
     {
         return $this->headWay;

@@ -38,7 +38,9 @@ class AbstractTagRenderer extends AbstractRenderer
     {
         return $this->tagRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setTagRenderer(TagRenderer $tagRenderer)
     {
         $this->tagRenderer = $tagRenderer;

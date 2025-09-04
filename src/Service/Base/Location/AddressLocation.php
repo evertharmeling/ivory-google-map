@@ -39,6 +39,7 @@ class AddressLocation implements LocationInterface
 
     /**
      * @param string $address
+     * @return void
      */
     public function setAddress($address)
     {

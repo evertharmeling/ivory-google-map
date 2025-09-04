@@ -42,6 +42,7 @@ class ControlManagerRenderer
 
     /**
      * @param ControlRendererInterface[] $renderers
+     * @return void
      */
     public function setRenderers(array $renderers)
     {
@@ -51,6 +52,7 @@ class ControlManagerRenderer
 
     /**
      * @param ControlRendererInterface[] $renderers
+     * @return void
      */
     public function addRenderers(array $renderers)
     {
@@ -66,14 +68,18 @@ class ControlManagerRenderer
     {
         return in_array($renderer, $this->renderers, true);
     }
-
+    /**
+     * @return void
+     */
     public function addRenderer(ControlRendererInterface $renderer)
     {
         if (!$this->hasRenderer($renderer)) {
             $this->renderers[] = $renderer;
         }
     }
-
+    /**
+     * @return void
+     */
     public function removeRenderer(ControlRendererInterface $renderer)
     {
         unset($this->renderers[array_search($renderer, $this->renderers, true)]);

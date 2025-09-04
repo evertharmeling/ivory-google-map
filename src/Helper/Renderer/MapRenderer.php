@@ -59,7 +59,9 @@ class MapRenderer extends AbstractJsonRenderer
     {
         return $this->mapTypeIdRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMapTypeIdRenderer(MapTypeIdRenderer $mapTypeIdRenderer)
     {
         $this->mapTypeIdRenderer = $mapTypeIdRenderer;
@@ -72,7 +74,9 @@ class MapRenderer extends AbstractJsonRenderer
     {
         return $this->controlManagerRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlManagerRenderer(ControlManagerRenderer $controlManagerRenderer)
     {
         $this->controlManagerRenderer = $controlManagerRenderer;
@@ -88,6 +92,7 @@ class MapRenderer extends AbstractJsonRenderer
 
     /**
      * @param RequirementRenderer $requirementRenderer
+     * @return void
      */
     public function setRequirementRenderer($requirementRenderer)
     {

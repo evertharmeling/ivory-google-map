@@ -52,7 +52,9 @@ class ApiJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->apiRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setApiRenderer(ApiRenderer $apiRenderer)
     {
         $this->apiRenderer = $apiRenderer;
@@ -65,7 +67,9 @@ class ApiJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->javascriptTagRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setJavascriptTagRenderer(JavascriptTagRenderer $javascriptTagRenderer)
     {
         $this->javascriptTagRenderer = $javascriptTagRenderer;
@@ -95,7 +99,9 @@ class ApiJavascriptSubscriber extends AbstractDelegateSubscriber
             ],
         ];
     }
-
+    /**
+     * @return void
+     */
     private function handleApi(ApiEvent $event)
     {
         $event->setCode($this->getJavascriptTagRenderer()->render($this->getApiRenderer()->render(

@@ -38,7 +38,9 @@ abstract class AbstractHttpService extends AbstractService
     {
         return $this->client;
     }
-
+    /**
+     * @return void
+     */
     public function setClient(HttpClient $client)
     {
         $this->client = $client;
@@ -51,7 +53,9 @@ abstract class AbstractHttpService extends AbstractService
     {
         return $this->messageFactory;
     }
-
+    /**
+     * @return void
+     */
     public function setMessageFactory(MessageFactory $messageFactory)
     {
         $this->messageFactory = $messageFactory;

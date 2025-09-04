@@ -83,7 +83,9 @@ class OverlayManager
     {
         return $this->map;
     }
-
+    /**
+     * @return void
+     */
     public function setMap(Map $map)
     {
         $this->map = $map;
@@ -100,7 +102,9 @@ class OverlayManager
     {
         return $this->markerCluster;
     }
-
+    /**
+     * @return void
+     */
     public function setMarkerCluster(MarkerCluster $markerCluster)
     {
         $this->markerCluster = $markerCluster;
@@ -128,6 +132,7 @@ class OverlayManager
 
     /**
      * @param Marker[] $markers
+     * @return void
      */
     public function setMarkers(array $markers)
     {
@@ -136,6 +141,7 @@ class OverlayManager
 
     /**
      * @param Marker[] $markers
+     * @return void
      */
     public function addMarkers(array $markers)
     {
@@ -149,12 +155,16 @@ class OverlayManager
     {
         return $this->markerCluster->hasMarker($marker);
     }
-
+    /**
+     * @return void
+     */
     public function addMarker(Marker $marker)
     {
         $this->markerCluster->addMarker($marker);
     }
-
+    /**
+     * @return void
+     */
     public function removeMarker(Marker $marker)
     {
         $this->markerCluster->removeMarker($marker);
@@ -178,6 +188,7 @@ class OverlayManager
 
     /**
      * @param InfoWindow[] $infoWindows
+     * @return void
      */
     public function setInfoWindows(array $infoWindows)
     {
@@ -190,6 +201,7 @@ class OverlayManager
 
     /**
      * @param InfoWindow[] $infoWindows
+     * @return void
      */
     public function addInfoWindows(array $infoWindows)
     {
@@ -205,7 +217,9 @@ class OverlayManager
     {
         return in_array($infoWindow, $this->infoWindows, true);
     }
-
+    /**
+     * @return void
+     */
     public function addInfoWindow(InfoWindow $infoWindow)
     {
         if (!$this->hasInfoWindow($infoWindow)) {
@@ -214,7 +228,9 @@ class OverlayManager
 
         $this->addExtendable($infoWindow);
     }
-
+    /**
+     * @return void
+     */
     public function removeInfoWindow(InfoWindow $infoWindow)
     {
         unset($this->infoWindows[array_search($infoWindow, $this->infoWindows, true)]);
@@ -240,6 +256,7 @@ class OverlayManager
 
     /**
      * @param Polyline[] $polylines
+     * @return void
      */
     public function setPolylines(array $polylines)
     {
@@ -252,6 +269,7 @@ class OverlayManager
 
     /**
      * @param Polyline[] $polylines
+     * @return void
      */
     public function addPolylines(array $polylines)
     {
@@ -267,7 +285,9 @@ class OverlayManager
     {
         return in_array($polyline, $this->polylines, true);
     }
-
+    /**
+     * @return void
+     */
     public function addPolyline(Polyline $polyline)
     {
         if (!$this->hasPolyline($polyline)) {
@@ -276,7 +296,9 @@ class OverlayManager
 
         $this->addExtendable($polyline);
     }
-
+    /**
+     * @return void
+     */
     public function removePolyline(Polyline $polyline)
     {
         unset($this->polylines[array_search($polyline, $this->polylines, true)]);
@@ -302,6 +324,7 @@ class OverlayManager
 
     /**
      * @param EncodedPolyline[] $encodedPolylines
+     * @return void
      */
     public function setEncodedPolylines(array $encodedPolylines)
     {
@@ -314,6 +337,7 @@ class OverlayManager
 
     /**
      * @param EncodedPolyline[] $encodedPolylines
+     * @return void
      */
     public function addEncodedPolylines(array $encodedPolylines)
     {
@@ -329,7 +353,9 @@ class OverlayManager
     {
         return in_array($encodedPolyline, $this->encodedPolylines, true);
     }
-
+    /**
+     * @return void
+     */
     public function addEncodedPolyline(EncodedPolyline $encodedPolyline)
     {
         if (!$this->hasEncodedPolyline($encodedPolyline)) {
@@ -338,7 +364,9 @@ class OverlayManager
 
         $this->addExtendable($encodedPolyline);
     }
-
+    /**
+     * @return void
+     */
     public function removeEncodedPolyline(EncodedPolyline $encodedPolyline)
     {
         unset($this->encodedPolylines[array_search($encodedPolyline, $this->encodedPolylines, true)]);
@@ -364,6 +392,7 @@ class OverlayManager
 
     /**
      * @param Polygon[] $polygons
+     * @return void
      */
     public function setPolygons(array $polygons)
     {
@@ -376,6 +405,7 @@ class OverlayManager
 
     /**
      * @param Polygon[] $polygons
+     * @return void
      */
     public function addPolygons(array $polygons)
     {
@@ -391,7 +421,9 @@ class OverlayManager
     {
         return in_array($polygon, $this->polygons, true);
     }
-
+    /**
+     * @return void
+     */
     public function addPolygon(Polygon $polygon)
     {
         if (!$this->hasPolygon($polygon)) {
@@ -400,7 +432,9 @@ class OverlayManager
 
         $this->addExtendable($polygon);
     }
-
+    /**
+     * @return void
+     */
     public function removePolygon(Polygon $polygon)
     {
         unset($this->polygons[array_search($polygon, $this->polygons, true)]);
@@ -426,6 +460,7 @@ class OverlayManager
 
     /**
      * @param Rectangle[] $rectangles
+     * @return void
      */
     public function setRectangles(array $rectangles)
     {
@@ -438,6 +473,7 @@ class OverlayManager
 
     /**
      * @param Rectangle[] $rectangles
+     * @return void
      */
     public function addRectangles(array $rectangles)
     {
@@ -453,7 +489,9 @@ class OverlayManager
     {
         return in_array($rectangle, $this->rectangles, true);
     }
-
+    /**
+     * @return void
+     */
     public function addRectangle(Rectangle $rectangle)
     {
         if (!$this->hasRectangle($rectangle)) {
@@ -462,7 +500,9 @@ class OverlayManager
 
         $this->addExtendable($rectangle);
     }
-
+    /**
+     * @return void
+     */
     public function removeRectangle(Rectangle $rectangle)
     {
         unset($this->rectangles[array_search($rectangle, $this->rectangles, true)]);
@@ -488,6 +528,7 @@ class OverlayManager
 
     /**
      * @param Circle[] $circles
+     * @return void
      */
     public function setCircles(array $circles)
     {
@@ -500,6 +541,7 @@ class OverlayManager
 
     /**
      * @param Circle[] $circles
+     * @return void
      */
     public function addCircles(array $circles)
     {
@@ -515,7 +557,9 @@ class OverlayManager
     {
         return in_array($circle, $this->circles, true);
     }
-
+    /**
+     * @return void
+     */
     public function addCircle(Circle $circle)
     {
         if (!$this->hasCircle($circle)) {
@@ -524,7 +568,9 @@ class OverlayManager
 
         $this->addExtendable($circle);
     }
-
+    /**
+     * @return void
+     */
     public function removeCircle(Circle $circle)
     {
         unset($this->circles[array_search($circle, $this->circles, true)]);
@@ -550,6 +596,7 @@ class OverlayManager
 
     /**
      * @param GroundOverlay[] $groundOverlays
+     * @return void
      */
     public function setGroundOverlays(array $groundOverlays)
     {
@@ -562,6 +609,7 @@ class OverlayManager
 
     /**
      * @param GroundOverlay[] $groundOverlays
+     * @return void
      */
     public function addGroundOverlays(array $groundOverlays)
     {
@@ -577,7 +625,9 @@ class OverlayManager
     {
         return in_array($groundOverlay, $this->groundOverlays, true);
     }
-
+    /**
+     * @return void
+     */
     public function addGroundOverlay(GroundOverlay $groundOverlay)
     {
         if (!$this->hasGroundOverlay($groundOverlay)) {
@@ -586,21 +636,27 @@ class OverlayManager
 
         $this->addExtendable($groundOverlay);
     }
-
+    /**
+     * @return void
+     */
     public function removeGroundOverlay(GroundOverlay $groundOverlay)
     {
         unset($this->groundOverlays[array_search($groundOverlay, $this->groundOverlays, true)]);
         $this->groundOverlays = empty($this->groundOverlays) ? [] : array_values($this->groundOverlays);
         $this->removeExtendable($groundOverlay);
     }
-
+    /**
+     * @return void
+     */
     private function addExtendable(ExtendableInterface $extendable)
     {
         if ($this->isAutoZoom()) {
             $this->getMap()->getBound()->addExtendable($extendable);
         }
     }
-
+    /**
+     * @return void
+     */
     private function removeExtendable(ExtendableInterface $extendable)
     {
         if ($this->isAutoZoom()) {

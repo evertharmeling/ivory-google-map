@@ -58,7 +58,9 @@ class MapTypeControlRenderer extends AbstractJsonRenderer implements ControlRend
     {
         return $this->mapTypeIdRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMapTypeIdRenderer(MapTypeIdRenderer $mapTypeIdRenderer)
     {
         $this->mapTypeIdRenderer = $mapTypeIdRenderer;
@@ -71,7 +73,9 @@ class MapTypeControlRenderer extends AbstractJsonRenderer implements ControlRend
     {
         return $this->controlPositionRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlPositionRenderer(ControlPositionRenderer $controlPositionRenderer)
     {
         $this->controlPositionRenderer = $controlPositionRenderer;
@@ -84,7 +88,9 @@ class MapTypeControlRenderer extends AbstractJsonRenderer implements ControlRend
     {
         return $this->mapTypeControlStyleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMapTypeControlStyleRenderer(MapTypeControlStyleRenderer $mapTypeControlStyleRenderer)
     {
         $this->mapTypeControlStyleRenderer = $mapTypeControlStyleRenderer;

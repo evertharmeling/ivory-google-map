@@ -50,7 +50,9 @@ class ScaleControlRenderer extends AbstractJsonRenderer implements ControlRender
     {
         return $this->controlPositionRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setControlPositionRenderer(ControlPositionRenderer $controlPositionRenderer)
     {
         $this->controlPositionRenderer = $controlPositionRenderer;
@@ -63,7 +65,9 @@ class ScaleControlRenderer extends AbstractJsonRenderer implements ControlRender
     {
         return $this->scaleControlStyleRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setScaleControlStyleRenderer(ScaleControlStyleRenderer $scaleControlStyleRenderer)
     {
         $this->scaleControlStyleRenderer = $scaleControlStyleRenderer;

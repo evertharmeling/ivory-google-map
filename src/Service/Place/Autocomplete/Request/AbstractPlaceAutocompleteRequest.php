@@ -61,6 +61,7 @@ abstract class AbstractPlaceAutocompleteRequest implements PlaceAutocompleteRequ
 
     /**
      * @param string $input
+     * @return void
      */
     public function setInput($input)
     {
@@ -85,6 +86,7 @@ abstract class AbstractPlaceAutocompleteRequest implements PlaceAutocompleteRequ
 
     /**
      * @param int|null $offset
+     * @return void
      */
     public function setOffset($offset)
     {
@@ -106,7 +108,9 @@ abstract class AbstractPlaceAutocompleteRequest implements PlaceAutocompleteRequ
     {
         return $this->location;
     }
-
+    /**
+     * @return void
+     */
     public function setLocation(Coordinate $location = null)
     {
         $this->location = $location;
@@ -130,6 +134,7 @@ abstract class AbstractPlaceAutocompleteRequest implements PlaceAutocompleteRequ
 
     /**
      * @param float|null $radius
+     * @return void
      */
     public function setRadius($radius)
     {
@@ -154,6 +159,7 @@ abstract class AbstractPlaceAutocompleteRequest implements PlaceAutocompleteRequ
 
     /**
      * @param string|null $language
+     * @return void
      */
     public function setLanguage($language)
     {

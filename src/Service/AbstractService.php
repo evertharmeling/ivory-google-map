@@ -49,6 +49,7 @@ abstract class AbstractService
 
     /**
      * @param string $url
+     * @return void
      */
     public function setUrl($url)
     {
@@ -73,6 +74,7 @@ abstract class AbstractService
 
     /**
      * @param string|null $key
+     * @return void
      */
     public function setKey($key)
     {
@@ -97,6 +99,7 @@ abstract class AbstractService
 
     /**
      * @param ?BusinessAccount $businessAccount
+     * @return void
      */
     public function setBusinessAccount(?BusinessAccount $businessAccount = null)
     {

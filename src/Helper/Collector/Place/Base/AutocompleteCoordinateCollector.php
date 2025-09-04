@@ -37,7 +37,9 @@ class AutocompleteCoordinateCollector extends AbstractCollector
     {
         return $this->boundCollector;
     }
-
+    /**
+     * @return void
+     */
     public function setBoundCollector(AutocompleteBoundCollector $boundCollector)
     {
         $this->boundCollector = $boundCollector;

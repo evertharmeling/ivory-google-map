@@ -41,7 +41,9 @@ class MapHtmlRenderer extends AbstractTagRenderer
     {
         return $this->stylesheetRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setStylesheetRenderer(StylesheetRenderer $stylesheetRenderer)
     {
         $this->stylesheetRenderer = $stylesheetRenderer;

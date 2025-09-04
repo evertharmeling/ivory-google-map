@@ -38,6 +38,7 @@ abstract class AbstractHelper
 
     /**
      * @param EventDispatcherInterface $eventDispatcher
+     * @return void
      */
     public function setEventDispatcher(EventDispatcherInterface $eventDispatcher)
     {

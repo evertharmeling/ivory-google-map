@@ -63,7 +63,9 @@ class MapJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->mapRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setMapRenderer(MapRenderer $mapRenderer)
     {
         $this->mapRenderer = $mapRenderer;
@@ -76,7 +78,9 @@ class MapJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->callbackRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setCallbackRenderer(CallbackRenderer $callbackRenderer)
     {
         $this->callbackRenderer = $callbackRenderer;
@@ -89,7 +93,9 @@ class MapJavascriptSubscriber extends AbstractDelegateSubscriber
     {
         return $this->javascriptTagRenderer;
     }
-
+    /**
+     * @return void
+     */
     public function setJavascriptTagRenderer(JavascriptTagRenderer $javascriptTagRenderer)
     {
         $this->javascriptTagRenderer = $javascriptTagRenderer;
@@ -128,7 +134,9 @@ class MapJavascriptSubscriber extends AbstractDelegateSubscriber
             ],
         ];
     }
-
+    /**
+     * @return void
+     */
     private function handleApi(ApiEvent $event)
     {
         foreach ($event->getObjects(Map::class) as $map) {
@@ -137,7 +145,9 @@ class MapJavascriptSubscriber extends AbstractDelegateSubscriber
             $event->addRequirement($map, $this->mapRenderer->renderRequirement());
         }
     }
-
+    /**
+     * @return void
+     */
     private function handleMap(MapEvent $event)
     {
         $formatter = $this->getFormatter();
