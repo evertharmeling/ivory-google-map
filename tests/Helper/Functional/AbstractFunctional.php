@@ -11,37 +11,27 @@
 
 namespace Ivory\Tests\GoogleMap\Helper\Functional;
 
-use Facebook\WebDriver\Remote\WebDriverBrowserType;
 use Symfony\Component\Panther\PantherTestCase;
-
-use function realpath;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
 abstract class AbstractFunctional extends PantherTestCase
 {
-    /**
-     * @var string
-     */
-    private static $directory;
-
-    /**
-     * @var bool
-     */
-    private static $hasDirectory;
+    private static string $directory;
 
     /**
      * {@inheritdoc}
      */
     public static function setUpBeforeClass(): void
     {
-        self::$directory = sys_get_temp_dir().'/ivory-google-map';
-        self::$hasDirectory = is_dir(self::$directory);
+        $dir = __DIR__ . '/../../Resources/public';
 
-        if (!self::$hasDirectory) {
-            mkdir(self::$directory);
+        if (!is_dir($dir) && !mkdir($dir, 0777, true) && !is_dir($dir)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
         }
+
+        self::$directory = realpath($dir);
     }
 
     /**
@@ -49,8 +39,10 @@ abstract class AbstractFunctional extends PantherTestCase
      */
     public static function tearDownAfterClass(): void
     {
-        if (!self::$hasDirectory) {
-            rmdir(self::$directory);
+        foreach (glob(self::$directory . '/*') as $file) {
+            if (basename($file) !== 'favicon.ico') {
+                unlink($file);
+            }
         }
 
         self::$pantherClient?->quit();
@@ -66,19 +58,16 @@ abstract class AbstractFunctional extends PantherTestCase
             throw new \RuntimeException('ChromeDriver binary not found at expected path.');
         }
 
-        $cwd = realpath(__DIR__ . '/../Resources/public');
-        if (!is_dir($cwd)) {
-            mkdir($cwd, 0777, true);
-        }
-
-        $options = ['--headless', '--disable-gpu', '--no-sandbox', '--window-size=1920,1080'];
-        $managerOptions = [
-            'browser' => $_SERVER['BROWSER_NAME'] ?? WebDriverBrowserType::CHROME,
+//        $options = ['--headless', '--disable-gpu', '--no-sandbox', '--window-size=1920,1080'];
+//        $managerOptions = [
+        $options = [
+            'browser' => $_SERVER['BROWSER_NAME'] ?? PantherTestCase::CHROME,
             'chromeDriverBinary' => $chromeDriverPath,
-            'cwd' => $cwd,
+            'webServerDir' => self::$directory,
+            'port' => \random_int(9500, 9800),
         ];
 
-        self::$pantherClient = self::createPantherClient($options, [], $managerOptions);
+        self::$pantherClient = self::createPantherClient($options);
     }
 
     /**
@@ -86,32 +75,20 @@ abstract class AbstractFunctional extends PantherTestCase
      */
     protected function renderHtml($html)
     {
-        if (false === ($name = @tempnam(self::$directory, 'ivory-google-map').'.html')) {
-            throw new \RuntimeException(sprintf('Unable to generate a unique file name in "%s".', self::$directory));
+        $filePath = self::$directory . DIRECTORY_SEPARATOR . uniqid('ivory-google-map_', true) . '.html';
+
+        $content = '<html><body>' . implode('', (array) $html) . '</body></html>';
+
+        if (@file_put_contents($filePath, $content, LOCK_EX) === false) {
+            throw new \RuntimeException(sprintf('Unable to write to the file "%s".', $filePath));
         }
 
-        if (!is_resource($file = @fopen($name, 'w+'))) {
-            throw new \RuntimeException(sprintf('Unable to create the file "%s".', $name));
-        }
+        // load the generated html file with PantherClient
+        $filename = basename($filePath);
+        self::$pantherClient->get('/' . $filename);
 
-        chmod($name, 0644);
-
-        if (false === @fwrite($file, '<html><body>'.implode('', (array) $html).'</body></html>')) {
-            throw new \RuntimeException(sprintf('Unable to write in the file "%s".', $name));
-        }
-
-        if (false === @fflush($file)) {
-            throw new \RuntimeException(sprintf('Unable to flush the file "%s".', $name));
-        }
-
-        if (false === @fclose($file)) {
-            throw new \RuntimeException(sprintf('Unable to close the file "%s".', $name));
-        }
-
-        self::$pantherClient->get(basename($name));
-
-        if (false === @unlink($name)) {
-            throw new \RuntimeException(sprintf('Unable to remove the file "%s".', $name));
+        if (false === @unlink($filePath)) {
+            throw new \RuntimeException(sprintf('Unable to remove the file "%s".', $filePath));
         }
     }
 
@@ -140,13 +117,12 @@ abstract class AbstractFunctional extends PantherTestCase
     }
 
     /**
-     * @param string  $script
      * @param mixed[] $args
      *
      * @return mixed
      */
-    private function executeJavascript($script, array $args = [])
+    private function executeJavascript(string $script, array $args = [])
     {
-        return $this->execute(['script' => 'return ('.$script.')', 'args' => $args]);
+        return self::$pantherClient->executeScript('return ('.$script.')', $args);
     }
 }
