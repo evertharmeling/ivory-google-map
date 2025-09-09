@@ -111,7 +111,7 @@ abstract class AbstractPlaceAutocompleteRequest implements PlaceAutocompleteRequ
     /**
      * @return void
      */
-    public function setLocation(Coordinate $location = null)
+    public function setLocation(?Coordinate $location = null)
     {
         $this->location = $location;
     }

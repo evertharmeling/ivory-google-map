@@ -48,4 +48,10 @@ class StaticMapHelperBuilderTest extends TestCase
     {
         $this->assertInstanceOf(StaticMapHelper::class, $this->staticMapHelperBuilder->build());
     }
+
+    public function testDefaultState()
+    {
+        $this->assertFalse($this->staticMapHelperBuilder->hasSubscribers());
+        $this->assertEmpty($this->staticMapHelperBuilder->getSubscribers());
+    }
 }

@@ -11,6 +11,7 @@
 
 namespace Ivory\Tests\GoogleMap\Helper\Functional\Event;
 
+use Ivory\GoogleMap\Event\Event;
 use Ivory\GoogleMap\Map;
 
 /**
@@ -33,18 +34,12 @@ abstract class AbstractDomEventFunctional extends AbstractEventFunctional
         $this->spyButton = 'spy_button';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function renderMap(Map $map, $html = null)
+    protected function renderMap(Map $map, ?string $html = null)
     {
         return parent::renderMap($map, $html ?: '<button id="'.$this->spyButton.'">Button</button>');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function createEvent($instance = null)
+    protected function createEvent(string $instance): Event
     {
         return parent::createEvent($instance ?: 'document.getElementById("'.$this->spyButton.'")');
     }

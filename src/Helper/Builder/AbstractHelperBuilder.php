@@ -21,10 +21,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 abstract class AbstractHelperBuilder
 {
     /** @var EventSubscriberInterface[] */
-    private $subscribers = [];
+    private array $subscribers = [];
 
-    /** @var string|null */
-    protected $key;
+    protected ?string $key = null;
 
     /**
      * @param string|null $key

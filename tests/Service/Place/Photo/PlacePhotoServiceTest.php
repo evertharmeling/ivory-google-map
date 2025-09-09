@@ -74,7 +74,7 @@ class PlacePhotoServiceTest extends TestCase
             ->with($this->identicalTo(
                 $url = 'https://maps.googleapis.com/maps/api/place/photo?photoreference='.$request->getReference().'&key='.$this->key
             ))
-            ->will($this->returnValue($signedUrl = $url.'&signature=signature'));
+            ->willReturn($signedUrl = $url.'&signature=signature');
 
         $this->service->setBusinessAccount($businessAccount);
 

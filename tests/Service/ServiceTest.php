@@ -21,24 +21,13 @@ use PHPUnit\Framework\TestCase;
  */
 class ServiceTest extends TestCase
 {
-    /**
-     * @var AbstractService|MockObject
-     */
-    private $service;
+    private ServiceMock $service;
 
-    /**
-     * @var string
-     */
-    private $url;
+    private string $url;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
-        $this->service = $this->getMockBuilder(AbstractService::class)
-            ->setConstructorArgs([$this->url = 'https://foo'])
-            ->getMockForAbstractClass();
+        $this->service = new ServiceMock($this->url = 'https://foo');
     }
 
     public function testDefaultState()
@@ -96,4 +85,8 @@ class ServiceTest extends TestCase
     {
         return $this->createMock(BusinessAccount::class);
     }
+}
+
+class ServiceMock extends AbstractService
+{
 }

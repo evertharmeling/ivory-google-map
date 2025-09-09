@@ -12,6 +12,7 @@
 namespace Ivory\Tests\GoogleMap\Service;
 
 use Ivory\GoogleMap\Service\BusinessAccount;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -94,14 +95,8 @@ class BusinessAccountTest extends TestCase
         $this->assertNull($this->businessAccount->getChannel());
     }
 
-    /**
-     * @param string      $url
-     * @param string      $signature
-     * @param string|null $channel
-     *
-     * @dataProvider signatureProvider
-     */
-    public function testSignature($url, $signature, $channel = null)
+    #[DataProvider('signatureProvider')]
+    public function testSignature(string $url, string $signature, ?string $channel = null)
     {
         $expected = $url.'&client=gme-client_id';
         if (null !== $channel) {
@@ -116,7 +111,7 @@ class BusinessAccountTest extends TestCase
     /**
      * @return string[][]
      */
-    public function signatureProvider()
+    public static function signatureProvider(): iterable
     {
         $url = 'http://maps.googleapis.com/maps/api/staticmap?center=%E4%B8%8A%E6%B5%B7+%E4%B8%AD%E5%9C%8B&size=640x640&zoom=10&sensor=false';
 

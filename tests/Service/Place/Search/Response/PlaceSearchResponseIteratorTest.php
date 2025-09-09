@@ -61,7 +61,7 @@ class PlaceSearchResponseIteratorTest extends TestCase
         $this->response
             ->expects($this->once())
             ->method('hasNextPageToken')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->service
             ->expects($this->once())
@@ -69,10 +69,10 @@ class PlaceSearchResponseIteratorTest extends TestCase
             ->with($this->callback(function ($request) {
                 return $request instanceof PageTokenPlaceSearchRequest && $request->getResponse() === $this->response;
             }))
-            ->will($this->returnValue(new PlaceSearchResponseIterator(
+            ->willReturn(new PlaceSearchResponseIterator(
                 $this->service,
                 $response = $this->createResponseMock()
-            )));
+            ));
 
         $this->iterator->next();
 
@@ -97,7 +97,7 @@ class PlaceSearchResponseIteratorTest extends TestCase
         $this->response
             ->expects($this->once())
             ->method('hasNextPageToken')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $this->service
             ->expects($this->never())

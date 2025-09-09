@@ -14,6 +14,7 @@ namespace Ivory\Tests\GoogleMap\Overlay;
 use Ivory\GoogleMap\Overlay\MarkerShape;
 use Ivory\GoogleMap\Overlay\MarkerShapeType;
 use Ivory\GoogleMap\Utility\VariableAwareInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -61,12 +62,10 @@ class MarkerShapeTest extends TestCase
     }
 
     /**
-     * @param string  $type
      * @param float[] $coordinates
-     *
-     * @dataProvider coordinatesProvider
      */
-    public function testCoordinates($type, array $coordinates)
+    #[DataProvider('coordinatesProvider')]
+    public function testCoordinates(string $type, array $coordinates)
     {
         $this->markerShape->setType($type);
         $this->markerShape->setCoordinates($coordinates);
@@ -83,7 +82,7 @@ class MarkerShapeTest extends TestCase
     /**
      * @return mixed[][]
      */
-    public function coordinatesProvider()
+    public static function coordinatesProvider(): iterable
     {
         return [
             [MarkerShapeType::RECTANGLE, [1.2, 2.3]],

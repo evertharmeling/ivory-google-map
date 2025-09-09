@@ -112,12 +112,12 @@ class TimeZoneRequestTest extends TestCase
         $coordinate
             ->expects($this->any())
             ->method('getLatitude')
-            ->will($this->returnValue(1.2));
+            ->willReturn(1.2);
 
         $coordinate
             ->expects($this->any())
             ->method('getLongitude')
-            ->will($this->returnValue(2.3));
+            ->willReturn(2.3);
 
         return $coordinate;
     }

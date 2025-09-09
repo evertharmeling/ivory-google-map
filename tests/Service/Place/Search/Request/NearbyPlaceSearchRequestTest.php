@@ -78,12 +78,12 @@ class NearbyPlaceSearchRequestTest extends TestCase
         $this->location
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue(1.23));
+            ->willReturn(1.23);
 
         $this->location
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue(3.21));
+            ->willReturn(3.21);
 
         $this->assertSame([
             'location' => '1.23,3.21',

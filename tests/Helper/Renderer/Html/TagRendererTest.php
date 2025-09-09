@@ -14,6 +14,7 @@ namespace Ivory\Tests\GoogleMap\Helper\Renderer\Html;
 use Ivory\GoogleMap\Helper\Formatter\Formatter;
 use Ivory\GoogleMap\Helper\Renderer\AbstractRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Html\TagRenderer;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -40,22 +41,16 @@ class TagRendererTest extends TestCase
     }
 
     /**
-     * @param string      $expected
-     * @param string      $name
-     * @param string|null $code
      * @param string[]    $attributes
-     * @param bool        $newLine
-     * @param bool        $debug
-     *
-     * @dataProvider renderProvider
      */
+    #[DataProvider('renderProvider')]
     public function testRender(
-        $expected,
-        $name,
-        $code = null,
+        string $expected,
+        string $name,
+        ?string $code = null,
         array $attributes = [],
-        $newLine = false,
-        $debug = false
+        bool $newLine = false,
+        bool $debug = false
     ) {
         $this->tagRenderer->getFormatter()->setDebug($debug);
 
@@ -65,7 +60,7 @@ class TagRendererTest extends TestCase
     /**
      * @return mixed[][]
      */
-    public function renderProvider()
+    public static function renderProvider(): iterable
     {
         return [
             // Debug disabled

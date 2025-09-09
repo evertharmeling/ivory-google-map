@@ -34,18 +34,12 @@ abstract class AbstractDomEventFunctional extends AbstractEventFunctional
         $this->spyButton = 'spy_button';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function renderAutocomplete(Autocomplete $autocomplete, $html = null)
+    protected function renderAutocomplete(Autocomplete $autocomplete, ?string $html = null)
     {
         return parent::renderAutocomplete($autocomplete, $html ?: '<button id="'.$this->spyButton.'">Button</button>');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function createEvent($instance = null)
+    protected function createEvent(?string $instance = null)
     {
         $event = parent::createEvent($instance ?: 'document.getElementById("'.$this->spyButton.'")');
         $event->setTrigger(MouseEvent::CLICK);

@@ -26,17 +26,11 @@ use PHPUnit\Framework\TestCase;
  */
 class PlaceSearchRequestTest extends TestCase
 {
-    /**
-     * @var AbstractPlaceSearchRequest|MockObject
-     */
-    private $request;
+    private PlaceSearchRequestMock $request;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
-        $this->request = $this->createRequestMock();
+        $this->request = new PlaceSearchRequestMock();
     }
 
     public function testInheritance()
@@ -131,12 +125,12 @@ class PlaceSearchRequestTest extends TestCase
         $location
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue(1.23));
+            ->willReturn(1.23);
 
         $location
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue(2.13));
+            ->willReturn(2.13);
 
         $this->request->setLocation($location);
 
@@ -179,18 +173,18 @@ class PlaceSearchRequestTest extends TestCase
     }
 
     /**
-     * @return MockObject|AbstractPlaceSearchRequest
-     */
-    private function createRequestMock()
-    {
-        return $this->getMockForAbstractClass(AbstractPlaceSearchRequest::class);
-    }
-
-    /**
      * @return MockObject|Coordinate
      */
     private function createCoordinateMock()
     {
         return $this->createMock(Coordinate::class);
+    }
+}
+
+class PlaceSearchRequestMock extends AbstractPlaceSearchRequest
+{
+    public function buildContext()
+    {
+        return 'place_search_request_mock';
     }
 }

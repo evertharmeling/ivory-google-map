@@ -398,23 +398,23 @@ class DirectionRequestTest extends TestCase
         $firstWaypoint
             ->expects($this->once())
             ->method('getStopover')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $firstWaypoint
             ->expects($this->once())
             ->method('getLocation')
-            ->will($this->returnValue($firstLocation = $this->createLocationMock($firstLocationBuilt = 'first')));
+            ->willReturn($this->createLocationMock($firstLocationBuilt = 'first'));
 
         $secondWaypoint = $this->createWaypointMock();
         $secondWaypoint
             ->expects($this->once())
             ->method('getStopover')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $secondWaypoint
             ->expects($this->once())
             ->method('getLocation')
-            ->will($this->returnValue($secondLocation = $this->createLocationMock($secondLocationBuilt = 'second')));
+            ->willReturn($this->createLocationMock($secondLocationBuilt = 'second'));
 
         $this->request->addWaypoints([$firstWaypoint, $secondWaypoint]);
 
@@ -427,12 +427,12 @@ class DirectionRequestTest extends TestCase
         $waypoint
             ->expects($this->once())
             ->method('getStopover')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $waypoint
             ->expects($this->once())
             ->method('getLocation')
-            ->will($this->returnValue($location = $this->createLocationMock($locationBuilt = 'location')));
+            ->willReturn($this->createLocationMock($locationBuilt = 'location'));
 
         $this->request->setOptimizeWaypoints(true);
         $this->request->addWaypoint($waypoint);
@@ -527,7 +527,7 @@ class DirectionRequestTest extends TestCase
         $location
             ->expects($this->any())
             ->method('buildQuery')
-            ->will($this->returnValue($value));
+            ->willReturn($value);
 
         return $location;
     }

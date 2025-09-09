@@ -85,7 +85,7 @@ class MarkerClusterTest extends TestCase
         $overlayManager
             ->expects($this->once())
             ->method('getMarkerCluster')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         $overlayManager
             ->expects($this->once())
@@ -120,7 +120,7 @@ class MarkerClusterTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -155,15 +155,17 @@ class MarkerClusterTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstMarker = $this->createMarkerMock();
+        $secondMarker = $this->createMarkerMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstMarker = $this->createMarkerMock()],
-                [$secondMarker = $this->createMarkerMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->markerCluster->setMarkers($firstMarkers = [$firstMarker]);
         $this->markerCluster->addMarkers($secondMarkers = [$secondMarker]);
@@ -186,7 +188,7 @@ class MarkerClusterTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -215,7 +217,7 @@ class MarkerClusterTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -238,18 +240,18 @@ class MarkerClusterTest extends TestCase
     /**
      * @return MockObject|OverlayManager
      */
-    private function createOverlayManagerMock(Map $map = null)
+    private function createOverlayManagerMock(?Map $map = null)
     {
         $overlayManager = $this->createMock(OverlayManager::class);
         $overlayManager
             ->expects($this->any())
             ->method('hasMap')
-            ->will($this->returnValue(null !== $map));
+            ->willReturn(null !== $map);
 
         $overlayManager
             ->expects($this->any())
             ->method('getMap')
-            ->will($this->returnValue($map));
+            ->willReturn($map);
 
         return $overlayManager;
     }
@@ -263,7 +265,7 @@ class MarkerClusterTest extends TestCase
         $map
             ->expects($this->any())
             ->method('getBound')
-            ->will($this->returnValue($bound ?: $this->createBoundMock()));
+            ->willReturn($bound ?: $this->createBoundMock());
 
         return $map;
     }

@@ -21,15 +21,9 @@ use PHPUnit\Framework\TestCase;
  */
 class RendererTest extends TestCase
 {
-    /**
-     * @var AbstractRenderer
-     */
-    private $renderer;
+    private RendererMock $renderer;
 
-    /**
-     * @var Formatter
-     */
-    private $formatter;
+    private Formatter|MockObject $formatter;
 
     /**
      * {@inheritdoc}
@@ -37,7 +31,7 @@ class RendererTest extends TestCase
     protected function setUp(): void
     {
         $this->formatter = $this->createFormatterMock();
-        $this->renderer = $this->createAbstractRendererMock($this->formatter);
+        $this->renderer = new RendererMock($this->formatter);
     }
 
     public function testDefaultState()
@@ -53,20 +47,14 @@ class RendererTest extends TestCase
     }
 
     /**
-     * @return MockObject|AbstractRenderer
-     */
-    private function createAbstractRendererMock(Formatter $formatter = null)
-    {
-        return $this->getMockBuilder(AbstractRenderer::class)
-            ->setConstructorArgs([$formatter ?: $this->createFormatterMock()])
-            ->getMockForAbstractClass();
-    }
-
-    /**
      * @return MockObject|Formatter
      */
     private function createFormatterMock()
     {
         return $this->createMock(Formatter::class);
     }
+}
+
+class RendererMock extends AbstractRenderer
+{
 }

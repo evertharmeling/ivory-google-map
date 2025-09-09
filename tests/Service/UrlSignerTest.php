@@ -12,6 +12,7 @@
 namespace Ivory\Tests\GoogleMap\Service;
 
 use Ivory\GoogleMap\Service\UrlSigner;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -19,16 +20,8 @@ use PHPUnit\Framework\TestCase;
  */
 class UrlSignerTest extends TestCase
 {
-    /**
-     * @param string      $expected
-     * @param string      $url
-     * @param string      $secret
-     * @param string|null $clientId
-     * @param string|null $channel
-     *
-     * @dataProvider signatureProvider
-     */
-    public function testSignature($expected, $url, $secret, $clientId = null, $channel = null)
+    #[DataProvider('signatureProvider')]
+    public function testSignature(string $expected, string $url, string $secret, ?string $clientId = null, ?string $channel = null)
     {
         $signedUrl = $url;
 
@@ -46,7 +39,7 @@ class UrlSignerTest extends TestCase
     /**
      * @return mixed[]
      */
-    public function signatureProvider()
+    public static function signatureProvider(): iterable
     {
         $url = 'http://maps.googleapis.com/maps/api/staticmap?center=%E4%B8%8A%E6%B5%B7+%E4%B8%AD%E5%9C%8B&size=640x640&zoom=10&sensor=false';
 

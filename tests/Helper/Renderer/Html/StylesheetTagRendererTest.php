@@ -16,6 +16,7 @@ use Ivory\GoogleMap\Helper\Renderer\Html\AbstractTagRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Html\StylesheetRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Html\StylesheetTagRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Html\TagRenderer;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -55,22 +56,17 @@ class StylesheetTagRendererTest extends TestCase
     }
 
     /**
-     * @param string   $expected
-     * @param string   $name
      * @param string[] $stylesheets
      * @param string[] $attributes
-     * @param bool     $newLine
-     * @param bool     $debug
-     *
-     * @dataProvider renderProvider
      */
+    #[DataProvider('renderProvider')]
     public function testRender(
-        $expected,
-        $name,
+        string $expected,
+        string $name,
         array $stylesheets = [],
         array $attributes = [],
-        $newLine = true,
-        $debug = false
+        bool $newLine = true,
+        bool $debug = false
     ) {
         $this->stylesheetTagRenderer->getFormatter()->setDebug($debug);
 
@@ -80,7 +76,7 @@ class StylesheetTagRendererTest extends TestCase
     /**
      * @return mixed[][]
      */
-    public function renderProvider()
+    public static function renderProvider(): iterable
     {
         return [
             // Debug disabled

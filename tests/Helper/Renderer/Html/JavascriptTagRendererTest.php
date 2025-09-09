@@ -15,6 +15,7 @@ use Ivory\GoogleMap\Helper\Formatter\Formatter;
 use Ivory\GoogleMap\Helper\Renderer\Html\AbstractTagRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Html\JavascriptTagRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Html\TagRenderer;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -44,15 +45,10 @@ class JavascriptTagRendererTest extends TestCase
     }
 
     /**
-     * @param string      $expected
-     * @param string|null $code
      * @param string[]    $attributes
-     * @param bool        $newLine
-     * @param bool        $debug
-     *
-     * @dataProvider renderProvider
      */
-    public function testRender($expected, $code = null, array $attributes = [], $newLine = true, $debug = false)
+    #[DataProvider('renderProvider')]
+    public function testRender(string $expected, ?string $code = null, array $attributes = [], bool $newLine = true, bool $debug = false)
     {
         $this->javascriptTagRenderer->getFormatter()->setDebug($debug);
 
@@ -62,7 +58,7 @@ class JavascriptTagRendererTest extends TestCase
     /**
      * @return mixed[][]
      */
-    public function renderProvider()
+    public static function renderProvider(): iterable
     {
         return [
             // Debug disabled

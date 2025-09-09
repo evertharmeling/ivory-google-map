@@ -15,7 +15,6 @@ use Ivory\GoogleMap\Event\Event;
 use Ivory\GoogleMap\Helper\Formatter\Formatter;
 use Ivory\GoogleMap\Helper\Renderer\AbstractRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Event\AbstractEventRenderer;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,17 +22,14 @@ use PHPUnit\Framework\TestCase;
  */
 class AbstractEventRendererTest extends TestCase
 {
-    /**
-     * @var AbstractEventRenderer|MockObject
-     */
-    private $eventRenderer;
+    private EventRendererMock $eventRenderer;
 
     /**
      * {@inheritdoc}
      */
     protected function setUp(): void
     {
-        $this->eventRenderer = $this->createAbstractEventRendererMock();
+        $this->eventRenderer = new EventRendererMock(new Formatter());
     }
 
     public function testInheritance()
@@ -51,21 +47,12 @@ class AbstractEventRendererTest extends TestCase
             $this->eventRenderer->render($event)
         );
     }
+}
 
-    /**
-     * @return MockObject|AbstractEventRenderer
-     */
-    private function createAbstractEventRendererMock()
+class EventRendererMock extends AbstractEventRenderer
+{
+    protected function getMethod()
     {
-        $eventRenderer = $this->getMockBuilder(AbstractEventRenderer::class)
-            ->setConstructorArgs([new Formatter()])
-            ->getMockForAbstractClass();
-
-        $eventRenderer
-            ->expects($this->any())
-            ->method('getMethod')
-            ->will($this->returnValue('method'));
-
-        return $eventRenderer;
+        return 'method';
     }
 }

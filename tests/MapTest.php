@@ -116,7 +116,7 @@ class MapTest extends TestCase
         $layerManager
             ->expects($this->once())
             ->method('getMap')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         $layerManager
             ->expects($this->once())
@@ -134,7 +134,7 @@ class MapTest extends TestCase
         $overlayManager
             ->expects($this->once())
             ->method('getMap')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         $overlayManager
             ->expects($this->once())

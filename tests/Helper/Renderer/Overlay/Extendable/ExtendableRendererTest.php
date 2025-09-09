@@ -98,7 +98,7 @@ class ExtendableRendererTest extends TestCase
                 $this->identicalTo($extendable = $this->createExtendableMock()),
                 $this->identicalTo($bound = $this->createBoundMock())
             )
-            ->will($this->returnValue($result = 'result'));
+            ->willReturn($result = 'result');
 
         $this->extendableRenderer->setRenderer(get_class($extendable), $extendableRenderer);
 

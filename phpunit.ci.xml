@@ -3,6 +3,8 @@
          colors="true"
          bootstrap="tests/autoload.php"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         stopOnFailure="true"
+         stopOnError="true"
 >
     <testsuites>
         <testsuite name="Ivory Google Map Test Suite">

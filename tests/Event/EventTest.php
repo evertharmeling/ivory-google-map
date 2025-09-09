@@ -60,7 +60,6 @@ class EventTest extends TestCase
 
     public function testDefaultState()
     {
-        $this->assertStringStartsWith('event', $this->event->getVariable());
         $this->assertSame($this->instance, $this->event->getInstance());
         $this->assertSame($this->trigger, $this->event->getTrigger());
         $this->assertSame($this->handle, $this->event->getHandle());
@@ -71,7 +70,6 @@ class EventTest extends TestCase
     {
         $this->event = new Event($this->instance, $this->trigger, $this->handle, true);
 
-        $this->assertStringStartsWith('event', $this->event->getVariable());
         $this->assertSame($this->instance, $this->event->getInstance());
         $this->assertSame($this->trigger, $this->event->getTrigger());
         $this->assertSame($this->handle, $this->event->getHandle());

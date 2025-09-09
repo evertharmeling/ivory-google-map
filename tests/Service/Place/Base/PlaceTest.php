@@ -267,7 +267,7 @@ class PlaceTest extends TestCase
         $addressComponent
             ->expects($this->exactly(4))
             ->method('getTypes')
-            ->will($this->returnValue([$type = 'foo']));
+            ->willReturn([$type = 'foo']);
 
         $this->result->setAddressComponents($addressComponents = [$addressComponent]);
 

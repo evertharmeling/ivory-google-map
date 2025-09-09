@@ -50,13 +50,13 @@ class BoundsExtendableRendererTest extends TestCase
         $extendable
             ->expects($this->once())
             ->method('getVariable')
-            ->will($this->returnValue('extendable'));
+            ->willReturn('extendable');
 
         $bound = $this->createBoundMock();
         $bound
             ->expects($this->once())
             ->method('getVariable')
-            ->will($this->returnValue('bound'));
+            ->willReturn('bound');
 
         $this->assertSame(
             'bound.union(extendable.getBounds())',

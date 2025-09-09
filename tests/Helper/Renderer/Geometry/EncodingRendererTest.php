@@ -14,6 +14,7 @@ namespace Ivory\Tests\GoogleMap\Helper\Renderer\Geometry;
 use Ivory\GoogleMap\Helper\Formatter\Formatter;
 use Ivory\GoogleMap\Helper\Renderer\AbstractRenderer;
 use Ivory\GoogleMap\Helper\Renderer\Geometry\EncodingRenderer;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -39,13 +40,8 @@ class EncodingRendererTest extends TestCase
         $this->assertInstanceOf(AbstractRenderer::class, $this->encodingRenderer);
     }
 
-    /**
-     * @param string $expected
-     * @param string $encodedPath
-     *
-     * @dataProvider renderProvider
-     */
-    public function testRender($expected, $encodedPath)
+    #[DataProvider('renderProvider')]
+    public function testRender(string $expected, string $encodedPath)
     {
         $this->assertSame(
             'google.maps.geometry.encoding.decodePath("'.$expected.'")',
@@ -56,7 +52,7 @@ class EncodingRendererTest extends TestCase
     /**
      * @return string[][]
      */
-    public function renderProvider()
+    public static function renderProvider(): iterable
     {
         return [
             ['foo', 'foo'],

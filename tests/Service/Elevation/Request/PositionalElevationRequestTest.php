@@ -109,7 +109,7 @@ class PositionalElevationRequestTest extends TestCase
         $location
             ->expects($this->any())
             ->method('buildQuery')
-            ->will($this->returnValue($value));
+            ->willReturn($value);
 
         return $location;
     }

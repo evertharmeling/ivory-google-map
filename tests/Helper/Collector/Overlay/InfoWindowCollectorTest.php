@@ -18,6 +18,7 @@ use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\InfoWindow;
 use Ivory\GoogleMap\Overlay\InfoWindowType;
 use Ivory\GoogleMap\Overlay\Marker;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -55,12 +56,9 @@ class InfoWindowCollectorTest extends TestCase
 
     /**
      * @param InfoWindow[] $expected
-     * @param int          $strategy
-     * @param string|null  $type
-     *
-     * @dataProvider collectProvider
      */
-    public function testCollect(array $expected, Map $map, $strategy, $type = null)
+    #[DataProvider('collectProvider')]
+    public function testCollect(array $expected, Map $map, int $strategy, ?string $type = null)
     {
         $this->infoWindowCollector->setType($type);
 
@@ -70,7 +68,7 @@ class InfoWindowCollectorTest extends TestCase
     /**
      * @return mixed[][]
      */
-    public function collectProvider()
+    public static function collectProvider(): iterable
     {
         $infoWindow = new InfoWindow('content');
         $markerInfoWindow = new InfoWindow('content');

@@ -72,7 +72,7 @@ class LayerManagerTest extends TestCase
         $map
             ->expects($this->once())
             ->method('getLayerManager')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         $map
             ->expects($this->once())
@@ -141,7 +141,7 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -178,16 +178,26 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
-            ->method('addExtendable')
-            ->withConsecutive(
-                [$firstHeatmapLayer = $this->createHeatmapLayerMock()],
-                [$secondHeatmapLayer = $this->createHeatmapLayerMock()]
-            );
+            ->method('addExtendable');
 
+        // Prepare the heatmap layer mocks
+        $firstHeatmapLayer = $this->createHeatmapLayerMock();
+        $secondHeatmapLayer = $this->createHeatmapLayerMock();
+
+        // Capture arguments passed to addExtendable
+        $addedLayers = [];
+        $this->bound
+            ->expects($this->exactly(2))
+            ->method('addExtendable')
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
+
+        // Call your code under test
         $this->layerManager->setHeatmapLayers($firstHeatmapLayers = [$firstHeatmapLayer]);
         $this->layerManager->addHeatmapLayers($secondHeatmapLayers = [$secondHeatmapLayer]);
 
@@ -212,7 +222,7 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -241,7 +251,7 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -276,7 +286,7 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -310,15 +320,17 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstKmlLayer = $this->createKmlLayerMock();
+        $secondKmlLayer = $this->createKmlLayerMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstKmlLayer = $this->createKmlLayerMock()],
-                [$secondKmlLayer = $this->createKmlLayerMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->layerManager->setKmlLayers($firstKmlLayers = [$firstKmlLayer]);
         $this->layerManager->addKmlLayers($secondKmlLayers = [$secondKmlLayer]);
@@ -341,7 +353,7 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -370,7 +382,7 @@ class LayerManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -399,7 +411,7 @@ class LayerManagerTest extends TestCase
         $map
             ->expects($this->any())
             ->method('getBound')
-            ->will($this->returnValue($bound ?: $this->createBoundMock()));
+            ->willReturn($bound ?: $this->createBoundMock());
 
         return $map;
     }

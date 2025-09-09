@@ -43,12 +43,7 @@ abstract class AbstractEventFunctional extends AbstractMapFunctional
         $this->assertSameVariable($count, $this->spyCount);
     }
 
-    /**
-     * @param string $instance
-     *
-     * @return Event
-     */
-    protected function createEvent($instance)
+    protected function createEvent(string $instance): Event
     {
         return new Event(
             $instance,

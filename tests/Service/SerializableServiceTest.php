@@ -25,10 +25,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  */
 class SerializableServiceTest extends TestCase
 {
-    /**
-     * @var AbstractSerializableService|MockObject
-     */
-    private $service;
+    private SerializableServiceMock $service;
 
     /**
      * @var string
@@ -55,14 +52,12 @@ class SerializableServiceTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->service = $this->getMockBuilder(AbstractSerializableService::class)
-            ->setConstructorArgs([
-                $this->url = 'https://foo',
-                $this->client = $this->createHttpClientMock(),
-                $this->messageFactory = $this->createMessageFactoryMock(),
-                $this->serializer = $this->createSerializerMock(),
-            ])
-            ->getMockForAbstractClass();
+        $this->service = new SerializableServiceMock(
+            $this->url = 'https://foo',
+            $this->client = $this->createHttpClientMock(),
+            $this->messageFactory = $this->createMessageFactoryMock(),
+            $this->serializer = $this->createSerializerMock(),
+        );
     }
 
     public function testInheritance()
@@ -173,4 +168,8 @@ class SerializableServiceTest extends TestCase
     {
         return $this->createMock(BusinessAccount::class);
     }
+}
+
+class SerializableServiceMock extends AbstractSerializableService
+{
 }

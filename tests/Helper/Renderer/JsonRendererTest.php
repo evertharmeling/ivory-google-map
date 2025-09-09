@@ -69,17 +69,12 @@ class JsonRendererTest extends TestCase
         $this->assertInstanceOf(JsonBuilder::class, $this->jsonRenderer->getJsonBuilder());
     }
 
-    /**
-     * @return MockObject|AbstractJsonRenderer
-     */
-    private function createAbstractJsonRendererMock(Formatter $formatter = null, JsonBuilder $jsonBuilder = null)
+    private function createAbstractJsonRendererMock(?Formatter $formatter = null, ?JsonBuilder $jsonBuilder = null): JsonRendererMock
     {
-        return $this->getMockBuilder(AbstractJsonRenderer::class)
-            ->setConstructorArgs([
-                $formatter ?: $this->createFormatterMock(),
-                $jsonBuilder ?: $this->createJsonBuilderMock(),
-            ])
-            ->getMockForAbstractClass();
+        return new JsonRendererMock(
+            $formatter ?: $this->createFormatterMock(),
+            $jsonBuilder ?: $this->createJsonBuilderMock(),
+        );
     }
 
     /**
@@ -99,13 +94,17 @@ class JsonRendererTest extends TestCase
         $jsonBuilder
             ->expects($this->any())
             ->method('reset')
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         $jsonBuilder
             ->expects($this->any())
             ->method('setJsonEncodeOptions')
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         return $jsonBuilder;
     }
+}
+
+class JsonRendererMock extends AbstractJsonRenderer
+{
 }

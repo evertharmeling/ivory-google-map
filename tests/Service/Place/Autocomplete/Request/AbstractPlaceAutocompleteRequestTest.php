@@ -24,24 +24,16 @@ use PHPUnit\Framework\TestCase;
  */
 class AbstractPlaceAutocompleteRequestTest extends TestCase
 {
-    /**
-     * @var AbstractPlaceAutocompleteRequest|MockObject
-     */
-    private $request;
+    private PlaceAutocompleteRequestMock $request;
 
-    /**
-     * @var string
-     */
-    private $input;
+    private string $input;
 
     /**
      * {@inheritdoc}
      */
     protected function setUp(): void
     {
-        $this->request = $this->getMockBuilder(AbstractPlaceAutocompleteRequest::class)
-            ->setConstructorArgs([$this->input = 'input'])
-            ->getMockForAbstractClass();
+        $this->request = new PlaceAutocompleteRequestMock($this->input = 'input');
     }
 
     public function testInheritance()
@@ -124,12 +116,12 @@ class AbstractPlaceAutocompleteRequestTest extends TestCase
         $location
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue(1.23));
+            ->willReturn(1.23);
 
         $location
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue(3.21));
+            ->willReturn(3.21);
 
         $this->request->setLocation($location);
 
@@ -165,5 +157,13 @@ class AbstractPlaceAutocompleteRequestTest extends TestCase
     private function createCoordinateMock()
     {
         return $this->createMock(Coordinate::class);
+    }
+}
+
+class PlaceAutocompleteRequestMock extends AbstractPlaceAutocompleteRequest
+{
+    public function buildContext()
+    {
+        return 'place_autocomplete_request_mock';
     }
 }

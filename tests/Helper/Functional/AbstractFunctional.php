@@ -11,12 +11,15 @@
 
 namespace Ivory\Tests\GoogleMap\Helper\Functional;
 
-use PHPUnit\Extensions\Selenium2TestCase;
+use Facebook\WebDriver\Remote\WebDriverBrowserType;
+use Symfony\Component\Panther\PantherTestCase;
+
+use function realpath;
 
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractFunctional extends Selenium2TestCase
+abstract class AbstractFunctional extends PantherTestCase
 {
     /**
      * @var string
@@ -49,6 +52,8 @@ abstract class AbstractFunctional extends Selenium2TestCase
         if (!self::$hasDirectory) {
             rmdir(self::$directory);
         }
+
+        self::$pantherClient?->quit();
     }
 
     /**
@@ -56,12 +61,24 @@ abstract class AbstractFunctional extends Selenium2TestCase
      */
     protected function setUp(): void
     {
-        if (isset($_SERVER['SELENIUM_HOST'])) {
-            $this->setHost($_SERVER['SELENIUM_HOST']);
+        $chromeDriverPath = realpath(__DIR__ . '/../../../drivers/chromedriver');
+        if ($chromeDriverPath === false) {
+            throw new \RuntimeException('ChromeDriver binary not found at expected path.');
         }
 
-        $this->setBrowser(isset($_SERVER['BROWSER_NAME']) ? $_SERVER['BROWSER_NAME'] : 'chrome');
-        $this->setBrowserUrl('file://'.self::$directory);
+        $cwd = realpath(__DIR__ . '/../Resources/public');
+        if (!is_dir($cwd)) {
+            mkdir($cwd, 0777, true);
+        }
+
+        $options = ['--headless', '--disable-gpu', '--no-sandbox', '--window-size=1920,1080'];
+        $managerOptions = [
+            'browser' => $_SERVER['BROWSER_NAME'] ?? WebDriverBrowserType::CHROME,
+            'chromeDriverBinary' => $chromeDriverPath,
+            'cwd' => $cwd,
+        ];
+
+        self::$pantherClient = self::createPantherClient($options, [], $managerOptions);
     }
 
     /**
@@ -91,7 +108,7 @@ abstract class AbstractFunctional extends Selenium2TestCase
             throw new \RuntimeException(sprintf('Unable to close the file "%s".', $name));
         }
 
-        $this->url(basename($name));
+        self::$pantherClient->get(basename($name));
 
         if (false === @unlink($name)) {
             throw new \RuntimeException(sprintf('Unable to remove the file "%s".', $name));
@@ -106,12 +123,7 @@ abstract class AbstractFunctional extends Selenium2TestCase
         $this->assertTrue($this->executeJavascript($script = 'typeof '.$variable.' !== typeof undefined'), $script);
     }
 
-    /**
-     * @param string        $expected
-     * @param string        $variable
-     * @param callable|null $formatter
-     */
-    protected function assertSameVariable($expected, $variable, $formatter = null)
+    protected function assertSameVariable(string $expected, string $variable, ?callable $formatter = null)
     {
         $defaultFormatter = function ($expected, $variable) {
             return $expected.' === '.$variable;

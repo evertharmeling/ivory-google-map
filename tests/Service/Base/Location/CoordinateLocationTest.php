@@ -63,12 +63,12 @@ class CoordinateLocationTest extends TestCase
         $this->coordinate
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue(1.2));
+            ->willReturn(1.2);
 
         $this->coordinate
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue(2.3));
+            ->willReturn(2.3);
 
         $this->assertSame('1.2,2.3', $this->coordinateLocation->buildQuery());
     }

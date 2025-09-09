@@ -60,10 +60,7 @@ abstract class AbstractApiFunctional extends AbstractFunctional
         }
     }
 
-    /**
-     * @param string|null $expected
-     */
-    protected function assertBound(VariableAwareInterface $object, Bound $bound, $expected = null)
+    protected function assertBound(VariableAwareInterface $object, Bound $bound, ?string $expected = null)
     {
         $this->assertSameContainerVariable(
             $object,
@@ -95,30 +92,21 @@ abstract class AbstractApiFunctional extends AbstractFunctional
         }
     }
 
-    /**
-     * @param string|null $expected
-     */
-    protected function assertCoordinate(VariableAwareInterface $object, Coordinate $coordinate, $expected = null)
+    protected function assertCoordinate(VariableAwareInterface $object, Coordinate $coordinate, ?string $expected = null)
     {
         $this->assertSameContainerVariable($object, 'base.coordinates', $coordinate, $expected);
         $this->assertSameVariable($coordinate->getVariable().'.lat()', $coordinate->getLatitude());
         $this->assertSameVariable($coordinate->getVariable().'.lng()', $coordinate->getLongitude());
     }
 
-    /**
-     * @param string|null $expected
-     */
-    protected function assertPoint(VariableAwareInterface $object, Point $point, $expected = null)
+    protected function assertPoint(VariableAwareInterface $object, Point $point, ?string $expected = null)
     {
         $this->assertSameContainerVariable($object, 'base.points', $point, $expected);
         $this->assertSameVariable($point->getVariable().'.x', $point->getX());
         $this->assertSameVariable($point->getVariable().'.y', $point->getY());
     }
 
-    /**
-     * @param string|null $expected
-     */
-    protected function assertSize(VariableAwareInterface $object, Size $size, $expected = null)
+    protected function assertSize(VariableAwareInterface $object, Size $size, ?string $expected = null)
     {
         $this->assertSameContainerVariable($object, 'base.sizes', $size, $expected);
         $this->assertSameVariable($size->getVariable().'.width', $size->getWidth());
@@ -134,25 +122,17 @@ abstract class AbstractApiFunctional extends AbstractFunctional
         }
     }
 
-    /**
-     * @param string|null $propertyPath
-     */
-    protected function assertContainerVariableExists(VariableAwareInterface $root, $propertyPath = null)
+    protected function assertContainerVariableExists(VariableAwareInterface $root, ?string $propertyPath = null)
     {
         $this->assertVariableExists($this->getContainer($root, $propertyPath));
     }
 
-    /**
-     * @param string        $propertyPath
-     * @param string|null   $expected
-     * @param callable|null $formatter
-     */
     protected function assertSameContainerVariable(
         VariableAwareInterface $root,
-        $propertyPath,
+        string $propertyPath,
         ?VariableAwareInterface $object = null,
-        $expected = null,
-        $formatter = null
+        ?string $expected = null,
+        ?callable $formatter = null
     ) {
         $this->assertSameObject($this->getContainer($root, $propertyPath, $object), $object ?: $root);
 
@@ -166,11 +146,7 @@ abstract class AbstractApiFunctional extends AbstractFunctional
         $this->assertVariableExists($object->getVariable());
     }
 
-    /**
-     * @param string        $expected
-     * @param callable|null $formatter
-     */
-    protected function assertSameObject($expected, VariableAwareInterface $object, $formatter = null)
+    protected function assertSameObject(string $expected, VariableAwareInterface $object, ?callable $formatter = null)
     {
         $this->assertSameVariable($expected, $object->getVariable(), $formatter);
     }
@@ -183,16 +159,11 @@ abstract class AbstractApiFunctional extends AbstractFunctional
         return ApiHelperBuilder::create($_SERVER['API_KEY'] ?? null)->build();
     }
 
-    /**
-     * @param string|null $propertyPath
-     *
-     * @return string
-     */
     private function getContainer(
         VariableAwareInterface $root,
-        $propertyPath = null,
+        ?string $propertyPath = null,
         ?VariableAwareInterface $object = null
-    ) {
+    ): string {
         $variable = $root->getVariable().'_container';
 
         if (!empty($propertyPath)) {

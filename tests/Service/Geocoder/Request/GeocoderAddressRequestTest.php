@@ -169,32 +169,32 @@ class GeocoderAddressRequestTest extends TestCase
         $bound
             ->expects($this->once())
             ->method('getSouthWest')
-            ->will($this->returnValue($southWest = $this->createCoordinateMock()));
+            ->willReturn($southWest = $this->createCoordinateMock());
 
         $southWest
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue($southWestLatitude = 1.2));
+            ->willReturn($southWestLatitude = 1.2);
 
         $southWest
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue($southWestLongitude = 2.3));
+            ->willReturn($southWestLongitude = 2.3);
 
         $bound
             ->expects($this->once())
             ->method('getNorthEast')
-            ->will($this->returnValue($northEast = $this->createCoordinateMock()));
+            ->willReturn($northEast = $this->createCoordinateMock());
 
         $northEast
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue($northEastLatitude = 3.4));
+            ->willReturn($northEastLatitude = 3.4);
 
         $northEast
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue($northEastLongitude = 4.5));
+            ->willReturn($northEastLongitude = 4.5);
 
         $this->request->setBound($bound);
 

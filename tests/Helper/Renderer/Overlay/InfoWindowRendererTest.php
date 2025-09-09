@@ -28,17 +28,14 @@ use PHPUnit\Framework\TestCase;
  */
 class InfoWindowRendererTest extends TestCase
 {
-    /**
-     * @var AbstractInfoWindowRenderer|MockObject
-     */
-    private $infoWindowRenderer;
+    private InfoWindowRendererMock $infoWindowRenderer;
 
     /**
      * {@inheritdoc}
      */
     protected function setUp(): void
     {
-        $this->infoWindowRenderer = $this->createAbstractInfoWindowRendererMock();
+        $this->infoWindowRenderer = new InfoWindowRendererMock(new Formatter(), new JsonBuilder());
     }
 
     public function testInheritance()
@@ -76,21 +73,12 @@ class InfoWindowRendererTest extends TestCase
             $this->infoWindowRenderer->render($infoWindow, false)
         );
     }
+}
 
-    /**
-     * @return MockObject|AbstractInfoWindowRenderer
-     */
-    private function createAbstractInfoWindowRendererMock()
+class InfoWindowRendererMock extends AbstractInfoWindowRenderer
+{
+    protected function getClass()
     {
-        $infoWindowRenderer = $this->getMockBuilder(AbstractInfoWindowRenderer::class)
-            ->setConstructorArgs([new Formatter(), new JsonBuilder()])
-            ->getMockForAbstractClass();
-
-        $infoWindowRenderer
-            ->expects($this->any())
-            ->method('getClass')
-            ->will($this->returnValue('class'));
-
-        return $infoWindowRenderer;
+        return 'class';
     }
 }

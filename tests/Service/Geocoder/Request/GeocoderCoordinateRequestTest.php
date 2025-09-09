@@ -62,12 +62,12 @@ class GeocoderCoordinateRequestTest extends TestCase
         $this->coordinate
             ->expects($this->once())
             ->method('getLatitude')
-            ->will($this->returnValue($latitude = 1.2));
+            ->willReturn($latitude = 1.2);
 
         $this->coordinate
             ->expects($this->once())
             ->method('getLongitude')
-            ->will($this->returnValue($longitude = 2.3));
+            ->willReturn($longitude = 2.3);
 
         $this->assertSame(['latlng' => implode(',', [$latitude, $longitude])], $this->request->buildQuery());
     }

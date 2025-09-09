@@ -75,7 +75,7 @@ class OverlayManagerTest extends TestCase
         $map
             ->expects($this->once())
             ->method('getOverlayManager')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         $map
             ->expects($this->once())
@@ -101,7 +101,7 @@ class OverlayManagerTest extends TestCase
         $markerCluster
             ->expects($this->once())
             ->method('hasMarkers')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->overlayManager->setMarkerCluster($markerCluster);
 
@@ -114,7 +114,7 @@ class OverlayManagerTest extends TestCase
         $markerCluster
             ->expects($this->once())
             ->method('getMarkers')
-            ->will($this->returnValue($markers = [$this->createMarkerMock()]));
+            ->willReturn($markers = [$this->createMarkerMock()]);
 
         $this->overlayManager->setMarkerCluster($markerCluster);
 
@@ -152,7 +152,7 @@ class OverlayManagerTest extends TestCase
             ->expects($this->once())
             ->method('hasMarker')
             ->with($this->identicalTo($marker = $this->createMarkerMock()))
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->overlayManager->setMarkerCluster($markerCluster);
 
@@ -198,7 +198,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -232,15 +232,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstInfoWindow = $this->createInfoWindowMock();
+        $secondInfoWindow = $this->createInfoWindowMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstInfoWindow = $this->createInfoWindowMock()],
-                [$secondInfoWindow = $this->createInfoWindowMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setInfoWindows($firstInfoWindows = [$firstInfoWindow]);
         $this->overlayManager->addInfoWindows($secondInfoWindows = [$secondInfoWindow]);
@@ -263,7 +265,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -292,7 +294,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -327,7 +329,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -361,15 +363,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstPolyline = $this->createPolylineMock();
+        $secondPolyline = $this->createPolylineMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstPolyline = $this->createPolylineMock()],
-                [$secondPolyline = $this->createPolylineMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setPolylines($firstPolylines = [$firstPolyline]);
         $this->overlayManager->addPolylines($secondPolylines = [$secondPolyline]);
@@ -392,7 +396,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -421,7 +425,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -458,7 +462,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -495,15 +499,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstEncodedPolyline = $this->createEncodedPolylineMock();
+        $secondEncodedPolyline = $this->createEncodedPolylineMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstEncodedPolyline = $this->createEncodedPolylineMock()],
-                [$secondEncodedPolyline = $this->createEncodedPolylineMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setEncodedPolylines($firstEncodedPolylines = [$firstEncodedPolyline]);
         $this->overlayManager->addEncodedPolylines($secondEncodedPolylines = [$secondEncodedPolyline]);
@@ -529,7 +535,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -558,7 +564,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -593,7 +599,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -627,15 +633,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstPolygon = $this->createPolygonMock();
+        $secondPolygon = $this->createPolygonMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstPolygon = $this->createPolygonMock()],
-                [$secondPolygon = $this->createPolygonMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setPolygons($firstPolygons = [$firstPolygon]);
         $this->overlayManager->addPolygons($secondPolygons = [$secondPolygon]);
@@ -658,7 +666,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -687,7 +695,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -722,7 +730,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -756,15 +764,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstRectangle = $this->createRectangleMock();
+        $secondRectangle = $this->createRectangleMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstRectangle = $this->createRectangleMock()],
-                [$secondRectangle = $this->createRectangleMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setRectangles($firstRectangles = [$firstRectangle]);
         $this->overlayManager->addRectangles($secondRectangles = [$secondRectangle]);
@@ -787,7 +797,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -816,7 +826,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -851,7 +861,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -885,15 +895,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstCircle = $this->createCircleMock();
+        $secondCircle = $this->createCircleMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstCircle = $this->createCircleMock()],
-                [$secondCircle = $this->createCircleMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setCircles($firstCircles = [$firstCircle]);
         $this->overlayManager->addCircles($secondCircles = [$secondCircle]);
@@ -916,7 +928,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -945,7 +957,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -980,7 +992,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(3))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->exactly(2))
@@ -1017,15 +1029,17 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
+
+        $firstGroundOverlay = $this->createGroundOverlayMock();
+        $secondGroundOverlay = $this->createGroundOverlayMock();
 
         $this->bound
             ->expects($this->exactly(2))
             ->method('addExtendable')
-            ->withConsecutive(
-                [$firstGroundOverlay = $this->createGroundOverlayMock()],
-                [$secondGroundOverlay = $this->createGroundOverlayMock()]
-            );
+            ->willReturnCallback(function ($layer) use (&$addedLayers) {
+                $addedLayers[] = $layer;
+            });
 
         $this->overlayManager->setGroundOverlays($firstGroundOverlays = [$firstGroundOverlay]);
         $this->overlayManager->addGroundOverlays($secondGroundOverlays = [$secondGroundOverlay]);
@@ -1051,7 +1065,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->once())
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -1080,7 +1094,7 @@ class OverlayManagerTest extends TestCase
         $this->map
             ->expects($this->exactly(2))
             ->method('isAutoZoom')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $this->bound
             ->expects($this->once())
@@ -1109,7 +1123,7 @@ class OverlayManagerTest extends TestCase
         $map
             ->expects($this->any())
             ->method('getBound')
-            ->will($this->returnValue($bound ?: $this->createBoundMock()));
+            ->willReturn($bound ?: $this->createBoundMock());
 
         return $map;
     }

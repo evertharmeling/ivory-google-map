@@ -12,6 +12,7 @@
 namespace Ivory\Tests\GoogleMap\Helper\Renderer\Image;
 
 use Ivory\GoogleMap\Helper\Renderer\Image\StyleRenderer;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -33,12 +34,10 @@ class StyleRendererTest extends TestCase
     }
 
     /**
-     * @param string  $expected
      * @param mixed[] $style
-     *
-     * @dataProvider renderProvider
      */
-    public function testRender($expected, array $style)
+    #[DataProvider('renderProvider')]
+    public function testRender(string $expected, array $style)
     {
         $this->assertSame($expected, $this->styleRenderer->render($style));
     }
@@ -46,7 +45,7 @@ class StyleRendererTest extends TestCase
     /**
      * @return mixed[]
      */
-    public function renderProvider()
+    public static function renderProvider(): iterable
     {
         return [
             ['color:0x00ff00', ['rules' => ['color' => '0x00ff00']]],

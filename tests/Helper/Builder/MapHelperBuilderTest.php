@@ -43,4 +43,9 @@ class MapHelperBuilderTest extends TestCase
     {
         $this->assertInstanceOf(MapHelper::class, $this->mapHelperBuilder->build());
     }
+
+    public function testSubscribers()
+    {
+        $this->assertGreaterThan(0, $this->mapHelperBuilder->getSubscribers());
+    }
 }

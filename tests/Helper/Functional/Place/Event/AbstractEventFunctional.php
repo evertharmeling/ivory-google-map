@@ -57,7 +57,7 @@ abstract class AbstractEventFunctional extends AbstractAutocompleteFunctional
      *
      * @return Event
      */
-    protected function createEvent($instance)
+    protected function createEvent(string $instance)
     {
         return new Event(
             $instance,

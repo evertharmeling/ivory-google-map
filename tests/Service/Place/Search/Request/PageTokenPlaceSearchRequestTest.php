@@ -66,12 +66,12 @@ class PageTokenPlaceSearchRequestTest extends TestCase
         $this->response
             ->expects($this->once())
             ->method('getRequest')
-            ->will($this->returnValue($request = $this->createRequestMock()));
+            ->willReturn($request = $this->createRequestMock());
 
         $request
             ->expects($this->once())
             ->method('buildContext')
-            ->will($this->returnValue($method = 'method'));
+            ->willReturn($method = 'method');
 
         $this->assertSame($method, $this->request->buildContext());
     }
@@ -81,7 +81,7 @@ class PageTokenPlaceSearchRequestTest extends TestCase
         $this->response
             ->expects($this->once())
             ->method('getNextPageToken')
-            ->will($this->returnValue($pageToken = 'token'));
+            ->willReturn($pageToken = 'token');
 
         $this->assertSame(['pagetoken' => $pageToken], $this->request->buildQuery());
     }

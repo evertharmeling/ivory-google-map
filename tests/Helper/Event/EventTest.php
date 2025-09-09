@@ -21,17 +21,14 @@ use Symfony\Contracts\EventDispatcher\Event;
  */
 class EventTest extends TestCase
 {
-    /**
-     * @var AbstractEvent
-     */
-    private $event;
+    private EventMock $event;
 
     /**
      * {@inheritdoc}
      */
     protected function setUp(): void
     {
-        $this->event = $this->createAbstractEventMock();
+        $this->event = new EventMock();
     }
 
     public function testInheritance()
@@ -62,12 +59,8 @@ class EventTest extends TestCase
         $this->assertTrue($this->event->hasCode());
         $this->assertSame($firstCode.$secondCode, $this->event->getCode());
     }
+}
 
-    /**
-     * @return MockObject|AbstractEvent
-     */
-    private function createAbstractEventMock()
-    {
-        return $this->getMockForAbstractClass(AbstractEvent::class);
-    }
+class EventMock extends AbstractEvent
+{
 }
