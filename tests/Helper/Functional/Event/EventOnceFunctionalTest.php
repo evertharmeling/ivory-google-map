@@ -25,7 +25,10 @@ class EventOnceFunctionalTest extends AbstractEventFunctional
         $map = new Map();
         $map->getEventManager()->addEventOnce($this->createEvent($map->getVariable()));
 
-        $this->renderMap($map);
+        $html = $this->initializeSpyCounter();
+        $this->renderMap($map, $html);
+        $this->fixErrorPopup();
+
         $this->assertMap($map);
 
         $this->byId($map->getHtmlId())->click();

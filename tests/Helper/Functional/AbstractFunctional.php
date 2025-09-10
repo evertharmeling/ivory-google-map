@@ -11,6 +11,9 @@
 
 namespace Ivory\Tests\GoogleMap\Helper\Functional;
 
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverElement;
+use Facebook\WebDriver\WebDriverWait;
 use Symfony\Component\Panther\PantherTestCase;
 
 /**
@@ -58,10 +61,8 @@ abstract class AbstractFunctional extends PantherTestCase
             throw new \RuntimeException('ChromeDriver binary not found at expected path.');
         }
 
-//        $options = ['--headless', '--disable-gpu', '--no-sandbox', '--window-size=1920,1080'];
-//        $managerOptions = [
         $options = [
-            'browser' => $_SERVER['BROWSER_NAME'] ?? PantherTestCase::CHROME,
+            'browser' => PantherTestCase::CHROME,
             'chromeDriverBinary' => $chromeDriverPath,
             'webServerDir' => self::$directory,
             'port' => \random_int(9500, 9800),
@@ -73,9 +74,14 @@ abstract class AbstractFunctional extends PantherTestCase
     /**
      * @param string|string[] $html
      */
-    protected function renderHtml($html)
+    protected function renderHtml($html, bool $dump = false): void
     {
+        // @todo check if 'more entropy' is needed when running the full suite, or it could speed up the suite not using it
         $filePath = self::$directory . DIRECTORY_SEPARATOR . uniqid('ivory-google-map_', true) . '.html';
+
+        if ($dump) {
+            dd($html);
+        }
 
         $content = '<html><body>' . implode('', (array) $html) . '</body></html>';
 
@@ -92,15 +98,12 @@ abstract class AbstractFunctional extends PantherTestCase
         }
     }
 
-    /**
-     * @param string $variable
-     */
-    protected function assertVariableExists($variable)
+    protected function assertVariableExists(string $variable): void
     {
         $this->assertTrue($this->executeJavascript($script = 'typeof '.$variable.' !== typeof undefined'), $script);
     }
 
-    protected function assertSameVariable(string $expected, string $variable, ?callable $formatter = null)
+    protected function assertSameVariable(string $expected, string $variable, ?callable $formatter = null): void
     {
         $defaultFormatter = function ($expected, $variable) {
             return $expected.' === '.$variable;
@@ -118,11 +121,22 @@ abstract class AbstractFunctional extends PantherTestCase
 
     /**
      * @param mixed[] $args
-     *
-     * @return mixed
      */
-    private function executeJavascript(string $script, array $args = [])
+    private function executeJavascript(string $script, array $args = []): mixed
     {
         return self::$pantherClient->executeScript('return ('.$script.')', $args);
+    }
+
+    protected function waitUntil(callable $callback, ?int $timeout = null): void
+    {
+        $wait = new WebDriverWait(self::$pantherClient->getWebDriver(), $timeout);
+        $wait->until(function () use ($callback) {
+            return $callback($this);
+        });
+    }
+
+    protected function byId(string $id): WebDriverElement
+    {
+        return self::$pantherClient->findElement(WebDriverBy::id($id));
     }
 }

@@ -20,10 +20,7 @@ use Ivory\Tests\GoogleMap\Helper\Functional\AbstractMapFunctional;
  */
 abstract class AbstractEventFunctional extends AbstractMapFunctional
 {
-    /**
-     * @var string
-     */
-    private $spyCount;
+    private string $spyCount;
 
     /**
      * {@inheritdoc}
@@ -35,27 +32,24 @@ abstract class AbstractEventFunctional extends AbstractMapFunctional
         $this->spyCount = 'spy_count';
     }
 
-    /**
-     * @param int $count
-     */
-    protected function assertSpyCount($count)
+    protected function assertSpyCount(int $count): void
     {
-        $this->assertSameVariable($count, $this->spyCount);
+        $this->assertSame($count, self::$pantherClient->executeScript("return window.$this->spyCount;"));
+//        $this->assertSameVariable($count, 'window.'.$this->spyCount);
     }
 
-    protected function createEvent(string $instance): Event
+    protected function initializeSpyCounter(): string
+    {
+        return '<script type="text/javascript">window.spy_count = 0;</script>';
+    }
+
+    protected function createEvent(?string $instance = null): Event
     {
         return new Event(
-            $instance,
+            $instance ?: '',
             MouseEvent::CLICK,
             <<<EOF
-function () { 
-    if (typeof {$this->spyCount} === typeof undefined) { 
-        {$this->spyCount} = 1; 
-    } else { 
-        {$this->spyCount}++; 
-    }
-}
+function () { window.$this->spyCount = (window.$this->spyCount || 0) + 1; }
 EOF
         );
     }

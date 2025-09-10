@@ -43,12 +43,6 @@ class Event implements VariableAwareInterface
      */
     private $capture;
 
-    /**
-     * @param string $instance
-     * @param string $trigger
-     * @param string $handle
-     * @param bool   $capture
-     */
     public function __construct(string $instance, string $trigger, string $handle, bool $capture = false)
     {
         $this->setInstance($instance);

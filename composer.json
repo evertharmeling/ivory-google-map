@@ -35,7 +35,8 @@
         "dbrekelmans/bdi": "^1.4"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit -c phpunit.ci.xml"
+        "test": "vendor/bin/phpunit -c phpunit.ci.xml",
+        "test-file": "vendor/bin/phpunit -c phpunit.ci.xml tests/Helper/Functional/Event/EventFunctionalTest.php"
     },
     "suggest": {
         "php-http/client-implementation": "Allows to use http services",

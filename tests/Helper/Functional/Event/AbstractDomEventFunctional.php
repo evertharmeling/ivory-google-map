@@ -19,10 +19,7 @@ use Ivory\GoogleMap\Map;
  */
 abstract class AbstractDomEventFunctional extends AbstractEventFunctional
 {
-    /**
-     * @var string
-     */
-    private $spyButton;
+    private string $spyButton;
 
     /**
      * {@inheritdoc}
@@ -34,17 +31,17 @@ abstract class AbstractDomEventFunctional extends AbstractEventFunctional
         $this->spyButton = 'spy_button';
     }
 
-    protected function renderMap(Map $map, ?string $html = null)
+    protected function renderMap(Map $map, ?string $html = null, bool $dump = false): void
     {
-        return parent::renderMap($map, $html ?: '<button id="'.$this->spyButton.'">Button</button>');
+        parent::renderMap($map, $html ?: '<button id="'.$this->spyButton.'">Button</button>', $dump);
     }
 
-    protected function createEvent(string $instance): Event
+    protected function createEvent(?string $instance = null): Event
     {
         return parent::createEvent($instance ?: 'document.getElementById("'.$this->spyButton.'")');
     }
 
-    protected function clickSpyButton()
+    protected function clickSpyButton(): void
     {
         $this->byId($this->spyButton)->click();
     }

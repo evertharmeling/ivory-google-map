@@ -137,6 +137,7 @@ class LoaderRenderer extends AbstractJsonRenderer
             $arguments['libraries'] = implode(',', $libraries);
         }
 
+        $arguments['loading'] = 'async';
         $arguments['callback'] = $callback;
 
         return 'https://maps.googleapis.com/maps/api/js?'.http_build_query($arguments);
