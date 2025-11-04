@@ -17,9 +17,9 @@
     ],
     "require": {
         "php": "^8.1",
-        "symfony/event-dispatcher": "^6.4 || ^7.0",
-        "symfony/serializer": "^6.4 || ^7.0",
-        "symfony/property-access": "^6.4 || ^7.0",
+        "symfony/event-dispatcher": "^6.4 || ^7.3",
+        "symfony/serializer": "^6.4 || ^7.3",
+        "symfony/property-access": "^6.4 || ^7.3",
         "phpdocumentor/reflection-docblock": "^5.3",
         "psr/http-factory": "^1.1",
         "psr/http-client": "^1.0"
@@ -29,9 +29,9 @@
         "php-http/cache-plugin": "^2.0",
         "phpunit/phpunit": "^9.6.16",
         "phpunit/phpunit-selenium": "^9.0",
-        "symfony/cache": "^6.4 || ^7.0",
-        "symfony/http-client": "^6.4 || ^7.0",
-        "symfony/phpunit-bridge": "^6.4 || ^7.0",
+        "symfony/cache": "^6.4 || ^7.3",
+        "symfony/http-client": "^6.4 || ^7.3",
+        "symfony/phpunit-bridge": "^6.4 || ^7.3",
         "ext-json": "*",
         "nyholm/psr7": "^1.8"
     },

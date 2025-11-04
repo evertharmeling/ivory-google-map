@@ -3,6 +3,7 @@
 ### 7.0.0 (xxx)
 
  * [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/) implementation
+ * Drop support for Symfony 7.0, 7.1, 7.2
 
 ### 3.0.1 (2020-06-12)
 
